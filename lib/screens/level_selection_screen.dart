@@ -59,11 +59,32 @@ class LevelSelectionScreen extends StatelessWidget {
                   _buildLevelCard(
                     context,
                     level: level1,
+                    levelId: 1,
                     isDark: isDark,
+                    icon: Icons.psychology,
+                    gradientColors: [AppColors.primaryLight, AppColors.secondaryLight],
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => const LevelScreen(),
+                        builder: (_) => const LevelScreen(levelId: 1),
+                      ),
+                    ),
+                  ),
+                  
+                  const SizedBox(height: 16),
+                  
+                  // Level 2 Card
+                  _buildLevelCard(
+                    context,
+                    level: level2,
+                    levelId: 2,
+                    isDark: isDark,
+                    icon: Icons.school,
+                    gradientColors: [AppColors.success, AppColors.secondaryLight],
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const LevelScreen(levelId: 2),
                       ),
                     ),
                   ),
@@ -71,16 +92,6 @@ class LevelSelectionScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   
                   // Coming Soon Card
-                  _buildComingSoonCard(
-                    context,
-                    levelName: 'LEVEL 2',
-                    description: 'More AI-ML topics coming soon...',
-                    isDark: isDark,
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Coming Soon Card 2
                   _buildComingSoonCard(
                     context,
                     levelName: 'LEVEL 3',
@@ -99,7 +110,10 @@ class LevelSelectionScreen extends StatelessWidget {
   Widget _buildLevelCard(
     BuildContext context, {
     required Level level,
+    required int levelId,
     required bool isDark,
+    required IconData icon,
+    required List<Color> gradientColors,
     required VoidCallback onTap,
   }) {
     final theme = Theme.of(context);
@@ -121,8 +135,8 @@ class LevelSelectionScreen extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                AppColors.primaryLight.withOpacity(0.1),
-                AppColors.secondaryLight.withOpacity(0.1),
+                gradientColors[0].withOpacity(0.1),
+                gradientColors[1].withOpacity(0.1),
               ],
             ),
           ),
@@ -134,12 +148,12 @@ class LevelSelectionScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryLight.withOpacity(0.2),
+                      color: gradientColors[0].withOpacity(0.2),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Icon(
-                      Icons.psychology,
-                      color: AppColors.primaryLight,
+                      icon,
+                      color: gradientColors[0],
                       size: 32,
                     ),
                   ),
@@ -165,7 +179,7 @@ class LevelSelectionScreen extends StatelessWidget {
                   ),
                   Icon(
                     Icons.arrow_forward_ios,
-                    color: AppColors.primaryLight,
+                    color: gradientColors[0],
                     size: 20,
                   ),
                 ],
@@ -181,7 +195,7 @@ class LevelSelectionScreen extends StatelessWidget {
               LinearProgressIndicator(
                 value: progress / 100,
                 backgroundColor: Colors.grey[200],
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryLight),
+                valueColor: AlwaysStoppedAnimation<Color>(gradientColors[0]),
                 minHeight: 8,
                 borderRadius: BorderRadius.circular(4),
               ),

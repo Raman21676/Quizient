@@ -38,6 +38,8 @@ class AppStrings {
   // Level Screen
   static const String level1Title = 'LEVEL 1';
   static const String level1Subtitle = 'AI-ML Fundamentals';
+  static const String level2Title = 'LEVEL 2';
+  static const String level2Subtitle = 'Intermediate ML Concepts';
   static const String challenges = 'Challenges';
   static const String locked = 'Locked';
   static const String completed = 'Completed';

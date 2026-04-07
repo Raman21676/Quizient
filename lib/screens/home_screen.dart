@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final progressProvider = context.watch<ProgressProvider>();
     final completedCount = progressProvider.completedChallengesCount;
     final overallProgress = progressProvider.getOverallProgress();
+    final totalChallenges = level1.challenges.length + level2.challenges.length;
 
     return Scaffold(
       body: CustomScrollView(
@@ -117,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Master AI-ML with ${level1.challenges.length} challenges and 200 questions.',
+                    'Master AI-ML with $totalChallenges challenges and 250+ questions.',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.onSurface.withOpacity(0.7),
                     ),
@@ -125,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 32),
 
                   // Progress Card
-                  _buildProgressCard(context, completedCount, overallProgress),
+                  _buildProgressCard(context, completedCount, overallProgress, totalChallenges),
                   const SizedBox(height: 32),
 
                   // Quick Actions
@@ -192,45 +193,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   const SizedBox(height: 32),
 
-                  // Level Overview
-                  Text(
-                    level1.name,
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    level1.description,
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withOpacity(0.7),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Challenge Preview
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 3, // Show first 3
-                    itemBuilder: (context, index) {
-                      final challenge = level1.challenges[index];
-                      final progress = progressProvider.getProgressForChallenge(challenge.id);
-                      return _buildChallengePreview(context, challenge, progress);
-                    },
-                  ),
-
-                  const SizedBox(height: 12),
-                  Center(
-                    child: TextButton.icon(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const LevelScreen()),
-                      ),
-                      icon: const Text('View All Challenges'),
-                      label: const Icon(Icons.arrow_forward),
-                    ),
-                  ),
+                  // Level 1 Overview
+                  _buildLevelSection(context, level1, 1, progressProvider),
+                  
+                  const SizedBox(height: 32),
+                  
+                  // Level 2 Overview
+                  _buildLevelSection(context, level2, 2, progressProvider),
 
                   const SizedBox(height: 32),
 
@@ -253,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     icon: Icons.psychology,
                     title: 'Comprehensive Coverage',
-                    subtitle: '200 questions across 4 challenges',
+                    subtitle: '250+ questions across 5 challenges',
                   ),
                   _buildFeatureTile(
                     context,
@@ -276,7 +245,58 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildProgressCard(BuildContext context, int completed, double progress) {
+  Widget _buildLevelSection(BuildContext context, Level level, int levelNum, ProgressProvider progressProvider) {
+    final theme = Theme.of(context);
+    final previewCount = level.challenges.length > 3 ? 3 : level.challenges.length;
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          level.name,
+          style: theme.textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          level.description,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            color: theme.colorScheme.onSurface.withOpacity(0.7),
+          ),
+        ),
+        const SizedBox(height: 16),
+
+        // Challenge Preview
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: previewCount,
+          itemBuilder: (context, index) {
+            final challenge = level.challenges[index];
+            final progress = progressProvider.getProgressForChallenge(challenge.id);
+            return _buildChallengePreview(context, challenge, progress);
+          },
+        ),
+
+        if (level.challenges.length > previewCount) ...[
+          const SizedBox(height: 12),
+          Center(
+            child: TextButton.icon(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => LevelScreen(levelId: levelNum)),
+              ),
+              icon: const Text('View All Challenges'),
+              label: const Icon(Icons.arrow_forward),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildProgressCard(BuildContext context, int completed, double progress, int totalChallenges) {
     final theme = Theme.of(context);
     
     return Card(
@@ -311,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        '$completed of ${level1.challenges.length} challenges completed',
+                        '$completed of $totalChallenges challenges completed',
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurface.withOpacity(0.7),
                         ),
@@ -411,8 +431,10 @@ class _HomeScreenState extends State<HomeScreen> {
     QuizProgress? progress,
   ) {
     final theme = Theme.of(context);
-    final color = AppColors.challengeColors[int.parse(challenge.id.substring(1)) - 1];
+    final challengeIndex = int.tryParse(challenge.id.substring(1)) ?? 1;
+    final color = AppColors.challengeColors[(challengeIndex - 1) % AppColors.challengeColors.length];
     final isCompleted = progress?.isCompleted ?? false;
+    final levelId = challengeIndex <= 4 ? 1 : 2;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 10),
@@ -455,7 +477,7 @@ class _HomeScreenState extends State<HomeScreen> {
             : Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey[400]),
         onTap: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (_) => const LevelScreen()),
+          MaterialPageRoute(builder: (_) => LevelScreen(levelId: levelId)),
         ),
       ),
     );

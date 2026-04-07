@@ -63,3 +63,19 @@ final Level level1 = Level(
     ),
   ],
 );
+
+// LEVEL 2 - Intermediate ML Concepts
+final Level level2 = Level(
+  id: 'L2',
+  name: 'LEVEL 2',
+  description: 'Intermediate ML Concepts - ML fundamentals from authoritative sources',
+  color: '#81C784',
+  challenges: [
+    ChallengeInfo(
+      id: 'C05',
+      name: 'CHALLENGE 5',
+      subtitle: 'The Machine Learning Landscape',
+      assetPath: 'assets/questions/challenge_05.json',
+    ),
+  ],
+);

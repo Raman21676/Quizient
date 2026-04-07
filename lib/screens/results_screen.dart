@@ -268,10 +268,13 @@ class _ResultsScreenState extends State<ResultsScreen> {
 
                     TextButton.icon(
                       onPressed: () {
+                        // Calculate level ID from challenge ID
+                        final challengeNum = int.tryParse(widget.challengeId.substring(1)) ?? 1;
+                        final levelId = challengeNum <= 4 ? 1 : 2;
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => const LevelScreen(),
+                            builder: (_) => LevelScreen(levelId: levelId),
                           ),
                           (route) => false,
                         );

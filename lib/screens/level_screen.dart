@@ -8,12 +8,19 @@ import '../utils/constants.dart';
 import 'quiz_screen.dart';
 
 class LevelScreen extends StatelessWidget {
-  const LevelScreen({super.key});
+  final int levelId;
+  
+  const LevelScreen({super.key, required this.levelId});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final progressProvider = context.watch<ProgressProvider>();
+    
+    // Get level data based on levelId
+    final levelData = levelId == 1 ? level1 : level2;
+    final title = levelId == 1 ? AppStrings.level1Title : AppStrings.level2Title;
+    final subtitle = levelId == 1 ? AppStrings.level1Subtitle : AppStrings.level2Subtitle;
 
     return Scaffold(
       body: CustomScrollView(
@@ -24,7 +31,7 @@ class LevelScreen extends StatelessWidget {
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                AppStrings.level1Title,
+                title,
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               background: Container(
@@ -32,10 +39,9 @@ class LevelScreen extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      AppColors.primaryLight,
-                      AppColors.secondaryLight,
-                    ],
+                    colors: levelId == 1 
+                        ? [AppColors.primaryLight, AppColors.secondaryLight]
+                        : [AppColors.success, AppColors.secondaryLight],
                   ),
                 ),
               ),
@@ -48,7 +54,7 @@ class LevelScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppStrings.level1Subtitle,
+                    subtitle,
                     style: theme.textTheme.titleMedium?.copyWith(
                       color: theme.colorScheme.onSurface.withOpacity(0.7),
                     ),
@@ -68,7 +74,7 @@ class LevelScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                final challenge = level1.challenges[index];
+                final challenge = levelData.challenges[index];
                 final progress = progressProvider.getProgressForChallenge(challenge.id);
                 final isLocked = false; // All challenges unlocked for testing
                 
@@ -80,7 +86,7 @@ class LevelScreen extends StatelessWidget {
                   index,
                 );
               },
-              childCount: level1.challenges.length,
+              childCount: levelData.challenges.length,
             ),
           ),
           const SliverPadding(padding: EdgeInsets.only(bottom: 32)),
