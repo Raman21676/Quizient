@@ -1,387 +1,281 @@
-# Learn AI-ML Project Log
+# Project Log: Learn AI-ML Flutter Quiz App
 
-> **Session Date:** April 7, 2026  
-> **Project:** Learn AI-ML - Flutter-based ML Quiz App  
-> **GitHub:** https://github.com/Raman21676/learn-ai-ml
+> This log documents all project activities, decisions, problems encountered, and solutions applied.
+> Read this file first when resuming work on this project.
 
 ---
 
 ## Project Overview
 
-A Flutter mobile application for learning AI/ML concepts through interactive MCQ quizzes. The app is structured in LEVELS, each containing multiple CHALLENGES with 50 questions each.
+**App Name:** Learn AI-ML  
+**Platform:** Flutter offline Android quiz app  
+**GitHub:** `Raman21676/learn-ai-ml`, branch `main`  
+**Working Directory:** `/Users/kalikali/Desktop/Learn AI-ML/`
 
-### Current Structure
-```
-LEVEL 1 (AI-ML Fundamentals) - 4 Challenges, 200 questions
-├── C01: Foundations of Generative AI Systems (50 questions)
-├── C02: Building Web APIs with Modern Python Framework (50 questions)
-├── C03: Deploying and Managing AI Models (50 questions)
-└── C04: Type Safety in AI Application Development (50 questions)
+**Architecture:**
+- State management: `provider` + `shared_preferences`
+- UI animations: `flutter_animate`, `confetti`, `lottie`
+- Fonts: `google_fonts`
+- Assets: `assets/`, `assets/data/`, `assets/questions/`, `assets/animations/`, `assets/images/`
 
-LEVEL 2 (Intermediate ML Concepts) - 2 Challenges, 100 questions
-├── C05: The Machine Learning Landscape (50 questions) ✅ Added today
-└── C06: End-to-End Machine Learning Project (50 questions) ✅ Added today
-
-Total: 6 Challenges, 300 questions
-```
+**Current Status (as of last session):**
+- **4 Levels** | **27 Challenges** | **1,350 Questions**
+- Level 1: 4 challenges (C01-C04) — AI-ML Fundamentals
+- Level 2: 8 challenges (C05-C12) — Intermediate ML Concepts
+- Level 3: 3 challenges (C13-C15) — DSA for Interviews
+- Level 4: 12 challenges (C16-C27) — Deep Reinforcement Learning ✅ COMPLETE
 
 ---
 
-## Today's Activities (April 7, 2026)
+## File Structure & Conventions
 
-### Activity 1: Extracted Chapter 1 Content
-- **Source:** Hands-On Machine Learning book (Chapter 1: The Machine Learning Landscape)
-- **Pages:** 21-67
-- **Extracted to:** `/Users/kalikali/Desktop/chapter1_ml_landscape.txt` (60,464 characters)
-- **Content includes:**
-  - What is Machine Learning (Arthur Samuel, Tom Mitchell definitions)
-  - Why use ML (spam filter example)
-  - Types of ML: Supervised, Unsupervised, Semi-supervised, Self-supervised, Reinforcement
-  - Batch vs Online Learning
-  - Instance-based vs Model-based Learning
-  - Challenges: Overfitting, Underfitting, Data quality
-  - Testing and Validation
+### Question Files
+- Location: `assets/questions/challenge_XX.json` (XX = 01-27)
+- Format: JSON with `challengeId`, `challengeName`, `totalQuestions`, `questions` array
+- Each question has: `id` (1-50), `question`, `options` [4 strings], `correctIndex` (0-3), `explanation`
+- Answer distribution target: ~12-13 per option (balanced)
 
-### Activity 2: Created Challenge C05 (50 Questions)
-- **File:** `assets/questions/challenge_05.json`
-- **Topics covered:**
-  - ML definitions and history
-  - Supervised vs Unsupervised learning
-  - Types of learning tasks (Classification, Regression, Clustering)
-  - Batch vs Online learning
-  - Instance-based vs Model-based learning
-  - Overfitting, Underfitting, Regularization
-  - Hyperparameters
-  - Data validation techniques
-- **Answer distribution:** 13 A, 13 B, 12 C, 12 D
+### Level Data Files
+- `assets/data/level1_data.json` through `level4_data.json`
+- `assets/data/all_levels.json` — top-level registry with all levels
+- Each must have correct `totalChallenges` count
 
-### Activity 3: Added LEVEL 2 Support to UI
-- Created `assets/data/level2_data.json`
-- Created `assets/data/all_levels.json`
-- Updated `lib/models/challenge_data.dart` with level2 data
-- Updated `lib/utils/constants.dart` with LEVEL 2 strings
-- Updated `lib/screens/level_screen.dart` to accept levelId parameter
-- Updated `lib/screens/level_selection_screen.dart` with LEVEL 2
-- Updated `lib/screens/home_screen.dart` - removed direct level display (only via Start Quiz)
-- Updated `lib/screens/results_screen.dart` navigation to correct level
-- Updated `lib/services/json_loader_service.dart` for level data loading
-- Updated `pubspec.yaml` to include assets/data/ directory
+### App Integration Files (MUST update when adding challenges)
+1. `lib/models/challenge_data.dart` — Add ChallengeInfo to level constants
+2. `lib/screens/level_screen.dart` — Add level routing for new levels
+3. `lib/screens/level_selection_screen.dart` — Add level card
+4. `lib/screens/progress_screen.dart` — Add progress section
+5. `lib/screens/home_screen.dart` — Update challenge/question counts
+6. `lib/utils/constants.dart` — Add level title/subtitle strings
+7. `assets/data/levelN_data.json` — Add challenge metadata
+8. `assets/data/all_levels.json` — Update totalChallenges
 
-### Activity 4: Extracted Chapter 2 Content
-- **Source:** Hands-On Machine Learning book (Chapter 2: End-to-End Machine Learning Project)
-- **Pages:** 68-117
-- **Extracted to:** `/Users/kalikali/Desktop/chapter2_ml_project.txt` (66,862 characters)
-- **Content includes:**
-  - 8 steps of ML project workflow
-  - Data pipelines
-  - RMSE, MAE performance measures
-  - Stratified sampling
-  - Handling missing values
-  - Scikit-Learn design principles
+### Pre-existing Warnings (Non-blocking)
+- `WillPopScope` deprecated in `feedback_screen.dart`, `quiz_screen.dart`, `results_screen.dart`
+- Unused imports in `home_screen.dart`, `results_screen.dart`
+- `widget_test.dart` references `MyApp` instead of `LearnAiMlApp`
+- These existed BEFORE Level 4 work — do NOT try to fix unless explicitly asked
 
-### Activity 5: Created Challenge C06 (50 Questions)
-- **File:** `assets/questions/challenge_06.json`
-- **Topics covered:**
-  - 8 main steps of ML projects
-  - Data pipelines
-  - RMSE vs MAE performance measures
-  - Stratified sampling vs random sampling
-  - Data snooping bias
-  - Handling missing values (SimpleImputer, KNNImputer, IterativeImputer)
-  - OrdinalEncoder vs OneHotEncoder
-  - Scikit-Learn design (Estimators, Transformers, Predictors)
-  - Feature scaling
-- **Answer distribution:** 14 A, 13 B, 10 C, 13 D
+### Recurring Bug Pattern
+When editing `home_screen.dart` strings, frequently forget trailing comma before `style:` parameter.
+Pattern: `.'` instead of `.',`. Always verify syntax after editing.
+
+---
+
+## Level 4: Deep Reinforcement Learning — Creation Log
+
+### Challenge Mapping (from PDF source: 24 lessons)
+The PDF was analyzed and mapped to 12 challenges (2 lessons each):
+
+| Challenge | Lessons | Topic |
+|-----------|---------|-------|
+| C16 | 1–2 | Introduction to Deep RL |
+| C17 | 3–4 | Mathematical Foundations & MDPs |
+| C18 | 5–6 | Rewards, Returns & Agent Objective |
+| C19 | 7–8 | Exploration vs Exploitation |
+| C20 | 9–10 | Evaluating Agents & Value Functions |
+| C21 | 11–12 | Improving Agents & Agent Anatomy |
+| C22 | 13–14 | TD Learning & Robust Targets |
+| C23 | 15–16 | Value-Based Deep RL & Function Approximation |
+| C24 | 17–18 | DQN & Stable Value-Based Methods |
+| C25 | 19–20 | Sample-Efficient Methods (Dueling DDQN, PER) |
+| C26 | 21–22 | Policy Gradient & REINFORCE |
+| C27 | 23–24 | Advanced Actor-Critic (DDPG, TD3, SAC, PPO) |
+
+### Copyright Compliance Policy
+- **CRITICAL:** No book titles, author names, page numbers, or chapter references in public files
+- Questions must appear as "internet research using multiple LLM models"
+- Raw text extractions stored locally only (NOT in git)
+- All questions are original content based on general RL knowledge — no copying from source material
 
 ---
 
 ## Problems Encountered & Solutions
 
-### Problem 1: Unbalanced Answer Distribution
-**Issue:** Initial question generation had 43 B answers, 7 C answers, 0 A/D answers.  
-**Solution:** Manually redistributed correct answers to achieve balance (12-14 per option).
+### Problem 1: Duplicate Questions Across Files
+**When:** First recheck after creating C18-C19  
+**What:** C18 Q4 duplicated C16 Q39 (reward shaping), C18 Q7 duplicated C17 Q12 (return G_t), C21 Q11 duplicated C20 Q31 (GPI), C21 Q33 duplicated C18 Q16 (reward normalization)
 
-### Problem 2: Missing assets/data/ Directory
-**Issue:** level2_data.json couldn't be loaded because assets/data/ wasn't in pubspec.yaml.  
-**Solution:** Added `- assets/data/` to pubspec.yaml flutter.assets section.
+**Solution:** Replaced duplicate questions with new original ones:
+- C18 Q4 → Principle of optimality in RL
+- C18 Q7 → Expected return vs sampled return in stochastic environments
+- C21 Q11 → Actor-critic interaction (how critic helps actor)
+- C21 Q33 → Gradient accumulation in deep RL training
 
-### Problem 3: LevelScreen Required Parameter
-**Issue:** After adding levelId parameter to LevelScreen, existing navigation calls broke.  
-**Solution:** Updated all navigation calls to pass levelId, calculated from challenge number (C01-C04 = level 1, C05+ = level 2).
+### Problem 2: all_levels.json L4 totalChallenges Out of Sync
+**When:** Multiple times during integration  
+**What:** `StrReplaceFile` matched wrong `"totalChallenges": N` instance (e.g., hit L2 instead of L4)
 
-### Problem 4: Copyright Compliance
-**Issue:** Book content extraction includes page numbers and references that shouldn't be in public repo.  
-**Solution:** 
-- No book titles, author names, or chapter references in question JSON files
-- Questions written as "internet research using multiple LLM models"
-- Raw text extraction files stored locally (not in git)
+**Solution:** Always use context-aware replacement with surrounding lines (levelId, levelName) to target the correct level. Final fix applied: L1=4, L2=8, L3=3, L4=12.
 
-### Problem 5: Home Screen Layout
-**Issue:** User didn't want levels/challenges displayed directly on home screen.  
-**Solution:** Removed _buildLevelSection and _buildChallengePreview methods from home_screen.dart. Levels now only accessible via "Start Quiz" button.
+### Problem 3: C24 Duplicates with C22
+**When:** Creating C24-C25  
+**What:** C24 Q21 (Dueling DQN), Q28 (Rainbow DQN), Q29 (Rainbow components) duplicated C22 questions
 
----
+**Solution:** Replaced with new questions:
+- C24 Q21 → Why mean of advantages is subtracted in Dueling DQN
+- C24 Q28 → Deadly triad in deep Q-learning and DQN mitigation
+- C24 Q29 → Key difference between Ape-X and IMPALA architectures
 
-## File Structure
+### Problem 4: C26 Duplicate with C19
+**When:** Creating C26-C27  
+**What:** C26 Q23 (entropy regularization) duplicated C19 Q29
 
-```
-Learn AI-ML/
-├── android/                  # Android-specific files
-├── assets/
-│   ├── data/
-│   │   ├── all_levels.json          # All levels metadata
-│   │   ├── level1_data.json         # Level 1 challenges metadata
-│   │   └── level2_data.json         # Level 2 challenges metadata
-│   ├── questions/
-│   │   ├── challenge_01.json        # 50 questions - Gen AI Foundations
-│   │   ├── challenge_02.json        # 50 questions - Python Web APIs
-│   │   ├── challenge_03.json        # 50 questions - Model Deployment
-│   │   ├── challenge_04.json        # 50 questions - Type Safety
-│   │   ├── challenge_05.json        # 50 questions - ML Landscape ⭐ NEW
-│   │   └── challenge_06.json        # 50 questions - End-to-End ML ⭐ NEW
-│   ├── animations/           # Lottie animations
-│   └── images/               # App images
-├── lib/
-│   ├── models/
-│   │   ├── challenge_data.dart      # Level and Challenge models
-│   │   └── question.dart            # Question model
-│   ├── providers/
-│   │   ├── progress_provider.dart   # User progress state
-│   │   ├── theme_provider.dart      # Dark/light mode
-│   │   └── user_provider.dart       # User settings
-│   ├── screens/
-│   │   ├── home_screen.dart         # Main home screen
-│   │   ├── level_screen.dart        # Challenge list for a level
-│   │   ├── level_selection_screen.dart  # Level picker
-│   │   ├── quiz_screen.dart         # Quiz interface
-│   │   ├── feedback_screen.dart     # Correct/incorrect feedback
-│   │   ├── results_screen.dart      # Quiz completion results
-│   │   ├── progress_screen.dart     # User progress stats
-│   │   └── settings_screen.dart     # App settings
-│   ├── services/
-│   │   └── json_loader_service.dart # Load questions from JSON
-│   ├── utils/
-│   │   └── constants.dart           # App strings, colors, themes
-│   └── main.dart
-├── test/
-├── pubspec.yaml
-├── PROJECT_LOG.md             # ⭐ THIS FILE
-└── README.md
-```
+**Solution:** Replaced with log-derivative trick / likelihood ratio trick question
+
+### Problem 5: Distribution Imbalance After Replacement
+**When:** Fixing C24 and C26 duplicates  
+**What:** After swapping correct answers, distribution became unbalanced (e.g., C24: {0:12, 1:16, 2:11, 3:13})
+
+**Solution:** Ran post-fix rebalancing script that swaps correct answers between questions to restore target distribution (12/13/12/13 pattern)
+
+### Problem 6: Nonsensical/Joke Options in Level 4
+**When:** Deep recheck of Level 4  
+**What:** Found 4 options that were jokes/metaphors instead of RL-relevant distractors:
+- C16 Q11: "Calculating the agent's bank account"
+- C16 Q46: "Moving money between bank accounts"
+- C17 Q40: "Forecasting the weather"
+- C20 Q32: "It uses a magic constant"
+
+**Solution:** Replaced all with RL-relevant but incorrect options:
+- C16 Q11 → "Tracking the number of states visited"
+- C16 Q46 → "Combining multiple agents into one"
+- C17 Q40 → "Predicting the next state transition probabilities"
+- C20 Q32 → "The discount factor automatically approaches zero"
 
 ---
 
-## Git Commit History (Today)
+## Validation Process (Use Before Committing)
 
+### 1. JSON Validation
+```bash
+python3 -c "import json; json.load(open('assets/questions/challenge_XX.json'))"
 ```
-81570a1 - Add Chapter 2: End-to-End Machine Learning Project (50 questions)
-c0cdb1b - Remove level sections from home screen
-f303e9b - Add LEVEL 2 support to UI
-3ae49fc - Add LEVEL 2 Challenge C05: The ML Landscape (50 questions)
+
+### 2. Cross-Duplicate Check
+Check all questions across ALL challenge files for duplicates. Use a Python script that:
+- Loads all challenge JSONs
+- Normalizes question text (lowercase, strip)
+- Detects any question appearing in more than one file
+
+### 3. Answer Distribution Check
+Target: ~12-13 per option (A-D). Use Python to count per challenge.
+
+### 4. Structural Checks
+- Exactly 50 questions per challenge
+- IDs 1-50 sequential
+- 4 options per question
+- correctIndex in [0,1,2,3]
+- No empty strings
+- Explanations present and meaningful
+
+### 5. Copyright Check
+Scan for:
+- Book titles ("Reinforcement Learning: An Introduction", etc.)
+- Author names (Sutton, Barto, Mnih, Schulman, etc.)
+- Page/chapter/figure references with numbers
+- Publication names (arXiv, Nature, ICML, NeurIPS)
+- Institution names used as sources
+
+### 6. Option Quality Check
+- No joke options (bank accounts, magic, unicorns)
+- All options relevant to the topic
+- No single-word options unless they are valid answers
+
+### 7. Build Verification
+```bash
+flutter build apk --debug
 ```
+Must complete without errors.
 
 ---
 
 ## Key Technical Details
 
-### Challenge ID Format
-- Challenges are numbered C01, C02, C03, etc.
-- JSON files named: `challenge_01.json`, `challenge_02.json`, etc.
-- Challenge IDs 1-4 belong to LEVEL 1
-- Challenge IDs 5+ belong to LEVEL 2
+### Level 4 Data
+- `level4_data.json`: `totalChallenges: 12`
+- `all_levels.json`: L4 has `totalChallenges: 12`
+- `challenge_data.dart`: `level4` has 12 ChallengeInfo entries (C16-C27)
 
-### JSON Question Format
-```json
-{
-  "challengeId": "C05",
-  "challengeName": "The Machine Learning Landscape",
-  "totalQuestions": 50,
-  "questions": [
-    {
-      "id": 1,
-      "question": "Question text here?",
-      "options": ["Option A", "Option B", "Option C", "Option D"],
-      "correctIndex": 0,
-      "explanation": "Detailed explanation here."
-    }
-  ]
-}
-```
+### Home Screen Counts
+- Current: "1350+ questions across 27 challenges"
+- Update both the subtitle text AND the feature tile subtitle when adding challenges
 
-### Level Data Format
-```json
-{
-  "levelId": 2,
-  "levelName": "LEVEL 2",
-  "subtitle": "Intermediate ML Concepts",
-  "totalChallenges": 2,
-  "challenges": [
-    {
-      "challengeId": "C05",
-      "title": "The ML Landscape",
-      "description": "...",
-      "totalQuestions": 50,
-      "timeLimit": 15,
-      "requiredScore": 35,
-      "icon": "school",
-      "questions": []
-    }
-  ]
-}
-```
+### Level Screen Gradient
+- Level 4 uses `[AppColors.info, AppColors.secondaryLight]` (cyan + teal)
+
+### Level 4 Icons
+- Level selection: `Icons.smart_toy`
+- C16: `smart_toy`
+- C17: `functions`
+- C18: `trending_up`
+- C19: `explore`
+- C20: `assessment`
+- C21: `engineering`
+- C22: `track_changes`
+- C23: `memory`
+- C24: `videogame_asset`
+- C25: `speed`
+- C26: `trending_flat`
+- C27: `rocket_launch`
 
 ---
 
-## Testing Device
-- **Device:** CPH1801 (OPPO A3s)
-- **Android Version:** 7.1.1
-- **Connection:** USB debugging enabled
+## Future Work / TODO
 
-### ADB Commands Used
+### Potential Next Steps
+1. **Level 5:** Could be created following the same pattern (e.g., Advanced NLP, Computer Vision, MLOps)
+2. **Challenge Hints:** Add hint system for difficult questions
+3. **Progressive Unlocking:** Currently all challenges are unlocked; could implement sequential unlocking
+4. **Dark Mode Polish:** Some screens may need dark mode adjustments
+5. **Pre-existing Warnings:** The deprecated `WillPopScope` warnings could be fixed (low priority)
+
+### If Adding New Challenges
+Follow the exact same workflow:
+1. Create question JSON (50 questions, balanced, no duplicates, no copyright refs)
+2. Update `challenge_data.dart`
+3. Update `levelN_data.json`
+4. Update `all_levels.json`
+5. Update UI files (level_screen, level_selection, progress, home, constants)
+6. Run full validation (JSON, duplicates, distribution, copyright, build)
+7. Commit with descriptive message
+
+---
+
+## Git Workflow
+
 ```bash
-# Install debug APK
-adb install -r build/app/outputs/flutter-apk/app-debug.apk
+cd ~/Desktop/Learn\ AI-ML
 
-# Launch app
-adb shell am start -n com.learnaiml.learn_ai_ml/.MainActivity
+# After creating/modifying files
+git add -A
+git status --short  # Verify what's changed
 
-# Take screenshot
-adb shell screencap -p /sdcard/screenshot.png
-adb pull /sdcard/screenshot.png ~/Desktop/screenshot.png
+# Commit with descriptive message
+git commit -m "Add Cxx-Cyy: Topic description
 
-# Simulate taps
-adb shell input tap 360 600
+- Details about what was added/changed
+- Any fixes applied
+- Build status"
 
-# Simulate swipe
-adb shell input swipe 360 800 360 400
-
-# Back button
-adb shell input keyevent KEYCODE_BACK
+# Push
+git push origin main
 ```
-
----
-
-## Dependencies
-```yaml
-flutter: sdk
-shared_preferences: 2.2.2
-provider: ^6.1.1
-google_fonts: ^6.1.0
-flutter_animate: ^4.5.0
-lottie: ^3.1.0
-confetti: ^0.7.0
-intl: ^0.19.0
-```
-
----
-
-## Activities (April 9, 2026)
-
-### Activity 1: Created Challenge C07 (50 Questions)
-- **File:** `assets/questions/challenge_07.json`
-- **Title:** Classification
-- **Topics covered:**
-  - MNIST dataset and binary/multiclass classification
-  - Confusion Matrix, Accuracy, Precision, Recall
-  - F1 Score and Precision/Recall tradeoff
-  - ROC curves, AUC, Precision-Recall curves
-  - One-vs-Rest (OvR) and One-vs-One (OvO) strategies
-  - Multilabel and Multioutput classification
-  - Cross-validation and Stratified k-fold
-  - Error analysis and classification metrics
-- **Answer distribution:** 12 A, 13 B, 12 C, 13 D
-
-### Activity 2: Created Challenge C08 (50 Questions)
-- **File:** `assets/questions/challenge_08.json`
-- **Title:** Training Models
-- **Topics covered:**
-  - Linear Regression: Normal Equation and Gradient Descent
-  - Batch, Stochastic, and Mini-batch Gradient Descent
-  - Feature Scaling and Learning Rate tuning
-  - Polynomial Regression and overfitting risks
-  - Learning Curves and Bias-Variance Tradeoff
-  - Regularization: Ridge (L2), Lasso (L1), Elastic Net
-  - Early Stopping
-  - Logistic Regression and Softmax Regression
-- **Answer distribution:** 12 A, 13 B, 12 C, 13 D
-
-### Activity 3: Updated UI and Data Files
-- Updated `lib/models/challenge_data.dart` with C07 and C08
-- Updated `assets/data/level2_data.json` (now 4 challenges)
-- Updated `assets/data/all_levels.json` (totalChallenges: 4 for Level 2)
-- Updated `lib/screens/home_screen.dart` (8 challenges, 400+ questions)
-- Updated `lib/screens/settings_screen.dart` (400 questions across 8 challenges)
-- Updated `lib/screens/progress_screen.dart` to show both Level 1 and Level 2 progress
-- Updated `README.md` with new challenge list
-
-### Activity 4: Created Challenge C09 (50 Questions)
-- **File:** `assets/questions/challenge_09.json`
-- **Title:** Support Vector Machines
-- **Topics covered:**
-  - Large margin classification and Support Vectors
-  - Hard margin vs Soft margin classification
-  - C hyperparameter and regularization
-  - LinearSVC vs SVC
-  - Kernel trick: Polynomial and RBF kernels
-  - Gamma hyperparameter
-  - SVM Regression (SVR)
-  - Feature scaling importance
-  - SVM computational complexity
-- **Answer distribution:** 12 A, 13 B, 12 C, 13 D
-
-### Current Structure
-```
-LEVEL 1 (AI-ML Fundamentals) - 4 Challenges, 200 questions
-LEVEL 2 (Intermediate ML Concepts) - 8 Challenges, 400 questions
-LEVEL 3 (DSA for Interviews) - 3 Challenges, 150 questions
-Total: 15 Challenges, 750 questions
-```
-
----
-
-## Next Steps / TODO
-
-1. **Chapter 5:** Extract and create questions for Support Vector Machines
-2. **Add More Levels:** Continue adding chapters as LEVEL 4, 5, etc.
-3. **Question Randomization:** Currently questions appear in fixed order
-4. **Timer Feature:** Add countdown timer for quizzes
-5. **Leaderboard:** Add global/local leaderboard
-6. **Offline Sync:** Sync progress when back online
-7. **Dark Mode Polish:** Ensure all screens look good in dark mode
 
 ---
 
 ## Important Notes for Future Agents
 
-1. **Copyright Compliance:** Never include book titles, author names, or page numbers in public files. Questions should appear as "internet research using multiple LLM models."
-
-2. **Answer Distribution:** Always verify questions have balanced answer distribution (12-13 per option) before committing.
-
-3. **JSON Validation:** Run `flutter build apk` after adding new questions to catch JSON syntax errors.
-
-4. **UI Testing:** Test on actual device (CPH1801) as emulator may behave differently.
-
-5. **Git Workflow:** 
-   - Make commits atomic (one feature per commit)
-   - Include descriptive commit messages
-   - Push to main branch after each major feature
-
-6. **Challenge Numbering:** Always use zero-padded numbers (C05, C06) for consistent sorting.
-
-7. **Level Assignment:** 
-   - C01-C04 → LEVEL 1
-   - C05-C08 → LEVEL 2 (currently C05-C06)
-   - C09-C12 → LEVEL 3 (future)
+1. **ALWAYS recheck before committing** — run the full validation script
+2. **Copyright compliance is non-negotiable** — scan for book/author references
+3. **Watch for the trailing comma bug** in `home_screen.dart` edits
+4. **Balance answer distributions** after any question replacements
+5. **Use `StrReplaceFile` with context** (surrounding lines) to avoid matching wrong instances
+6. **The 50-question, 4-option format is fixed** — maintain this structure
+7. **Level 4 is COMPLETE** — 12 challenges covering all 24 DRL lessons
 
 ---
 
-## Contact / Resources
-
-- **GitHub Repository:** https://github.com/Raman21676/learn-ai-ml
-- **Book Source:** Hands-On Machine Learning (stored locally, not in repo)
-- **Extracted Content Location:** `/Users/kalikali/Desktop/chapter1_ml_landscape.txt`, `/Users/kalikali/Desktop/chapter2_ml_project.txt`
-
----
-
-*Last Updated: April 7, 2026 by AI Agent*  
-*Next Session: Continue with Chapter 3 or add features*
+Last Updated: 2026-04-09
+Level 4 Status: COMPLETE (C16-C27, 600 questions)
+Total App: 27 challenges, 1,350 questions
