@@ -2,7 +2,7 @@
   "levelId": 2,
   "levelName": "LEVEL 2",
   "subtitle": "Intermediate ML Concepts",
-  "totalChallenges": 6,
+  "totalChallenges": 8,
   "challenges": [
     {
       "challengeId": "C05",
@@ -62,6 +62,26 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "account_tree",
+      "questions": []
+    },
+    {
+      "challengeId": "C11",
+      "title": "Ensemble Learning and Random Forests",
+      "description": "Master ensemble methods: Voting, Bagging, Boosting, Random Forests, AdaBoost, Gradient Boosting, XGBoost, and Stacking.",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "forest",
+      "questions": []
+    },
+    {
+      "challengeId": "C12",
+      "title": "Dimensionality Reduction",
+      "description": "Master dimensionality reduction: PCA, Kernel PCA, t-SNE, LLE, MDS, Isomap, and the Curse of Dimensionality.",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "compress",
       "questions": []
     }
   ]

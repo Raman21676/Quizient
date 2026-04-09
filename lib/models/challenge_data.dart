@@ -107,5 +107,17 @@ final Level level2 = Level(
       subtitle: 'Decision Trees',
       assetPath: 'assets/questions/challenge_10.json',
     ),
+    ChallengeInfo(
+      id: 'C11',
+      name: 'CHALLENGE 11',
+      subtitle: 'Ensemble Learning and Random Forests',
+      assetPath: 'assets/questions/challenge_11.json',
+    ),
+    ChallengeInfo(
+      id: 'C12',
+      name: 'CHALLENGE 12',
+      subtitle: 'Dimensionality Reduction',
+      assetPath: 'assets/questions/challenge_12.json',
+    ),
   ],
 );

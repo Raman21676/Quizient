@@ -1,0 +1,607 @@
+{
+  "challengeId": "C12",
+  "challengeName": "Dimensionality Reduction",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the Curse of Dimensionality?",
+      "options": [
+        "The phenomenon where high-dimensional data becomes sparse, making ML models perform poorly",
+        "Having too few features",
+        "A technique for adding more features",
+        "A method for reducing training time"
+      ],
+      "correctIndex": 0,
+      "explanation": "As dimensions increase, data points become increasingly sparse. Distance-based algorithms struggle because distances become less meaningful in high dimensions."
+    },
+    {
+      "id": 2,
+      "question": "Why does the Curse of Dimensionality affect distance-based algorithms?",
+      "options": [
+        "The contrast between nearest and farthest neighbors diminishes in high-dimensional space",
+        "They become faster",
+        "They require less memory",
+        "They automatically handle high dimensions"
+      ],
+      "correctIndex": 0,
+      "explanation": "In high-dimensional spaces, the relative difference between distances of nearby and faraway points shrinks, making distance metrics less discriminative."
+    },
+    {
+      "id": 3,
+      "question": "What is Dimensionality Reduction?",
+      "options": [
+        "Reducing the number of features while preserving as much important information as possible",
+        "Adding more features to a dataset",
+        "Removing all categorical features",
+        "Increasing the dataset size"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dimensionality reduction techniques reduce the number of features (dimensions) in a dataset, helping combat the curse of dimensionality and improve performance."
+    },
+    {
+      "id": 4,
+      "question": "What are the two main approaches to Dimensionality Reduction?",
+      "options": [
+        "Projection and Manifold Learning",
+        "Supervised and Unsupervised",
+        "Linear and Nonlinear",
+        "Compression and Decompression"
+      ],
+      "correctIndex": 0,
+      "explanation": "Projection techniques (like PCA) project data onto a lower-dimensional subspace. Manifold Learning (like t-SNE, LLE) unwraps curved manifolds in high-dimensional space."
+    },
+    {
+      "id": 5,
+      "question": "What is Principal Component Analysis (PCA)?",
+      "options": [
+        "A linear dimensionality reduction technique that projects data onto the directions of maximum variance",
+        "A clustering algorithm",
+        "A classification method",
+        "A neural network layer"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCA identifies the principal components (directions of maximum variance) and projects the data onto a lower-dimensional subspace spanned by the top components."
+    },
+    {
+      "id": 6,
+      "question": "What are Principal Components in PCA?",
+      "options": [
+        "The orthogonal directions in feature space along which the data varies the most",
+        "The original features",
+        "The mean values of each feature",
+        "The correlation coefficients"
+      ],
+      "correctIndex": 0,
+      "explanation": "Principal components are new orthogonal axes. The first PC captures the most variance, the second captures the next most variance orthogonal to the first, and so on."
+    },
+    {
+      "id": 7,
+      "question": "How many principal components can be extracted from a dataset with n features?",
+      "options": [
+        "n",
+        "n/2",
+        "n+1",
+        "Unlimited"
+      ],
+      "correctIndex": 0,
+      "explanation": "You can extract at most n principal components from n features, though typically only the top k components that capture most variance are kept."
+    },
+    {
+      "id": 8,
+      "question": "What is the first step in performing PCA?",
+      "options": [
+        "Centering the data by subtracting the mean of each feature",
+        "Finding eigenvectors",
+        "Scaling the data to [0, 1]",
+        "Removing outliers"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCA requires centered data (zero mean). Subtracting the mean of each feature ensures the origin is at the center of the data cloud."
+    },
+    {
+      "id": 9,
+      "question": "Why is feature scaling important before applying PCA?",
+      "options": [
+        "Features with larger scales would dominate the principal components otherwise",
+        "It is not important",
+        "It reduces the number of components",
+        "It is only required for kernel PCA"
+      ],
+      "correctIndex": 0,
+      "explanation": "If features have different scales, PCA will be biased toward features with larger variances. Standardization ensures all features contribute equally."
+    },
+    {
+      "id": 10,
+      "question": "How are principal components computed mathematically?",
+      "options": [
+        "By performing Singular Value Decomposition (SVD) or eigenvalue decomposition of the covariance matrix",
+        "By finding the correlation matrix",
+        "By computing the mean vector",
+        "By applying k-means clustering"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCA computes principal components through SVD of the data matrix or eigenvalue decomposition of the covariance matrix. The eigenvectors are the principal components."
+    },
+    {
+      "id": 11,
+      "question": "What does the explained variance ratio tell you in PCA?",
+      "options": [
+        "The proportion of the dataset's variance that lies along each principal component",
+        "The number of features to keep",
+        "The correlation between components",
+        "The training time"
+      ],
+      "correctIndex": 0,
+      "explanation": "The explained variance ratio indicates how much of the total variance is captured by each principal component. It helps decide how many components to keep."
+    },
+    {
+      "id": 12,
+      "question": "If the first two principal components have explained variance ratios of 0.6 and 0.3, what percentage of total variance do they capture together?",
+      "options": [
+        "60%",
+        "30%",
+        "90%",
+        "20%"
+      ],
+      "correctIndex": 2,
+      "explanation": "0.6 + 0.3 = 0.9, meaning the first two components together capture 90% of the total variance in the data."
+    },
+    {
+      "id": 13,
+      "question": "How do you choose the number of principal components to keep in PCA?",
+      "options": [
+        "Select enough components to capture a desired percentage of variance (e.g., 95%)",
+        "Always keep half",
+        "Keep all components",
+        "Use cross-validation on the original features"
+      ],
+      "correctIndex": 0,
+      "explanation": "A common approach is to keep enough components to explain 95% or 99% of the variance, balancing dimensionality reduction with information preservation."
+    },
+    {
+      "id": 14,
+      "question": "What does the n_components parameter in Scikit-Learn's PCA do when set to a float between 0 and 1?",
+      "options": [
+        "Sets the exact number of components",
+        "Sets the random seed",
+        "Selects the minimum number of components to reach the specified explained variance ratio",
+        "Controls the batch size"
+      ],
+      "correctIndex": 2,
+      "explanation": "When n_components is a float (e.g., 0.95), PCA automatically selects the smallest number of components that explain at least that fraction of variance."
+    },
+    {
+      "id": 15,
+      "question": "What is the main limitation of standard PCA?",
+      "options": [
+        "It is too slow",
+        "It requires labeled data",
+        "It is a linear technique and cannot capture nonlinear relationships in the data",
+        "It only works for 2D data"
+      ],
+      "correctIndex": 2,
+      "explanation": "PCA finds linear projections. If data lies on a nonlinear manifold, PCA may not find the most meaningful low-dimensional representation."
+    },
+    {
+      "id": 16,
+      "question": "What is Kernel PCA?",
+      "options": [
+        "A faster version of PCA",
+        "A clustering method",
+        "A nonlinear extension of PCA that uses the kernel trick to capture nonlinear relationships",
+        "A feature selection technique"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kernel PCA uses kernel functions to implicitly map data to higher dimensions before applying PCA, enabling nonlinear dimensionality reduction."
+    },
+    {
+      "id": 17,
+      "question": "What is Incremental PCA useful for?",
+      "options": [
+        "Improving accuracy",
+        "Handling missing values",
+        "Processing large datasets that don't fit in memory by using mini-batches",
+        "Reducing the number of features to exactly 2"
+      ],
+      "correctIndex": 2,
+      "explanation": "IncrementalPCA processes data in mini-batches, making it suitable for online learning and large datasets that cannot be loaded entirely into memory."
+    },
+    {
+      "id": 18,
+      "question": "What is Randomized PCA?",
+      "options": [
+        "A PCA that randomly selects features",
+        "A kernel-based PCA",
+        "A stochastic algorithm that approximates principal components much faster for very high-dimensional data with many components",
+        "A PCA for categorical data"
+      ],
+      "correctIndex": 2,
+      "explanation": "Randomized PCA uses random projections to quickly approximate the first few principal components, significantly speeding up computation for large datasets."
+    },
+    {
+      "id": 19,
+      "question": "Can PCA be used for data compression?",
+      "options": [
+        "No, it only visualizes data",
+        "Only for images",
+        "Yes, by projecting to a lower dimension and optionally reconstructing the original data with some loss",
+        "Only for text data"
+      ],
+      "correctIndex": 2,
+      "explanation": "PCA compresses data by keeping only the top k components. The original data can be approximately reconstructed, though some information is lost."
+    },
+    {
+      "id": 20,
+      "question": "What is the reconstruction error in PCA?",
+      "options": [
+        "The training error",
+        "The test accuracy",
+        "The difference between the original data and the data reconstructed from the reduced components",
+        "The explained variance"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reconstruction error measures how much information is lost when reconstructing the original data from the reduced PCA representation."
+    },
+    {
+      "id": 21,
+      "question": "What is Manifold Learning?",
+      "options": [
+        "A technique for clustering",
+        "A supervised learning method",
+        "A dimensionality reduction approach that assumes data lies on a lower-dimensional manifold embedded in high-dimensional space",
+        "A feature scaling technique"
+      ],
+      "correctIndex": 2,
+      "explanation": "Manifold learning algorithms assume high-dimensional data actually lies on or near a lower-dimensional nonlinear manifold and try to uncover this structure."
+    },
+    {
+      "id": 22,
+      "question": "What is t-SNE (t-Distributed Stochastic Neighbor Embedding)?",
+      "options": [
+        "A linear dimensionality reduction method",
+        "A clustering algorithm",
+        "A nonlinear manifold learning technique primarily used for visualization by preserving local neighborhoods",
+        "A classification method"
+      ],
+      "correctIndex": 2,
+      "explanation": "t-SNE is excellent for visualization. It preserves local neighborhoods by modeling similar data points as nearby and dissimilar points as far apart in low-dimensional space."
+    },
+    {
+      "id": 23,
+      "question": "What is the main difference between PCA and t-SNE?",
+      "options": [
+        "PCA is nonlinear; t-SNE is linear",
+        "PCA is only for images",
+        "PCA preserves global structure and is deterministic; t-SNE preserves local structure and is stochastic",
+        "t-SNE is faster"
+      ],
+      "correctIndex": 2,
+      "explanation": "PCA is a linear method that preserves global variance. t-SNE is a nonlinear method that focuses on preserving local neighborhoods, making it great for visualization but not for general dimensionality reduction."
+    },
+    {
+      "id": 24,
+      "question": "Can t-SNE be used for reducing dimensions before training a machine learning model?",
+      "options": [
+        "Yes, it is the best choice",
+        "Only for neural networks",
+        "No, t-SNE is primarily for visualization and does not preserve global structure needed for modeling",
+        "Only for regression"
+      ],
+      "correctIndex": 2,
+      "explanation": "t-SNE is designed for visualization. It doesn't preserve global structure or distances consistently, making it unsuitable as a preprocessing step for most ML models."
+    },
+    {
+      "id": 25,
+      "question": "What is the perplexity hyperparameter in t-SNE?",
+      "options": [
+        "The learning rate",
+        "The batch size",
+        "The number of dimensions",
+        "A measure of the effective number of neighbors each point considers — roughly the number of nearest neighbors to preserve"
+      ],
+      "correctIndex": 3,
+      "explanation": "Perplexity can be thought of as a smooth measure of the number of nearest neighbors. Typical values range from 5 to 50."
+    },
+    {
+      "id": 26,
+      "question": "What is LLE (Locally Linear Embedding)?",
+      "options": [
+        "A clustering algorithm",
+        "A neural network architecture",
+        "A linear regression method",
+        "A manifold learning technique that reconstructs each point as a linear combination of its neighbors and finds a low-dimensional embedding that preserves these relationships"
+      ],
+      "correctIndex": 3,
+      "explanation": "LLE assumes each data point can be reconstructed as a weighted combination of its nearest neighbors. It finds a low-dimensional representation that preserves these local linear relationships."
+    },
+    {
+      "id": 27,
+      "question": "What is MDS (Multidimensional Scaling)?",
+      "options": [
+        "A clustering technique",
+        "A feature selection method",
+        "A classification algorithm",
+        "A dimensionality reduction method that seeks to preserve pairwise distances between points in the lower-dimensional space"
+      ],
+      "correctIndex": 3,
+      "explanation": "MDS attempts to place each object in N-dimensional space such that the distances between objects match the original dissimilarities as closely as possible."
+    },
+    {
+      "id": 28,
+      "question": "What is the main difference between Metric MDS and Nonmetric MDS?",
+      "options": [
+        "Metric MDS is faster",
+        "Nonmetric MDS only works for 2D",
+        "There is no difference",
+        "Metric MDS preserves actual distances; Nonmetric MDS preserves only the rank order of distances"
+      ],
+      "correctIndex": 3,
+      "explanation": "Metric MDS tries to preserve actual distance values. Nonmetric MDS only preserves the ordering (rank) of distances, making it suitable for ordinal data."
+    },
+    {
+      "id": 29,
+      "question": "What is Isomap?",
+      "options": [
+        "A clustering algorithm",
+        "A neural network",
+        "A linear projection method",
+        "A manifold learning technique that uses geodesic distances (shortest paths on the manifold) instead of Euclidean distances"
+      ],
+      "correctIndex": 3,
+      "explanation": "Isomap extends MDS by using geodesic distances (computed as shortest paths through neighboring points on the manifold) rather than straight-line Euclidean distances."
+    },
+    {
+      "id": 30,
+      "question": "What is the main advantage of Isomap over PCA for nonlinear data?",
+      "options": [
+        "It is faster",
+        "It works with categorical data",
+        "It requires less memory",
+        "It can capture nonlinear manifold structure by using geodesic distances"
+      ],
+      "correctIndex": 3,
+      "explanation": "By measuring distances along the manifold rather than through the embedding space, Isomap can uncover nonlinear structures that PCA misses."
+    },
+    {
+      "id": 31,
+      "question": "Which dimensionality reduction technique is best for visualizing high-dimensional data in 2D?",
+      "options": [
+        "PCA",
+        "K-Means",
+        "Linear Regression",
+        "t-SNE"
+      ],
+      "correctIndex": 3,
+      "explanation": "t-SNE is widely regarded as the best technique for visualizing high-dimensional data in 2D or 3D because it effectively preserves local structure and clusters."
+    },
+    {
+      "id": 32,
+      "question": "What does the fit_transform method do in Scikit-Learn's PCA?",
+      "options": [
+        "Only centers the data",
+        "Scales the features",
+        "Only computes the explained variance",
+        "Learns the principal components from the data and projects the data onto them"
+      ],
+      "correctIndex": 3,
+      "explanation": "fit_transform first learns the principal components from the training data (fit) and then projects the data onto these components (transform)."
+    },
+    {
+      "id": 33,
+      "question": "Why should you only call fit() on the training set and not the test set when using PCA?",
+      "options": [
+        "It doesn't matter",
+        "Because the test set has fewer samples",
+        "To save memory",
+        "To prevent data leakage — the test set should not influence the principal components"
+      ],
+      "correctIndex": 3,
+      "explanation": "PCA components must be learned only from training data. Applying the same components to test data (via transform()) ensures no information from the test set leaks into the model."
+    },
+    {
+      "id": 34,
+      "question": "What is the components_ attribute in Scikit-Learn's PCA?",
+      "options": [
+        "The explained variance ratios",
+        "The singular values",
+        "The mean of each feature",
+        "The principal components (eigenvectors), with each row representing one principal component"
+      ],
+      "correctIndex": 3,
+      "explanation": "components_ contains the principal axes in feature space. Each component is a linear combination of the original features."
+    },
+    {
+      "id": 35,
+      "question": "How can you visualize the explained variance ratio in PCA?",
+      "options": [
+        "By plotting a histogram",
+        "By computing the mean",
+        "By plotting a scatter plot",
+        "By plotting a cumulative sum curve to see how many components are needed to reach a target variance"
+      ],
+      "correctIndex": 3,
+      "explanation": "A cumulative explained variance plot (scree plot) shows how many components are needed to capture 90%, 95%, or 99% of the variance."
+    },
+    {
+      "id": 36,
+      "question": "What is the shape of the transformed data after applying PCA with n_components=k to a dataset with m samples and n features?",
+      "options": [
+        "(m, n)",
+        "(n, k)",
+        "(k, n)",
+        "(m, k)"
+      ],
+      "correctIndex": 3,
+      "explanation": "PCA reduces dimensions from n to k, so the output shape is (m samples, k components)."
+    },
+    {
+      "id": 37,
+      "question": "Can PCA be used for denoising data?",
+      "options": [
+        "No, it only reduces dimensions",
+        "Only for audio",
+        "Only for images",
+        "Yes, by keeping only the principal components that capture signal and discarding components that mainly contain noise"
+      ],
+      "correctIndex": 3,
+      "explanation": "Noise typically has low variance and appears in less significant components. By reconstructing from only top components, PCA can filter out noise."
+    },
+    {
+      "id": 38,
+      "question": "What is the main computational bottleneck of standard PCA?",
+      "options": [
+        "Computing the mean",
+        "Computing the SVD or eigendecomposition of the covariance matrix, which is O(m*n²) or O(n³)",
+        "Scaling the data",
+        "Centering the data"
+      ],
+      "correctIndex": 1,
+      "explanation": "The SVD/eigendecomposition step dominates PCA's computational cost. For very large matrices, randomized or incremental methods are preferred."
+    },
+    {
+      "id": 39,
+      "question": "When should you use Kernel PCA instead of standard PCA?",
+      "options": [
+        "When data is linearly separable",
+        "When data has nonlinear structure that linear PCA cannot capture",
+        "When you need the fastest algorithm",
+        "When you have only 2 features"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kernel PCA is useful when data lies on a nonlinear manifold. It maps data to a higher-dimensional space where linear PCA can find meaningful structure."
+    },
+    {
+      "id": 40,
+      "question": "What is the main drawback of t-SNE compared to PCA?",
+      "options": [
+        "It is linear",
+        "It is computationally expensive and does not preserve global structure or distances consistently",
+        "It requires labeled data",
+        "It cannot reduce to 2D"
+      ],
+      "correctIndex": 1,
+      "explanation": "t-SNE is slow (O(m²) or O(m log m) with Barnes-Hut) and focuses on local structure. Distances between clusters in t-SNE plots may not be meaningful."
+    },
+    {
+      "id": 41,
+      "question": "What does the learning_rate parameter control in t-SNE?",
+      "options": [
+        "The number of iterations",
+        "The step size during gradient descent optimization",
+        "The perplexity",
+        "The number of dimensions"
+      ],
+      "correctIndex": 1,
+      "explanation": "The learning_rate in t-SNE controls the step size in the gradient descent optimization. Typical values range from 10 to 1000."
+    },
+    {
+      "id": 42,
+      "question": "What is the typical output dimensionality for t-SNE?",
+      "options": [
+        "Any number",
+        "2 or 3 dimensions, primarily for visualization",
+        "The same as the input",
+        "Exactly 10 dimensions"
+      ],
+      "correctIndex": 1,
+      "explanation": "t-SNE is almost exclusively used to reduce data to 2D or 3D for visualization purposes."
+    },
+    {
+      "id": 43,
+      "question": "What is the main idea behind Autoencoders for dimensionality reduction?",
+      "options": [
+        "Clustering data points",
+        "Training a neural network to compress data to a lower-dimensional representation and then reconstruct it",
+        "Finding linear projections",
+        "Using decision trees"
+      ],
+      "correctIndex": 1,
+      "explanation": "Autoencoders are neural networks with a bottleneck layer. They learn to encode data into a lower-dimensional latent space and decode it back, minimizing reconstruction error."
+    },
+    {
+      "id": 44,
+      "question": "What is the key difference between PCA and an Autoencoder?",
+      "options": [
+        "PCA is neural-network based",
+        "PCA finds linear projections; Autoencoders can learn nonlinear representations",
+        "Autoencoders are only for classification",
+        "PCA requires more data"
+      ],
+      "correctIndex": 1,
+      "explanation": "PCA is limited to linear transformations. Autoencoders with nonlinear activation functions can capture complex nonlinear relationships in the data."
+    },
+    {
+      "id": 45,
+      "question": "What is a scree plot used for in PCA?",
+      "options": [
+        "Visualizing clusters",
+        "Displaying the explained variance ratio for each component to help choose the number of components",
+        "Showing the correlation matrix",
+        "Plotting the learning curve"
+      ],
+      "correctIndex": 1,
+      "explanation": "A scree plot displays eigenvalues or explained variance ratios in descending order, helping identify the 'elbow' point where additional components add little value."
+    },
+    {
+      "id": 46,
+      "question": "What happens to the reconstruction error as you keep more principal components?",
+      "options": [
+        "It increases",
+        "It decreases",
+        "It stays constant",
+        "It becomes zero immediately"
+      ],
+      "correctIndex": 1,
+      "explanation": "Keeping more components preserves more information, so the reconstruction error decreases. With all n components, the reconstruction is perfect."
+    },
+    {
+      "id": 47,
+      "question": "What is Truncated SVD (Latent Semantic Analysis)?",
+      "options": [
+        "A clustering method",
+        "A matrix factorization technique similar to PCA but works efficiently with sparse matrices",
+        "A neural network",
+        "A decision tree variant"
+      ],
+      "correctIndex": 1,
+      "explanation": "TruncatedSVD performs linear dimensionality reduction on sparse data (like text TF-IDF matrices) without needing to center the data, unlike PCA."
+    },
+    {
+      "id": 48,
+      "question": "When might you prefer Truncated SVD over PCA?",
+      "options": [
+        "When data is dense",
+        "When working with sparse matrices like document-term matrices where centering would destroy sparsity",
+        "When visualizing in 2D",
+        "When you need nonlinear reduction"
+      ],
+      "correctIndex": 1,
+      "explanation": "TruncatedSVD doesn't center data, so it preserves sparsity. This makes it ideal for text data and other sparse representations."
+    },
+    {
+      "id": 49,
+      "question": "What is the main challenge when applying dimensionality reduction before feeding data to a machine learning model?",
+      "options": [
+        "It always improves accuracy",
+        "Some useful information may be lost, potentially degrading model performance",
+        "It increases training time",
+        "It requires labeled data"
+      ],
+      "correctIndex": 1,
+      "explanation": "While dimensionality reduction removes noise, it may also discard subtle but useful patterns. The optimal number of components depends on the data and task."
+    },
+    {
+      "id": 50,
+      "question": "Which technique would you use to reduce 1000-dimensional data to 50 dimensions while preserving as much variance as possible for input to a classifier?",
+      "options": [
+        "t-SNE",
+        "PCA",
+        "Isomap",
+        "MDS"
+      ],
+      "correctIndex": 1,
+      "explanation": "PCA is the standard choice for preprocessing before machine learning because it preserves global variance structure and is deterministic, unlike t-SNE which is for visualization."
+    }
+  ]
+}

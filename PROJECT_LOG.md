@@ -332,8 +332,8 @@ intl: ^0.19.0
 ### Current Structure
 ```
 LEVEL 1 (AI-ML Fundamentals) - 4 Challenges, 200 questions
-LEVEL 2 (Intermediate ML Concepts) - 6 Challenges, 300 questions
-Total: 10 Challenges, 500 questions
+LEVEL 2 (Intermediate ML Concepts) - 8 Challenges, 400 questions
+Total: 12 Challenges, 600 questions
 ```
 
 ---
