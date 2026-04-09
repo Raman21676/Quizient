@@ -106,6 +106,24 @@ class LevelSelectionScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  
+                  const SizedBox(height: 16),
+                  
+                  // Level 4 Card
+                  _buildLevelCard(
+                    context,
+                    level: level4,
+                    levelId: 4,
+                    isDark: isDark,
+                    icon: Icons.smart_toy,
+                    gradientColors: [AppColors.info, AppColors.secondaryLight],
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const LevelScreen(levelId: 4),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

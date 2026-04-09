@@ -18,9 +18,27 @@ class LevelScreen extends StatelessWidget {
     final progressProvider = context.watch<ProgressProvider>();
     
     // Get level data based on levelId
-    final levelData = levelId == 1 ? level1 : levelId == 2 ? level2 : level3;
-    final title = levelId == 1 ? AppStrings.level1Title : levelId == 2 ? AppStrings.level2Title : AppStrings.level3Title;
-    final subtitle = levelId == 1 ? AppStrings.level1Subtitle : levelId == 2 ? AppStrings.level2Subtitle : AppStrings.level3Subtitle;
+    final levelData = levelId == 1
+        ? level1
+        : levelId == 2
+            ? level2
+            : levelId == 3
+                ? level3
+                : level4;
+    final title = levelId == 1
+        ? AppStrings.level1Title
+        : levelId == 2
+            ? AppStrings.level2Title
+            : levelId == 3
+                ? AppStrings.level3Title
+                : AppStrings.level4Title;
+    final subtitle = levelId == 1
+        ? AppStrings.level1Subtitle
+        : levelId == 2
+            ? AppStrings.level2Subtitle
+            : levelId == 3
+                ? AppStrings.level3Subtitle
+                : AppStrings.level4Subtitle;
 
     return Scaffold(
       body: CustomScrollView(
@@ -43,7 +61,9 @@ class LevelScreen extends StatelessWidget {
                         ? [AppColors.primaryLight, AppColors.secondaryLight]
                         : levelId == 2
                             ? [AppColors.success, AppColors.secondaryLight]
-                            : [AppColors.warning, AppColors.error],
+                            : levelId == 3
+                                ? [AppColors.warning, AppColors.error]
+                                : [AppColors.info, AppColors.secondaryLight],
                   ),
                 ),
               ),

@@ -107,6 +107,21 @@ class ProgressScreen extends StatelessWidget {
               final progress = progressProvider.getProgressForChallenge(entry.value.id);
               return _buildChallengeProgressTile(context, entry.value, progress, entry.key + level1.challenges.length + level2.challenges.length);
             }),
+
+            const SizedBox(height: 32),
+
+            Text(
+              'LEVEL 4 Progress',
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            ...level4.challenges.asMap().entries.map((entry) {
+              final progress = progressProvider.getProgressForChallenge(entry.value.id);
+              return _buildChallengeProgressTile(context, entry.value, progress, entry.key + level1.challenges.length + level2.challenges.length + level3.challenges.length);
+            }),
           ],
         ),
       ),
@@ -169,7 +184,7 @@ class ProgressScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              '$completed of ${level1.challenges.length} ${AppStrings.challengesCompleted}',
+              '$completed of ${level1.challenges.length + level2.challenges.length + level3.challenges.length + level4.challenges.length} ${AppStrings.challengesCompleted}',
               style: const TextStyle(
                 fontSize: 14,
                 color: Colors.white70,

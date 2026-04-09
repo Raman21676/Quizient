@@ -1,0 +1,28 @@
+{
+  "levelId": 4,
+  "levelName": "LEVEL 4",
+  "subtitle": "Deep Reinforcement Learning",
+  "totalChallenges": 2,
+  "challenges": [
+    {
+      "challengeId": "C16",
+      "title": "Introduction to Deep Reinforcement Learning",
+      "description": "Foundations of RL: agent-environment interaction, policies, rewards, exploration vs exploitation, and applications in game-playing, robotics, and autonomous systems.",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "smart_toy",
+      "questions": []
+    },
+    {
+      "challengeId": "C17",
+      "title": "Mathematical Foundations and MDPs",
+      "description": "Core mathematical concepts: Markov Property, Markov Decision Processes, transition probabilities, reward functions, value functions, Bellman Equations, and dynamic programming methods.",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "functions",
+      "questions": []
+    }
+  ]
+}

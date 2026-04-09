@@ -64,6 +64,28 @@ final Level level1 = Level(
   ],
 );
 
+// LEVEL 4 - Deep Reinforcement Learning
+final Level level4 = Level(
+  id: 'L4',
+  name: 'LEVEL 4',
+  description: 'Deep Reinforcement Learning - Master RL from MDPs to DQN, Actor-Critic, PPO, and SAC',
+  color: '#00BCD4',
+  challenges: [
+    ChallengeInfo(
+      id: 'C16',
+      name: 'CHALLENGE 16',
+      subtitle: 'Introduction to Deep Reinforcement Learning',
+      assetPath: 'assets/questions/challenge_16.json',
+    ),
+    ChallengeInfo(
+      id: 'C17',
+      name: 'CHALLENGE 17',
+      subtitle: 'Mathematical Foundations and MDPs',
+      assetPath: 'assets/questions/challenge_17.json',
+    ),
+  ],
+);
+
 // LEVEL 2 - Intermediate ML Concepts
 final Level level2 = Level(
   id: 'L2',

@@ -1,0 +1,607 @@
+{
+  "challengeId": "C17",
+  "challengeName": "Mathematical Foundations and MDPs",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the Markov Property?",
+      "options": [
+        "The future depends only on the current state, not on the sequence of events that preceded it",
+        "The future depends on all past states",
+        "The future is completely random",
+        "The future depends on the agent's neural network"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Markov Property states that the conditional probability distribution of future states depends only on the present state, not on the sequence of events that preceded it."
+    },
+    {
+      "id": 2,
+      "question": "What does it mean for an environment to be 'Markovian'?",
+      "options": [
+        "The current state contains all relevant information needed to predict the future",
+        "The agent can see the future",
+        "The environment never changes",
+        "The rewards are always positive"
+      ],
+      "correctIndex": 0,
+      "explanation": "A Markovian environment is one where the current state is sufficient for predicting future states and rewards — no additional history is needed."
+    },
+    {
+      "id": 3,
+      "question": "What is a Markov Decision Process (MDP)?",
+      "options": [
+        "A mathematical framework for modeling decision-making in situations where outcomes are partly random and partly under the control of a decision-maker",
+        "A type of neural network",
+        "A sorting algorithm",
+        "A type of database"
+      ],
+      "correctIndex": 0,
+      "explanation": "An MDP is the fundamental mathematical framework for RL. It consists of states, actions, transition probabilities, and rewards, and satisfies the Markov property."
+    },
+    {
+      "id": 4,
+      "question": "What are the five components of a Markov Decision Process?",
+      "options": [
+        "States, actions, transition probabilities, rewards, and a discount factor",
+        "Neural networks, optimizers, loss functions, datasets, and batch sizes",
+        "Inputs, hidden layers, outputs, weights, and biases",
+        "Agents, environments, policies, values, and models"
+      ],
+      "correctIndex": 0,
+      "explanation": "The five components of an MDP are: (1) S — set of states, (2) A — set of actions, (3) P — transition probabilities, (4) R — reward function, (5) γ — discount factor."
+    },
+    {
+      "id": 5,
+      "question": "What does the transition probability P(s' | s, a) represent?",
+      "options": [
+        "The probability of moving to state s' given that the agent is in state s and takes action a",
+        "The probability of taking action a",
+        "The reward for being in state s",
+        "The value of state s'"
+      ],
+      "correctIndex": 0,
+      "explanation": "P(s' | s, a) is the probability that taking action a in state s will lead to state s'. It defines the dynamics of the environment."
+    },
+    {
+      "id": 6,
+      "question": "What is a state transition matrix?",
+      "options": [
+        "A matrix where entry (i, j) gives the probability of transitioning from state i to state j for a given action",
+        "A matrix that stores neural network weights",
+        "A matrix that stores rewards",
+        "A matrix that defines the agent's policy"
+      ],
+      "correctIndex": 0,
+      "explanation": "The state transition matrix for a given action specifies the probabilities of moving from each state to every other state when that action is taken."
+    },
+    {
+      "id": 7,
+      "question": "What is the reward function R(s, a) in an MDP?",
+      "options": [
+        "The expected immediate reward received after taking action a in state s",
+        "The probability of success",
+        "The total return over an episode",
+        "The agent's neural network output"
+      ],
+      "correctIndex": 0,
+      "explanation": "R(s, a) gives the expected immediate reward the agent receives when it takes action a in state s. It can also be defined as R(s, a, s') depending on the next state."
+    },
+    {
+      "id": 8,
+      "question": "What is the discount factor γ (gamma) in reinforcement learning?",
+      "options": [
+        "A factor between 0 and 1 that determines the present value of future rewards",
+        "A parameter that increases rewards over time",
+        "The learning rate of the agent",
+        "The number of actions available"
+      ],
+      "correctIndex": 0,
+      "explanation": "The discount factor γ (0 ≤ γ ≤ 1) controls how much future rewards are valued relative to immediate rewards. A lower γ makes the agent more short-sighted."
+    },
+    {
+      "id": 9,
+      "question": "What happens when the discount factor γ is set to 0?",
+      "options": [
+        "The agent is completely myopic and only cares about immediate rewards",
+        "The agent considers all future rewards equally",
+        "The agent never learns",
+        "All rewards become negative"
+      ],
+      "correctIndex": 0,
+      "explanation": "With γ = 0, the agent only maximizes the immediate reward and completely ignores all future rewards."
+    },
+    {
+      "id": 10,
+      "question": "What happens when the discount factor γ is set to 1?",
+      "options": [
+        "The agent values future rewards equally to immediate rewards (no discounting)",
+        "The agent ignores all rewards",
+        "The agent becomes deterministic",
+        "The environment becomes stationary"
+      ],
+      "correctIndex": 0,
+      "explanation": "With γ = 1, the agent treats all future rewards as equally important as immediate rewards. This can cause issues with infinite-horizon problems."
+    },
+    {
+      "id": 11,
+      "question": "Why is discounting future rewards necessary in reinforcement learning?",
+      "options": [
+        "To prevent infinite returns in cyclic environments and to model the preference for immediate rewards over uncertain distant ones",
+        "It is not necessary",
+        "To make the math harder",
+        "To reduce the agent's performance"
+      ],
+      "correctIndex": 0,
+      "explanation": "Discounting ensures returns are finite in cyclic environments and reflects the practical reality that immediate rewards are often preferred over uncertain future ones."
+    },
+    {
+      "id": 12,
+      "question": "What is the 'return' G_t in reinforcement learning?",
+      "options": [
+        "The cumulative discounted reward from time t onward",
+        "The immediate reward at time t",
+        "The agent's policy at time t",
+        "The state at time t"
+      ],
+      "correctIndex": 0,
+      "explanation": "The return G_t is the sum of discounted future rewards: G_t = R_{t+1} + γR_{t+2} + γ²R_{t+3} + ... It represents the total future reward from time step t."
+    },
+    {
+      "id": 13,
+      "question": "What is the formula for the return G_t with discount factor γ?",
+      "options": [
+        "G_t = R_t",
+        "G_t = max(R)",
+        "G_t = Σ γ^k R_{t+k+1} for k = 0 to infinity (or episode end)",
+        "G_t = γ * R_t"
+      ],
+      "correctIndex": 2,
+      "explanation": "G_t = R_{t+1} + γR_{t+2} + γ²R_{t+3} + ... = Σ_{k=0}^∞ γ^k R_{t+k+1}. Each future reward is discounted by γ raised to the power of how many steps into the future it occurs."
+    },
+    {
+      "id": 14,
+      "question": "What is the Bellman Equation for the state-value function V(s)?",
+      "options": [
+        "V(s) = max_a R(s, a)",
+        "V(s) = R(s)",
+        "V(s) = Σ_a π(a|s) Σ_{s'} P(s'|s,a) [R(s,a) + γV(s')]",
+        "V(s) = γ * V(s')"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Bellman Equation expresses V(s) recursively: the expected return from state s equals the expected immediate reward plus the discounted expected value of the next state, averaged over actions and transitions."
+    },
+    {
+      "id": 15,
+      "question": "What is a 'state-value function' V(s)?",
+      "options": [
+        "The number of possible states",
+        "The probability of reaching state s",
+        "The expected cumulative discounted reward starting from state s and following a particular policy",
+        "The immediate reward of state s"
+      ],
+      "correctIndex": 2,
+      "explanation": "V(s) tells us how good it is to be in state s when following a given policy. It's the expected return from that state onward."
+    },
+    {
+      "id": 16,
+      "question": "What is an 'action-value function' Q(s, a)?",
+      "options": [
+        "The probability of taking action a",
+        "The number of available actions",
+        "The expected cumulative discounted reward starting from state s, taking action a, and thereafter following a particular policy",
+        "The transition probability P(s'|s,a)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Q(s, a) tells us how good it is to take action a in state s. It represents the expected return of taking that action and then following the policy."
+    },
+    {
+      "id": 17,
+      "question": "What is the relationship between V(s) and Q(s, a)?",
+      "options": [
+        "They are unrelated",
+        "V(s) = Q(s, a) for all a",
+        "V(s) = Σ_a π(a|s) Q(s, a)",
+        "Q(s, a) = V(s) / π(a|s)"
+      ],
+      "correctIndex": 2,
+      "explanation": "The state-value is the expected action-value weighted by the probability of taking each action under the policy: V(s) = E_{a~π}[Q(s, a)]."
+    },
+    {
+      "id": 18,
+      "question": "What is the Bellman Equation for the action-value function Q(s, a)?",
+      "options": [
+        "Q(s,a) = R(s,a)",
+        "Q(s,a) = γ * V(s)",
+        "Q(s,a) = Σ_{s'} P(s'|s,a) [R(s,a) + γ Σ_{a'} π(a'|s') Q(s',a')]",
+        "Q(s,a) = max_a R(s,a)"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Bellman Equation for Q recursively defines it as the expected immediate reward plus the discounted expected Q-value of the next state-action pair."
+    },
+    {
+      "id": 19,
+      "question": "What is an 'optimal policy' π* in reinforcement learning?",
+      "options": [
+        "The first policy the agent tries",
+        "A policy that takes random actions",
+        "A policy that achieves the maximum possible expected return from every state",
+        "A policy that always chooses the same action"
+      ],
+      "correctIndex": 2,
+      "explanation": "The optimal policy π* is the policy that maximizes the expected cumulative reward (return) from every possible starting state."
+    },
+    {
+      "id": 20,
+      "question": "What is the 'optimal state-value function' V*(s)?",
+      "options": [
+        "The value function of the first policy tried",
+        "The value function with γ = 0",
+        "The maximum value function over all possible policies: V*(s) = max_π V^π(s)",
+        "The value of the terminal state"
+      ],
+      "correctIndex": 2,
+      "explanation": "V*(s) gives the best possible expected return from state s — the return achieved by following the optimal policy."
+    },
+    {
+      "id": 21,
+      "question": "What is the 'optimal action-value function' Q*(s, a)?",
+      "options": [
+        "The Q-value of a random policy",
+        "The immediate reward R(s,a)",
+        "The maximum Q-value over all policies: Q*(s,a) = max_π Q^π(s,a)",
+        "The transition probability"
+      ],
+      "correctIndex": 2,
+      "explanation": "Q*(s, a) gives the best possible expected return of taking action a in state s and then following the optimal policy thereafter."
+    },
+    {
+      "id": 22,
+      "question": "How can an optimal policy be derived from Q*(s, a)?",
+      "options": [
+        "By choosing actions randomly",
+        "By minimizing Q*(s, a)",
+        "By selecting the action that maximizes Q*(s, a) in each state: π*(s) = argmax_a Q*(s, a)",
+        "By averaging all Q-values"
+      ],
+      "correctIndex": 2,
+      "explanation": "If you know Q*(s, a), the optimal policy is simply to choose the action with the highest Q-value in each state."
+    },
+    {
+      "id": 23,
+      "question": "What is the Bellman Optimality Equation for V*(s)?",
+      "options": [
+        "V*(s) = R(s)",
+        "V*(s) = Σ_a π(a|s) V*(s)",
+        "V*(s) = max_a Σ_{s'} P(s'|s,a) [R(s,a) + γV*(s')]",
+        "V*(s) = γ * max_s V*(s)"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Bellman Optimality Equation for V* takes the maximum over actions rather than the expectation, reflecting that the optimal policy chooses the best action in each state."
+    },
+    {
+      "id": 24,
+      "question": "What is the difference between the Bellman Equation and the Bellman Optimality Equation?",
+      "options": [
+        "They are the same",
+        "The Optimality Equation does not use discounting",
+        "The Bellman Equation uses expectation over actions (for a given policy); the Optimality Equation uses max over actions (for the optimal policy)",
+        "The Bellman Equation is only for Q-functions"
+      ],
+      "correctIndex": 2,
+      "explanation": "The standard Bellman Equation evaluates a specific policy (expectation over actions). The Optimality Equation finds the best possible values (max over actions)."
+    },
+    {
+      "id": 25,
+      "question": "What is a 'finite MDP'?",
+      "options": [
+        "An MDP that ends after one step",
+        "An MDP that never terminates",
+        "An MDP with no rewards",
+        "An MDP with a finite number of states and actions"
+      ],
+      "correctIndex": 3,
+      "explanation": "A finite MDP has a finite (countable) number of states and a finite number of actions available in each state. Most tabular RL methods assume finite MDPs."
+    },
+    {
+      "id": 26,
+      "question": "What is an 'episodic task' in reinforcement learning?",
+      "options": [
+        "A task that never ends",
+        "A task with no rewards",
+        "A task with only one action",
+        "A task that naturally breaks into episodes, each ending in a terminal state (like a game)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Episodic tasks have a natural ending (terminal state). Examples include games, where each play is an episode. The return is the sum of rewards within that episode."
+    },
+    {
+      "id": 27,
+      "question": "What is a 'continuing task' in reinforcement learning?",
+      "options": [
+        "A task that always fails",
+        "A task with fixed-length episodes",
+        "A task with only one episode",
+        "A task that goes on forever without a terminal state"
+      ],
+      "correctIndex": 3,
+      "explanation": "Continuing tasks have no terminal state and go on indefinitely (or at least for a very long time). Examples include ongoing process control or stock trading."
+    },
+    {
+      "id": 28,
+      "question": "How is the return defined differently for episodic vs continuing tasks?",
+      "options": [
+        "They use the same definition",
+        "Continuing tasks only use immediate rewards",
+        "Episodic tasks never discount",
+        "Episodic tasks sum rewards until termination; continuing tasks require discounting to keep returns finite"
+      ],
+      "correctIndex": 3,
+      "explanation": "In episodic tasks, returns are sums until the episode ends. In continuing tasks, discounting (γ < 1) is necessary to prevent infinite returns."
+    },
+    {
+      "id": 29,
+      "question": "What does it mean for a policy to be 'deterministic'?",
+      "options": [
+        "The policy uses random actions",
+        "The policy depends on the reward function",
+        "The policy changes over time",
+        "The policy maps each state to exactly one action: π(s) = a"
+      ],
+      "correctIndex": 3,
+      "explanation": "A deterministic policy always chooses the same action for a given state. It can be represented as a function π(s) that outputs a single action."
+    },
+    {
+      "id": 30,
+      "question": "What does it mean for a policy to be 'stochastic'?",
+      "options": [
+        "The policy always chooses the same action",
+        "The policy is optimal",
+        "The policy never explores",
+        "The policy defines a probability distribution over actions for each state: π(a|s)"
+      ],
+      "correctIndex": 3,
+      "explanation": "A stochastic policy specifies probabilities for each action in each state: π(a|s) = P(A=a | S=s). This allows for exploration and mixed strategies."
+    },
+    {
+      "id": 31,
+      "question": "What is a 'stationary policy'?",
+      "options": [
+        "A policy that changes at every time step",
+        "A policy with random actions",
+        "A policy that only works in static environments",
+        "A policy that does not change over time — the same mapping from states to actions is used throughout"
+      ],
+      "correctIndex": 3,
+      "explanation": "A stationary policy is time-independent. The decision rule is the same at every time step, depending only on the current state, not on how long the episode has been running."
+    },
+    {
+      "id": 32,
+      "question": "What is 'expected return' in reinforcement learning?",
+      "options": [
+        "The maximum possible return",
+        "The sum of all possible returns",
+        "The return of the first episode only",
+        "The average return the agent can expect when following a policy, accounting for environment randomness"
+      ],
+      "correctIndex": 3,
+      "explanation": "Expected return averages over all possible trajectories, weighted by their probabilities, when following a given policy in a given environment."
+    },
+    {
+      "id": 33,
+      "question": "In the context of MDPs, what is a 'transition model'?",
+      "options": [
+        "The agent's neural network",
+        "The policy function",
+        "The reward function",
+        "The function P(s'|s,a) that defines the dynamics of the environment"
+      ],
+      "correctIndex": 3,
+      "explanation": "The transition model (or dynamics) defines how the environment changes in response to actions. It gives the probability of each possible next state."
+    },
+    {
+      "id": 34,
+      "question": "What is the 'reward hypothesis' in reinforcement learning?",
+      "options": [
+        "All problems can be solved with high rewards",
+        "The agent should ignore rewards",
+        "Rewards must always be positive",
+        "All goals can be described as the maximization of expected cumulative reward"
+      ],
+      "correctIndex": 3,
+      "explanation": "The reward hypothesis states that any goal-seeking behavior can be formulated as maximizing some notion of expected cumulative reward."
+    },
+    {
+      "id": 35,
+      "question": "Why is the Markov assumption important for MDPs?",
+      "options": [
+        "It makes the math more complex",
+        "It guarantees optimal policies exist",
+        "It ensures the environment is deterministic",
+        "It simplifies decision-making because the agent only needs to consider the current state, not the entire history"
+      ],
+      "correctIndex": 3,
+      "explanation": "The Markov assumption makes RL tractable. If the state is Markovian, the agent can make optimal decisions using only the current state, without needing to remember the full history."
+    },
+    {
+      "id": 36,
+      "question": "What is a 'history' in reinforcement learning?",
+      "options": [
+        "The agent's final reward",
+        "The set of all possible actions",
+        "The neural network architecture",
+        "The sequence of all past states, actions, and rewards up to the current time step"
+      ],
+      "correctIndex": 3,
+      "explanation": "The history is the complete sequence of interactions: (S_0, A_0, R_1, S_1, A_1, R_2, ...). In a Markovian environment, the current state is a sufficient summary of the history."
+    },
+    {
+      "id": 37,
+      "question": "What does it mean when we say the state is a 'sufficient statistic'?",
+      "options": [
+        "The state contains all the data ever collected",
+        "The state is the initial state only",
+        "The state is very large",
+        "The state contains all information necessary to predict the future, making the history irrelevant"
+      ],
+      "correctIndex": 3,
+      "explanation": "A sufficient statistic captures all relevant information. If the state is Markovian, it is a sufficient statistic — the history provides no additional predictive value."
+    },
+    {
+      "id": 38,
+      "question": "What is the difference between a 'model' and a 'model-free' RL algorithm regarding knowledge of P(s'|s,a)?",
+      "options": [
+        "There is no difference",
+        "Model-based algorithms use or learn P(s'|s,a); model-free algorithms do not",
+        "Model-free algorithms always perform better",
+        "Model-based algorithms never use rewards"
+      ],
+      "correctIndex": 1,
+      "explanation": "Model-based RL uses or learns the transition dynamics P(s'|s,a). Model-free RL learns value functions or policies directly from experience without explicitly modeling transitions."
+    },
+    {
+      "id": 39,
+      "question": "What is 'planning' in the context of model-based reinforcement learning?",
+      "options": [
+        "Writing a project plan",
+        "Using a known or learned model of the environment to simulate future trajectories and choose the best action",
+        "Randomly selecting actions",
+        "Copying another agent's behavior"
+      ],
+      "correctIndex": 1,
+      "explanation": "Planning uses a model to simulate what would happen for different action sequences, enabling the agent to reason about consequences before taking actions."
+    },
+    {
+      "id": 40,
+      "question": "What is 'prediction' in reinforcement learning?",
+      "options": [
+        "Forecasting the weather",
+        "Evaluating a given policy by estimating its value function — predicting how well the policy will perform",
+        "Creating a new policy",
+        "Modifying the environment"
+      ],
+      "correctIndex": 1,
+      "explanation": "The prediction problem is: given a policy, estimate how good it is (its value function). This is also called policy evaluation."
+    },
+    {
+      "id": 41,
+      "question": "What is 'control' in reinforcement learning?",
+      "options": [
+        "Controlling the environment's temperature",
+        "Finding the optimal policy — the process of improving the policy to maximize returns",
+        "Predicting the next state",
+        "Measuring the reward"
+      ],
+      "correctIndex": 1,
+      "explanation": "The control problem is: find the optimal policy. This involves both evaluating policies and improving them to achieve maximum expected return."
+    },
+    {
+      "id": 42,
+      "question": "What is 'policy evaluation' in dynamic programming?",
+      "options": [
+        "Creating a new policy",
+        "Computing the value function V^π for a given policy π by iteratively applying the Bellman equation",
+        "Selecting actions randomly",
+        "Changing the reward function"
+      ],
+      "correctIndex": 1,
+      "explanation": "Policy evaluation computes how good a given policy is by iteratively updating the value function using the Bellman equation until convergence."
+    },
+    {
+      "id": 43,
+      "question": "What is 'policy improvement' in dynamic programming?",
+      "options": [
+        "Evaluating the current policy",
+        "Creating a better policy by making it greedy with respect to the current value function",
+        "Randomly changing the policy",
+        "Deleting the current policy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Policy improvement constructs a new policy that is greedy with respect to the current value function — in each state, it chooses the action with the highest expected return."
+    },
+    {
+      "id": 44,
+      "question": "What is 'policy iteration'?",
+      "options": [
+        "Evaluating a policy once",
+        "Alternating between policy evaluation and policy improvement until the policy converges to optimal",
+        "Randomly switching between policies",
+        "Evaluating all policies simultaneously"
+      ],
+      "correctIndex": 1,
+      "explanation": "Policy iteration alternates between evaluating the current policy and improving it. Each iteration produces a strictly better policy until the optimal policy is found."
+    },
+    {
+      "id": 45,
+      "question": "What is 'value iteration'?",
+      "options": [
+        "Evaluating a single policy forever",
+        "Directly computing the optimal value function by iteratively applying the Bellman optimality equation",
+        "Averaging all value functions",
+        "Randomly updating values"
+      ],
+      "correctIndex": 1,
+      "explanation": "Value iteration directly seeks V* by repeatedly applying the Bellman optimality equation. It combines policy evaluation and improvement into a single update."
+    },
+    {
+      "id": 46,
+      "question": "Which typically converges faster: policy iteration or value iteration?",
+      "options": [
+        "They are identical",
+        "Policy iteration usually converges in fewer iterations but each iteration is more expensive; value iteration has cheaper iterations but may need more",
+        "Value iteration always converges faster",
+        "Neither converges"
+      ],
+      "correctIndex": 1,
+      "explanation": "Policy iteration often converges in very few iterations because policy improvement makes large jumps. However, each policy evaluation can be expensive. Value iteration is simpler per iteration but may need more iterations."
+    },
+    {
+      "id": 47,
+      "question": "What is the main assumption of dynamic programming methods in RL?",
+      "options": [
+        "The environment is deterministic",
+        "A perfect model of the environment (transition probabilities and rewards) is known",
+        "The agent has infinite memory",
+        "The state space is continuous"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dynamic programming methods (policy iteration, value iteration) require a complete and accurate model of the MDP — they need to know P(s'|s,a) and R(s,a)."
+    },
+    {
+      "id": 48,
+      "question": "Why can't standard dynamic programming methods be used when the model is unknown?",
+      "options": [
+        "They can still be used",
+        "They require explicit knowledge of transition probabilities and rewards to compute expectations",
+        "They only work with neural networks",
+        "They are too fast"
+      ],
+      "correctIndex": 1,
+      "explanation": "DP methods need the model to compute expected values. When the model is unknown, model-free methods like Monte Carlo or Temporal Difference learning must be used instead."
+    },
+    {
+      "id": 49,
+      "question": "What is the 'curse of dimensionality' in the context of MDPs?",
+      "options": [
+        "The problem becomes easier with more dimensions",
+        "As the number of states grows exponentially, tabular methods become computationally infeasible",
+        "The reward decreases",
+        "The discount factor must increase"
+      ],
+      "correctIndex": 1,
+      "explanation": "The curse of dimensionality means that as the state space grows (e.g., adding more features), the number of possible states grows exponentially, making exact methods impractical."
+    },
+    {
+      "id": 50,
+      "question": "How does deep reinforcement learning address the curse of dimensionality?",
+      "options": [
+        "By reducing the number of states",
+        "By using neural networks to approximate value functions and policies, generalizing across similar states",
+        "By eliminating actions",
+        "By making the environment deterministic"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deep neural networks approximate value functions and policies, allowing the agent to generalize from seen states to unseen similar states, effectively handling large or continuous state spaces."
+    }
+  ]
+}
