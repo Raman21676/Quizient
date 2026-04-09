@@ -275,9 +275,57 @@ intl: ^0.19.0
 
 ---
 
+## Activities (April 9, 2026)
+
+### Activity 1: Created Challenge C07 (50 Questions)
+- **File:** `assets/questions/challenge_07.json`
+- **Title:** Classification
+- **Topics covered:**
+  - MNIST dataset and binary/multiclass classification
+  - Confusion Matrix, Accuracy, Precision, Recall
+  - F1 Score and Precision/Recall tradeoff
+  - ROC curves, AUC, Precision-Recall curves
+  - One-vs-Rest (OvR) and One-vs-One (OvO) strategies
+  - Multilabel and Multioutput classification
+  - Cross-validation and Stratified k-fold
+  - Error analysis and classification metrics
+- **Answer distribution:** 12 A, 13 B, 12 C, 13 D
+
+### Activity 2: Created Challenge C08 (50 Questions)
+- **File:** `assets/questions/challenge_08.json`
+- **Title:** Training Models
+- **Topics covered:**
+  - Linear Regression: Normal Equation and Gradient Descent
+  - Batch, Stochastic, and Mini-batch Gradient Descent
+  - Feature Scaling and Learning Rate tuning
+  - Polynomial Regression and overfitting risks
+  - Learning Curves and Bias-Variance Tradeoff
+  - Regularization: Ridge (L2), Lasso (L1), Elastic Net
+  - Early Stopping
+  - Logistic Regression and Softmax Regression
+- **Answer distribution:** 12 A, 13 B, 12 C, 13 D
+
+### Activity 3: Updated UI and Data Files
+- Updated `lib/models/challenge_data.dart` with C07 and C08
+- Updated `assets/data/level2_data.json` (now 4 challenges)
+- Updated `assets/data/all_levels.json` (totalChallenges: 4 for Level 2)
+- Updated `lib/screens/home_screen.dart` (8 challenges, 400+ questions)
+- Updated `lib/screens/settings_screen.dart` (400 questions across 8 challenges)
+- Updated `lib/screens/progress_screen.dart` to show both Level 1 and Level 2 progress
+- Updated `README.md` with new challenge list
+
+### Current Structure
+```
+LEVEL 1 (AI-ML Fundamentals) - 4 Challenges, 200 questions
+LEVEL 2 (Intermediate ML Concepts) - 4 Challenges, 200 questions
+Total: 8 Challenges, 400 questions
+```
+
+---
+
 ## Next Steps / TODO
 
-1. **Chapter 3:** Extract and create questions for Classification (if available in book)
+1. **Chapter 5:** Extract and create questions for Support Vector Machines
 2. **Add More Levels:** Continue adding chapters as LEVEL 3, 4, etc.
 3. **Question Randomization:** Currently questions appear in fixed order
 4. **Timer Feature:** Add countdown timer for quizzes

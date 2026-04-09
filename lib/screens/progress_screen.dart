@@ -66,16 +66,31 @@ class ProgressScreen extends StatelessWidget {
 
             // Challenge Progress List
             Text(
-              'Challenge Progress',
+              'LEVEL 1 Progress',
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 16),
 
-            ...level1.challenges.map((challenge) {
-              final progress = progressProvider.getProgressForChallenge(challenge.id);
-              return _buildChallengeProgressTile(context, challenge, progress);
+            ...level1.challenges.asMap().entries.map((entry) {
+              final progress = progressProvider.getProgressForChallenge(entry.value.id);
+              return _buildChallengeProgressTile(context, entry.value, progress, entry.key);
+            }),
+
+            const SizedBox(height: 32),
+
+            Text(
+              'LEVEL 2 Progress',
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            ...level2.challenges.asMap().entries.map((entry) {
+              final progress = progressProvider.getProgressForChallenge(entry.value.id);
+              return _buildChallengeProgressTile(context, entry.value, progress, entry.key + 4);
             }),
           ],
         ),
@@ -192,9 +207,9 @@ class ProgressScreen extends StatelessWidget {
     BuildContext context,
     challenge,
     QuizProgress? progress,
+    int index,
   ) {
     final theme = Theme.of(context);
-    final index = level1.challenges.indexOf(challenge);
     final color = AppColors.challengeColors[index % AppColors.challengeColors.length];
     final hasProgress = progress != null;
     final percentage = hasProgress ? progress.percentage : 0.0;

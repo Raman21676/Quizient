@@ -1,0 +1,607 @@
+{
+  "challengeId": "C08",
+  "challengeName": "Training Models",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the Normal Equation in Linear Regression?",
+      "options": [
+        "A closed-form solution to find optimal parameters directly",
+        "An iterative optimization algorithm",
+        "A method for feature scaling",
+        "A regularization technique"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Normal Equation (theta = (X^T X)^(-1) X^T y) computes optimal parameters directly without iteration."
+    },
+    {
+      "id": 2,
+      "question": "What is the computational complexity of the Normal Equation?",
+      "options": [
+        "O(n)",
+        "O(n²)",
+        "O(n³)",
+        "O(log n)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Inverting X^T X has O(n³) complexity, making it slow for large numbers of features."
+    },
+    {
+      "id": 3,
+      "question": "When is the Normal Equation preferred over Gradient Descent?",
+      "options": [
+        "When the number of features is relatively small (under 10,000)",
+        "When there are millions of features",
+        "When working with online learning",
+        "When regularization is required"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Normal Equation is fast and exact for small feature sets but becomes infeasible with many features."
+    },
+    {
+      "id": 4,
+      "question": "What is Gradient Descent?",
+      "options": [
+        "An iterative optimization algorithm that minimizes a cost function",
+        "A closed-form solution for linear regression",
+        "A method for splitting datasets",
+        "A feature selection technique"
+      ],
+      "correctIndex": 0,
+      "explanation": "Gradient Descent iteratively adjusts parameters in the direction of steepest cost function decrease."
+    },
+    {
+      "id": 5,
+      "question": "What does the learning rate control in Gradient Descent?",
+      "options": [
+        "The size of each step toward the minimum",
+        "The number of iterations",
+        "The regularization strength",
+        "The batch size"
+      ],
+      "correctIndex": 0,
+      "explanation": "The learning rate determines how large each step is. Too large causes divergence; too small causes slow convergence."
+    },
+    {
+      "id": 6,
+      "question": "What happens if the learning rate is too high in Gradient Descent?",
+      "options": [
+        "The algorithm may overshoot the minimum and fail to converge",
+        "The algorithm converges very slowly",
+        "The algorithm becomes more accurate",
+        "Nothing significant happens"
+      ],
+      "correctIndex": 0,
+      "explanation": "A high learning rate can cause the algorithm to bounce around or diverge, never reaching the minimum."
+    },
+    {
+      "id": 7,
+      "question": "What happens if the learning rate is too low in Gradient Descent?",
+      "options": [
+        "The algorithm takes many iterations to converge, wasting time",
+        "The algorithm converges quickly",
+        "The algorithm finds a better minimum",
+        "The algorithm stops immediately"
+      ],
+      "correctIndex": 0,
+      "explanation": "A low learning rate ensures convergence but may require an excessive number of iterations."
+    },
+    {
+      "id": 8,
+      "question": "What is Batch Gradient Descent?",
+      "options": [
+        "Using a single random instance per step",
+        "Using a small random subset per step",
+        "Using the entire training set to compute gradients at each step",
+        "Using only the most recent data"
+      ],
+      "correctIndex": 2,
+      "explanation": "Batch Gradient Descent uses the full training set to compute the gradient, making each step accurate but slow."
+    },
+    {
+      "id": 9,
+      "question": "What is Stochastic Gradient Descent (SGD)?",
+      "options": [
+        "Using a single random instance per step",
+        "Using the full training set per step",
+        "Using a small subset per step",
+        "Using a deterministic order of instances"
+      ],
+      "correctIndex": 0,
+      "explanation": "SGD uses one random instance at a time, making it fast and capable of escaping local minima."
+    },
+    {
+      "id": 10,
+      "question": "What is a key advantage of Stochastic Gradient Descent over Batch Gradient Descent?",
+      "options": [
+        "It is faster and can escape local minima due to noise",
+        "It always finds the global minimum",
+        "It is more stable and converges smoothly",
+        "It requires less memory but is slower"
+      ],
+      "correctIndex": 0,
+      "explanation": "SGD's randomness helps escape local minima, and processing one instance at a time is computationally cheaper."
+    },
+    {
+      "id": 11,
+      "question": "What is Mini-batch Gradient Descent?",
+      "options": [
+        "Using the full dataset per step",
+        "Using a single instance per step",
+        "Using a small random subset (mini-batch) of data per step",
+        "Using only the most difficult instances"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mini-batch GD uses small batches (e.g., 32 instances), balancing the stability of batch GD and the speed of SGD."
+    },
+    {
+      "id": 12,
+      "question": "Which Gradient Descent variant is most commonly used in practice for deep learning?",
+      "options": [
+        "Batch Gradient Descent",
+        "Stochastic Gradient Descent",
+        "Mini-batch Gradient Descent",
+        "Normal Equation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mini-batch GD is the standard in deep learning because it leverages vectorized operations and GPU acceleration efficiently."
+    },
+    {
+      "id": 13,
+      "question": "What is feature scaling and why is it important for Gradient Descent?",
+      "options": [
+        "It ensures all features have similar scales, helping GD converge faster",
+        "It reduces the number of features",
+        "It increases model complexity",
+        "It is only needed for polynomial regression"
+      ],
+      "correctIndex": 0,
+      "explanation": "When features have different scales, the cost function is elongated, causing GD to oscillate and converge slowly."
+    },
+    {
+      "id": 14,
+      "question": "Which feature scaling method subtracts the mean and divides by the standard deviation?",
+      "options": [
+        "Standardization (Z-score normalization)",
+        "Min-max scaling",
+        "Robust scaling",
+        "Max-abs scaling"
+      ],
+      "correctIndex": 0,
+      "explanation": "Standardization transforms data to have zero mean and unit variance, which is ideal for Gradient Descent."
+    },
+    {
+      "id": 15,
+      "question": "What does the cost function (Mean Squared Error) measure in Linear Regression?",
+      "options": [
+        "The correlation between features",
+        "The number of misclassified instances",
+        "The average squared difference between predictions and actual values",
+        "The model's training time"
+      ],
+      "correctIndex": 2,
+      "explanation": "MSE = (1/m) * sum((predicted - actual)²). It quantifies the average squared prediction error."
+    },
+    {
+      "id": 16,
+      "question": "What is Polynomial Regression?",
+      "options": [
+        "A type of linear regression with polynomial features",
+        "A regression that uses polynomial time complexity",
+        "A method for solving polynomial equations",
+        "A classification technique"
+      ],
+      "correctIndex": 0,
+      "explanation": "Polynomial Regression adds polynomial features (e.g., x², x³) to linear regression to model nonlinear relationships."
+    },
+    {
+      "id": 17,
+      "question": "How can Linear Regression model nonlinear relationships?",
+      "options": [
+        "By using a nonlinear activation function",
+        "By increasing the learning rate",
+        "By adding polynomial features or other transformed features",
+        "By reducing regularization"
+      ],
+      "correctIndex": 2,
+      "explanation": "Adding polynomial features (x², x³) or other transformations allows linear models to fit nonlinear data patterns."
+    },
+    {
+      "id": 18,
+      "question": "What is the main risk of using a very high polynomial degree in Polynomial Regression?",
+      "options": [
+        "Underfitting",
+        "Faster training",
+        "Overfitting",
+        "Better generalization"
+      ],
+      "correctIndex": 2,
+      "explanation": "High-degree polynomials can fit training data perfectly but perform poorly on new data due to overfitting."
+    },
+    {
+      "id": 19,
+      "question": "What are Learning Curves used for?",
+      "options": [
+        "To plot the learning rate over time",
+        "To visualize the decision boundary",
+        "To diagnose underfitting and overfitting by plotting training and validation error vs training set size",
+        "To select the best optimizer"
+      ],
+      "correctIndex": 2,
+      "explanation": "Learning curves show how training and validation errors change as the training set grows, revealing underfitting or overfitting."
+    },
+    {
+      "id": 20,
+      "question": "What do Learning Curves indicate when both training and validation errors are high and close together?",
+      "options": [
+        "Overfitting",
+        "Perfect fit",
+        "Underfitting",
+        "Data leakage"
+      ],
+      "correctIndex": 2,
+      "explanation": "Both errors being high indicates the model is too simple to capture the data pattern — underfitting."
+    },
+    {
+      "id": 21,
+      "question": "What do Learning Curves indicate when training error is low but validation error is much higher?",
+      "options": [
+        "Underfitting",
+        "Perfect generalization",
+        "Overfitting",
+        "Insufficient data"
+      ],
+      "correctIndex": 2,
+      "explanation": "Low training error but high validation error is the classic signature of overfitting."
+    },
+    {
+      "id": 22,
+      "question": "What is the Bias-Variance Tradeoff?",
+      "options": [
+        "A method for selecting features",
+        "A loss function for regression",
+        "A technique for combining models",
+        "The balance between model simplicity (high bias) and model sensitivity to training data (high variance)"
+      ],
+      "correctIndex": 3,
+      "explanation": "High bias causes underfitting; high variance causes overfitting. The goal is to find a good balance."
+    },
+    {
+      "id": 23,
+      "question": "What is Regularization in machine learning?",
+      "options": [
+        "A technique to speed up training",
+        "A way to increase model complexity",
+        "A method for handling missing data",
+        "A technique to reduce overfitting by adding a penalty to the loss function"
+      ],
+      "correctIndex": 3,
+      "explanation": "Regularization constrains the model by penalizing large weights, reducing overfitting and improving generalization."
+    },
+    {
+      "id": 24,
+      "question": "What is Ridge Regression (L2 Regularization)?",
+      "options": [
+        "A regression that adds the absolute values of weights to the cost function",
+        "A regression that uses only one feature",
+        "A regression without any penalty",
+        "A regression that adds the squared values of weights to the cost function"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ridge adds alpha * sum(theta²) to the cost function, penalizing large weights but rarely setting them to zero."
+    },
+    {
+      "id": 25,
+      "question": "What is Lasso Regression (L1 Regularization)?",
+      "options": [
+        "A regression that adds squared weights to the cost function",
+        "A regression for classification only",
+        "A regression without regularization",
+        "A regression that adds absolute weights to the cost function and can produce sparse models"
+      ],
+      "correctIndex": 3,
+      "explanation": "Lasso adds alpha * sum(|theta|) to the cost function, which can drive some weights to exactly zero, performing feature selection."
+    },
+    {
+      "id": 26,
+      "question": "What is Elastic Net?",
+      "options": [
+        "A pure L1 regularization method",
+        "A pure L2 regularization method",
+        "A combination of L1 and L2 regularization",
+        "A method without any regularization"
+      ],
+      "correctIndex": 2,
+      "explanation": "Elastic Net combines Ridge and Lasso penalties, controlled by a mix ratio r. It inherits benefits from both."
+    },
+    {
+      "id": 27,
+      "question": "When should you prefer Lasso over Ridge Regression?",
+      "options": [
+        "When you believe only a few features are actually useful",
+        "When all features are equally important",
+        "When you have perfectly correlated features",
+        "When you want to keep all features"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lasso tends to select important features by driving unimportant ones to zero, which is useful when few features matter."
+    },
+    {
+      "id": 28,
+      "question": "What is Early Stopping in Gradient Descent?",
+      "options": [
+        "Stopping when the learning rate reaches zero",
+        "Stopping after a fixed number of epochs regardless of performance",
+        "Stopping when all weights become zero",
+        "Stopping training when validation error stops improving to prevent overfitting"
+      ],
+      "correctIndex": 3,
+      "explanation": "Early stopping monitors validation error and stops training when it stops improving, saving the best model."
+    },
+    {
+      "id": 29,
+      "question": "What is Logistic Regression used for?",
+      "options": [
+        "Predicting continuous values",
+        "Dimensionality reduction",
+        "Clustering",
+        "Binary classification"
+      ],
+      "correctIndex": 3,
+      "explanation": "Despite its name, Logistic Regression is a classification algorithm that estimates class probabilities using the logistic function."
+    },
+    {
+      "id": 30,
+      "question": "What is the logistic (sigmoid) function?",
+      "options": [
+        "A function that outputs values between -1 and 1",
+        "A function that outputs only integers",
+        "A linear function",
+        "A function that outputs values between 0 and 1"
+      ],
+      "correctIndex": 3,
+      "explanation": "The sigmoid function σ(z) = 1 / (1 + e^(-z)) maps any real value to the range (0, 1), representing probabilities."
+    },
+    {
+      "id": 31,
+      "question": "How does Logistic Regression make predictions?",
+      "options": [
+        "By computing the dot product of features and weights",
+        "By clustering the data",
+        "By finding the nearest neighbor",
+        "By applying the sigmoid function to the linear combination of features and weights"
+      ],
+      "correctIndex": 3,
+      "explanation": "Logistic Regression computes z = theta^T * x, then applies the sigmoid to get a probability, which is thresholded for classification."
+    },
+    {
+      "id": 32,
+      "question": "What cost function is used for Logistic Regression?",
+      "options": [
+        "Mean Squared Error",
+        "Mean Absolute Error",
+        "Hinge Loss",
+        "Log Loss (Cross-Entropy Loss)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Logistic Regression uses log loss (cross-entropy), which penalizes confident wrong predictions more heavily."
+    },
+    {
+      "id": 33,
+      "question": "Why is Mean Squared Error not suitable as a cost function for Logistic Regression?",
+      "options": [
+        "It is too simple",
+        "It is only for regression",
+        "It does not work with probabilities",
+        "The cost function becomes non-convex with many local minima, making optimization difficult"
+      ],
+      "correctIndex": 3,
+      "explanation": "MSE with the sigmoid function creates a non-convex loss landscape, causing Gradient Descent to get stuck in local minima."
+    },
+    {
+      "id": 34,
+      "question": "What is Softmax Regression?",
+      "options": [
+        "A regression technique for continuous outputs",
+        "A dimensionality reduction technique",
+        "A clustering algorithm",
+        "A generalization of Logistic Regression for multiclass classification"
+      ],
+      "correctIndex": 3,
+      "explanation": "Softmax Regression (Multinomial Logistic Regression) generalizes logistic regression to handle multiple classes."
+    },
+    {
+      "id": 35,
+      "question": "How does the Softmax function work?",
+      "options": [
+        "It returns the maximum value",
+        "It returns binary outputs",
+        "It normalizes each value independently",
+        "It converts raw scores into probabilities that sum to 1"
+      ],
+      "correctIndex": 3,
+      "explanation": "Softmax(z_i) = e^(z_i) / sum(e^(z_j)). It exponentiates and normalizes scores into a probability distribution."
+    },
+    {
+      "id": 36,
+      "question": "What is the main difference between Logistic Regression and Linear Regression?",
+      "options": [
+        "Logistic Regression is faster",
+        "Logistic Regression cannot use Gradient Descent",
+        "Logistic Regression uses a different optimizer",
+        "Logistic Regression predicts probabilities for classification while Linear Regression predicts continuous values"
+      ],
+      "correctIndex": 3,
+      "explanation": "Linear Regression predicts continuous outputs. Logistic Regression uses the sigmoid to predict class probabilities."
+    },
+    {
+      "id": 37,
+      "question": "What is the purpose of adding a bias term (intercept) in Linear Regression?",
+      "options": [
+        "To increase model complexity unnecessarily",
+        "To allow the model to fit data that does not pass through the origin",
+        "To reduce overfitting",
+        "To speed up training"
+      ],
+      "correctIndex": 1,
+      "explanation": "The bias term (theta_0) shifts the regression line up or down, allowing it to fit data with non-zero y-intercept."
+    },
+    {
+      "id": 38,
+      "question": "What does it mean if a model has high bias?",
+      "options": [
+        "It is too complex and overfits",
+        "It is too simple and underfits",
+        "It has too many features",
+        "It has perfect generalization"
+      ],
+      "correctIndex": 1,
+      "explanation": "High bias means the model makes strong assumptions about the data, often leading to underfitting."
+    },
+    {
+      "id": 39,
+      "question": "What does it mean if a model has high variance?",
+      "options": [
+        "It is too simple",
+        "It is too sensitive to training data and overfits",
+        "It generalizes perfectly",
+        "It has low complexity"
+      ],
+      "correctIndex": 1,
+      "explanation": "High variance means the model captures noise in the training data, leading to poor generalization (overfitting)."
+    },
+    {
+      "id": 40,
+      "question": "What is the effect of increasing the regularization hyperparameter alpha in Ridge Regression?",
+      "options": [
+        "It reduces the penalty on weights",
+        "It increases the penalty on weights, shrinking them toward zero",
+        "It has no effect",
+        "It increases model complexity"
+      ],
+      "correctIndex": 1,
+      "explanation": "Higher alpha means stronger regularization, pushing weights closer to zero and reducing overfitting."
+    },
+    {
+      "id": 41,
+      "question": "Can Gradient Descent get stuck in local minima when training a Linear Regression model?",
+      "options": [
+        "Yes, always",
+        "No, because the MSE cost function for Linear Regression is convex",
+        "Only with polynomial features",
+        "Only with regularization"
+      ],
+      "correctIndex": 1,
+      "explanation": "The MSE cost function for Linear Regression is convex (bowl-shaped), so Gradient Descent always converges to the global minimum."
+    },
+    {
+      "id": 42,
+      "question": "What is the difference between a parameter and a hyperparameter?",
+      "options": [
+        "They are the same thing",
+        "Parameters are learned during training; hyperparameters are set before training",
+        "Parameters are set manually; hyperparameters are learned",
+        "Hyperparameters are only used in deep learning"
+      ],
+      "correctIndex": 1,
+      "explanation": "Model parameters (like weights) are learned from data. Hyperparameters (like learning rate, alpha) are set beforehand."
+    },
+    {
+      "id": 43,
+      "question": "Which Scikit-Learn class implements Ridge Regression?",
+      "options": [
+        "LinearRegression",
+        "Ridge",
+        "Lasso",
+        "ElasticNet"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scikit-Learn provides the Ridge class for Ridge Regression (L2 regularization)."
+    },
+    {
+      "id": 44,
+      "question": "Which Scikit-Learn class implements Lasso Regression?",
+      "options": [
+        "Ridge",
+        "Lasso",
+        "ElasticNet",
+        "SGDRegressor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scikit-Learn provides the Lasso class for Lasso Regression (L1 regularization)."
+    },
+    {
+      "id": 45,
+      "question": "Which Scikit-Learn class implements Elastic Net?",
+      "options": [
+        "Ridge",
+        "Lasso",
+        "ElasticNet",
+        "LinearRegression"
+      ],
+      "correctIndex": 2,
+      "explanation": "Scikit-Learn provides the ElasticNet class for combined L1 and L2 regularization."
+    },
+    {
+      "id": 46,
+      "question": "What is the main advantage of using SGDRegressor in Scikit-Learn?",
+      "options": [
+        "It finds exact solutions",
+        "It handles large datasets efficiently using stochastic gradient descent",
+        "It does not require feature scaling",
+        "It automatically selects features"
+      ],
+      "correctIndex": 1,
+      "explanation": "SGDRegressor uses Stochastic Gradient Descent, making it suitable for large datasets that do not fit in memory."
+    },
+    {
+      "id": 47,
+      "question": "In Polynomial Regression, what does the PolynomialFeatures transformer do?",
+      "options": [
+        "It reduces the degree of the polynomial",
+        "It generates polynomial and interaction features from the original features",
+        "It scales the features",
+        "It selects the best polynomial degree"
+      ],
+      "correctIndex": 1,
+      "explanation": "PolynomialFeatures generates new features like x1², x2², x1*x2, allowing linear models to fit polynomial relationships."
+    },
+    {
+      "id": 48,
+      "question": "What is the shape of the decision boundary in Logistic Regression?",
+      "options": [
+        "Circular",
+        "Linear (a straight line or hyperplane)",
+        "Polynomial",
+        "Random"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standard Logistic Regression has a linear decision boundary because it is based on a linear combination of inputs."
+    },
+    {
+      "id": 49,
+      "question": "How can Logistic Regression model nonlinear decision boundaries?",
+      "options": [
+        "By increasing the learning rate",
+        "By adding polynomial features or using kernel tricks",
+        "By reducing regularization",
+        "By using a smaller batch size"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adding polynomial features or using kernels allows Logistic Regression to create nonlinear decision boundaries."
+    },
+    {
+      "id": 50,
+      "question": "What is a common strategy for choosing the degree of a polynomial in Polynomial Regression?",
+      "options": [
+        "Always use degree 10",
+        "Use cross-validation to find the degree that minimizes validation error",
+        "Use the highest degree possible",
+        "Use degree 1 for all problems"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cross-validation helps find the optimal polynomial degree that balances underfitting and overfitting."
+    }
+  ]
+}

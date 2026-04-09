@@ -72,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.quiz, color: theme.colorScheme.primary),
                   title: const Text('Total Questions'),
-                  subtitle: const Text('200 questions across 4 challenges'),
+                  subtitle: const Text('400 questions across 8 challenges'),
                 ),
               ],
             ),

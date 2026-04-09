@@ -2,7 +2,7 @@
   "levelId": 2,
   "levelName": "LEVEL 2",
   "subtitle": "Intermediate ML Concepts",
-  "totalChallenges": 2,
+  "totalChallenges": 4,
   "challenges": [
     {
       "challengeId": "C05",
@@ -22,6 +22,26 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "architecture",
+      "questions": []
+    },
+    {
+      "challengeId": "C07",
+      "title": "Classification",
+      "description": "Master classification techniques: confusion matrix, precision, recall, F1 score, ROC curves, multiclass and multilabel classification.",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "category",
+      "questions": []
+    },
+    {
+      "challengeId": "C08",
+      "title": "Training Models",
+      "description": "Deep dive into model training: Gradient Descent, Polynomial Regression, Learning Curves, Regularization, Logistic and Softmax Regression.",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "model_training",
       "questions": []
     }
   ]
