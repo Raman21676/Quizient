@@ -130,7 +130,7 @@
         "Assigning credit scores to humans",
         "Paying rewards to the environment",
         "Determining which actions in a sequence were responsible for the final outcome",
-        "Calculating the agent's bank account"
+        "Tracking the number of states visited"
       ],
       "correctIndex": 2,
       "explanation": "When rewards are delayed, the agent must figure out which actions in a long sequence actually contributed to the outcome — this is the credit assignment problem."
@@ -547,7 +547,7 @@
       "id": 46,
       "question": "What is 'transfer learning' in the context of reinforcement learning?",
       "options": [
-        "Moving money between bank accounts",
+        "Combining multiple agents into one",
         "Applying knowledge learned in one task to improve learning on a different but related task",
         "Copying another agent exactly",
         "Transferring data between computers"

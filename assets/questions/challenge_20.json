@@ -381,7 +381,7 @@
       "options": [
         "It always converges in one step",
         "It never converges",
-        "It uses a magic constant",
+        "The discount factor automatically approaches zero",
         "Each policy improvement step makes the policy better (or equal), and each evaluation step makes the values more accurate. The two processes drive each other toward optimality"
       ],
       "correctIndex": 3,

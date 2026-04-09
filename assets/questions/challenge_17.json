@@ -475,7 +475,7 @@
       "id": 40,
       "question": "What is 'prediction' in reinforcement learning?",
       "options": [
-        "Forecasting the weather",
+        "Predicting the next state transition probabilities",
         "Evaluating a given policy by estimating its value function — predicting how well the policy will perform",
         "Creating a new policy",
         "Modifying the environment"
