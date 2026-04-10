@@ -347,6 +347,12 @@ final Level level6 = Level(
       subtitle: 'Kubernetes & Container Orchestration',
       assetPath: 'assets/questions/challenge_48.json',
     ),
+    ChallengeInfo(
+      id: 'C49',
+      name: 'CHALLENGE 49',
+      subtitle: 'IaC, Configuration Management & Monitoring',
+      assetPath: 'assets/questions/challenge_49.json',
+    ),
   ],
 );
 
