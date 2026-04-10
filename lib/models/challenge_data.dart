@@ -329,6 +329,12 @@ final Level level6 = Level(
       subtitle: 'Docker & Containerization',
       assetPath: 'assets/questions/challenge_45.json',
     ),
+    ChallengeInfo(
+      id: 'C46',
+      name: 'CHALLENGE 46',
+      subtitle: 'CI/CD with Jenkins',
+      assetPath: 'assets/questions/challenge_46.json',
+    ),
   ],
 );
 

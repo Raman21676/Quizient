@@ -1,0 +1,606 @@
+{
+  "challengeId": "C46",
+  "challengeName": "CI/CD with Jenkins",
+  "questions": [
+    {
+      "id": "C46_Q1",
+      "question": "What does CI/CD stand for?",
+      "options": [
+        "Continuous Integration / Continuous Deployment",
+        "Code Integration / Code Deployment",
+        "Computer Integration / Computer Deployment",
+        "Central Integration / Central Deployment"
+      ],
+      "correctIndex": 0,
+      "explanation": "CI/CD stands for Continuous Integration / Continuous Deployment, automating the software release cycle."
+    },
+    {
+      "id": "C46_Q2",
+      "question": "What is the goal of CI/CD?",
+      "options": [
+        "To deploy once per year",
+        "To release early and often by automating the software release cycle",
+        "To manually deploy code",
+        "To avoid testing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The goal of CI/CD is to 'release early and often' by automating the entire software release cycle."
+    },
+    {
+      "id": "C46_Q3",
+      "question": "What is Continuous Integration (CI)?",
+      "options": [
+        "Manual code merging",
+        "Automatically building, testing, and merging code changes to a shared repository",
+        "Deploying to production manually",
+        "Writing documentation"
+      ],
+      "correctIndex": 2,
+      "explanation": "CI means new code changes are continuously built, tested, and merged to a shared repository."
+    },
+    {
+      "id": "C46_Q4",
+      "question": "What is Continuous Deployment (CD)?",
+      "options": [
+        "Manual deployment to servers",
+        "Automatically deploying to different environments including production",
+        "Only building code",
+        "Only running tests"
+      ],
+      "correctIndex": 3,
+      "explanation": "CD automates deployment to different environments, including releasing to production."
+    },
+    {
+      "id": "C46_Q5",
+      "question": "What is Jenkins?",
+      "options": [
+        "A programming language",
+        "An open-source automation server for building, testing, and deploying code",
+        "A database system",
+        "A version control system"
+      ],
+      "correctIndex": 0,
+      "explanation": "Jenkins is an open-source automation server used for building, testing, and deploying software."
+    },
+    {
+      "id": "C46_Q6",
+      "question": "What can Jenkins do?",
+      "options": [
+        "Only build code",
+        "Deploy artifacts, run tests, build artifacts, publish artifacts, send notifications",
+        "Only send emails",
+        "Only manage databases"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jenkins can deploy artifacts, run tests, build and publish artifacts, send notifications, and more."
+    },
+    {
+      "id": "C46_Q7",
+      "question": "What is a Jenkins Plugin?",
+      "options": [
+        "A physical device",
+        "An extension to Jenkins functionality for integrating with other technologies",
+        "A type of container",
+        "A database connector"
+      ],
+      "correctIndex": 2,
+      "explanation": "Plugins extend Jenkins functionality, enabling integration with Docker, build tools, repositories, etc."
+    },
+    {
+      "id": "C46_Q8",
+      "question": "How can Jenkins be installed?",
+      "options": [
+        "Only on Windows",
+        "As a Docker container or directly on the OS",
+        "Only on macOS",
+        "Only in the cloud"
+      ],
+      "correctIndex": 3,
+      "explanation": "Jenkins can be installed either as a Docker container or directly on the operating system."
+    },
+    {
+      "id": "C46_Q9",
+      "question": "What is the difference between a Jenkins Administrator and Jenkins User?",
+      "options": [
+        "There is no difference",
+        "Admin manages Jenkins setup; Users create and run jobs",
+        "Admin writes code; Users test code",
+        "Admin deploys; Users develop"
+      ],
+      "correctIndex": 0,
+      "explanation": "Administrators manage Jenkins setup, plugins, and clusters. Users create and run build jobs."
+    },
+    {
+      "id": "C46_Q10",
+      "question": "What are the two main types of Jenkins jobs?",
+      "options": [
+        "Public and Private",
+        "Freestyle and Pipeline",
+        "Local and Remote",
+        "Manual and Automatic"
+      ],
+      "correctIndex": 1,
+      "explanation": "The two main Jenkins job types are Freestyle (simple, UI-configured) and Pipeline (complex, script-based)."
+    },
+    {
+      "id": "C46_Q11",
+      "question": "What is a Freestyle job in Jenkins?",
+      "options": [
+        "A job with no configuration",
+        "A simple job orchestrated via UI with plugin input fields",
+        "A complex scripted job",
+        "A manual-only job"
+      ],
+      "correctIndex": 2,
+      "explanation": "Freestyle jobs are simple projects configured via the Jenkins UI with limited plugin options."
+    },
+    {
+      "id": "C46_Q12",
+      "question": "What is a Pipeline job in Jenkins?",
+      "options": [
+        "A simple UI job",
+        "A job for complex workflows with stages, configured via UI and scripting",
+        "A backup job",
+        "A monitoring job"
+      ],
+      "correctIndex": 3,
+      "explanation": "Pipeline jobs handle complex workflows with multiple stages and support both UI and code configuration."
+    },
+    {
+      "id": "C46_Q13",
+      "question": "What is Pipeline as Code?",
+      "options": [
+        "Writing pipeline configuration in code (Jenkinsfile) instead of UI",
+        "Drawing pipeline diagrams",
+        "Manual pipeline execution",
+        "Using only UI configuration"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pipeline as Code means writing pipeline definitions in a Jenkinsfile stored in version control."
+    },
+    {
+      "id": "C46_Q14",
+      "question": "What is a Jenkinsfile?",
+      "options": [
+        "A binary executable",
+        "A text file containing the definition of a Jenkins Pipeline",
+        "A log file",
+        "A configuration backup"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Jenkinsfile is a text file that contains the pipeline definition and is checked into source control."
+    },
+    {
+      "id": "C46_Q15",
+      "question": "What are the two syntax types for Jenkinsfile?",
+      "options": [
+        "JSON and XML",
+        "Declarative and Scripted",
+        "YAML and TOML",
+        "HTML and CSS"
+      ],
+      "correctIndex": 2,
+      "explanation": "Jenkinsfile supports Declarative Pipeline (easier, structured) and Scripted Pipeline (flexible, Groovy-based)."
+    },
+    {
+      "id": "C46_Q16",
+      "question": "Which is easier to get started with in Jenkinsfile?",
+      "options": [
+        "Scripted Pipeline",
+        "Declarative Pipeline",
+        "They are identical",
+        "Neither is easy"
+      ],
+      "correctIndex": 3,
+      "explanation": "Declarative Pipeline is easier to get started with due to its pre-defined structure."
+    },
+    {
+      "id": "C46_Q17",
+      "question": "Which pipeline type offers advanced scripting capabilities?",
+      "options": [
+        "Declarative Pipeline",
+        "Scripted Pipeline",
+        "Freestyle jobs",
+        "Matrix jobs"
+      ],
+      "correctIndex": 0,
+      "explanation": "Scripted Pipeline uses Groovy engine and offers advanced scripting capabilities and high flexibility."
+    },
+    {
+      "id": "C46_Q18",
+      "question": "What is the top-level element required in a Jenkinsfile?",
+      "options": [
+        "script",
+        "pipeline",
+        "job",
+        "build"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 'pipeline' block must be the top-level element in a Declarative Jenkinsfile."
+    },
+    {
+      "id": "C46_Q19",
+      "question": "What does the 'agent' directive specify in Jenkinsfile?",
+      "options": [
+        "The user running the build",
+        "Where to execute the pipeline",
+        "The build tools to use",
+        "The notifications to send"
+      ],
+      "correctIndex": 2,
+      "explanation": "The 'agent' directive specifies where the pipeline will execute (which node or executor)."
+    },
+    {
+      "id": "C46_Q20",
+      "question": "What are 'stages' in a Jenkins Pipeline?",
+      "options": [
+        "The final cleanup step",
+        "Where the actual work happens, containing multiple steps",
+        "The notification section",
+        "The credentials storage"
+      ],
+      "correctIndex": 3,
+      "explanation": "Stages divide the pipeline into logical sections (like Build, Test, Deploy) where work happens."
+    },
+    {
+      "id": "C46_Q21",
+      "question": "What is a Multibranch Pipeline in Jenkins?",
+      "options": [
+        "A pipeline that only runs on main branch",
+        "A pipeline that automatically discovers and manages Jenkinsfiles for different branches",
+        "A manual pipeline",
+        "A backup pipeline"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multibranch Pipeline automatically discovers, manages, and executes pipelines for branches containing a Jenkinsfile."
+    },
+    {
+      "id": "C46_Q22",
+      "question": "What is the 'post' section in Jenkinsfile used for?",
+      "options": [
+        "To define the start of the pipeline",
+        "To execute logic after all stages complete (always, success, failure)",
+        "To define environment variables",
+        "To specify the agent"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 'post' section executes steps after all stages complete, with conditions like always, success, or failure."
+    },
+    {
+      "id": "C46_Q23",
+      "question": "What are Jenkins Credentials used for?",
+      "options": [
+        "Storing build artifacts",
+        "Authenticating with external systems like Git, Docker registry, and SSH servers",
+        "Compiling code",
+        "Sending notifications"
+      ],
+      "correctIndex": 2,
+      "explanation": "Credentials store authentication information for accessing Git repositories, Docker registries, SSH servers, etc."
+    },
+    {
+      "id": "C46_Q24",
+      "question": "What are the two scopes for Jenkins Credentials?",
+      "options": [
+        "Public and Private",
+        "System and Global",
+        "Local and Remote",
+        "User and Admin"
+      ],
+      "correctIndex": 3,
+      "explanation": "System scope is only available on the Jenkins server. Global scope is accessible everywhere including jobs."
+    },
+    {
+      "id": "C46_Q25",
+      "question": "What types of credentials can Jenkins store?",
+      "options": [
+        "Only passwords",
+        "Secret text, username/password, secret files, SSH keys, certificates",
+        "Only API tokens",
+        "Only SSH keys"
+      ],
+      "correctIndex": 0,
+      "explanation": "Jenkins can store secret text, username/password, secret files, SSH keys, certificates, and Docker credentials."
+    },
+    {
+      "id": "C46_Q26",
+      "question": "What is a Jenkins Shared Library?",
+      "options": [
+        "A collection of books",
+        "Reusable pipeline code stored in external Git repositories",
+        "A backup system",
+        "A monitoring tool"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shared Libraries store reusable pipeline code in external Git repos to share between projects."
+    },
+    {
+      "id": "C46_Q27",
+      "question": "Why use Jenkins Shared Libraries?",
+      "options": [
+        "To slow down builds",
+        "To share common pipeline logic across multiple projects and reduce duplication",
+        "To increase code duplication",
+        "To make pipelines harder to maintain"
+      ],
+      "correctIndex": 2,
+      "explanation": "Shared Libraries reduce duplication by allowing common pipeline logic to be reused across projects."
+    },
+    {
+      "id": "C46_Q28",
+      "question": "What are the three ways to trigger Jenkins jobs?",
+      "options": [
+        "Only manually",
+        "Automatically via webhook, manually, and scheduled",
+        "Only scheduled",
+        "Only via API"
+      ],
+      "correctIndex": 3,
+      "explanation": "Jenkins jobs can be triggered automatically (webhook), manually, or on a schedule (like cron)."
+    },
+    {
+      "id": "C46_Q29",
+      "question": "What is a Git webhook in Jenkins?",
+      "options": [
+        "A type of credential",
+        "A mechanism to automatically trigger Jenkins builds upon Git commits",
+        "A backup tool",
+        "A security scanner"
+      ],
+      "correctIndex": 0,
+      "explanation": "A webhook automatically triggers a Jenkins build when code is pushed to a Git repository."
+    },
+    {
+      "id": "C46_Q30",
+      "question": "What is the purpose of the 'environment' directive in Jenkinsfile?",
+      "options": [
+        "To specify the deployment target",
+        "To define environment variables for the pipeline",
+        "To set the Git repository",
+        "To configure notifications"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 'environment' directive defines environment variables that can be used throughout the pipeline."
+    },
+    {
+      "id": "C46_Q31",
+      "question": "What does a MAJOR version increment indicate?",
+      "options": [
+        "Bug fixes",
+        "Big changes that are NOT backward-compatible",
+        "Minor feature additions",
+        "Documentation updates"
+      ],
+      "correctIndex": 2,
+      "explanation": "Major version increments indicate big, potentially breaking changes that are not backward-compatible."
+    },
+    {
+      "id": "C46_Q32",
+      "question": "What does a MINOR version increment indicate?",
+      "options": [
+        "Breaking changes",
+        "New backward-compatible features and API additions",
+        "Bug fixes only",
+        "Security patches"
+      ],
+      "correctIndex": 3,
+      "explanation": "Minor version increments indicate new backward-compatible features and API additions."
+    },
+    {
+      "id": "C46_Q33",
+      "question": "What does a PATCH version increment indicate?",
+      "options": [
+        "New features",
+        "Minor changes and bug fixes that don't change API",
+        "Breaking changes",
+        "Major updates"
+      ],
+      "correctIndex": 0,
+      "explanation": "Patch version increments indicate minor changes, bug fixes, and patches that don't change the API."
+    },
+    {
+      "id": "C46_Q34",
+      "question": "What does SNAPSHOT mean in versioning?",
+      "options": [
+        "A stable release",
+        "A pre-release version that is unstable and under development",
+        "A final version",
+        "A deprecated version"
+      ],
+      "correctIndex": 1,
+      "explanation": "SNAPSHOT indicates a pre-release version that is unstable and still under development."
+    },
+    {
+      "id": "C46_Q35",
+      "question": "Where should the Jenkinsfile be stored?",
+      "options": [
+        "Only on Jenkins server",
+        "In the project's Git repository",
+        "In a separate database",
+        "On a local machine only"
+      ],
+      "correctIndex": 2,
+      "explanation": "Best practice is to store Jenkinsfile in the project's Git repository for version control and collaboration."
+    },
+    {
+      "id": "C46_Q36",
+      "question": "What is the default name for a Jenkins Pipeline script?",
+      "options": [
+        "pipeline.txt",
+        "Jenkinsfile",
+        "build.xml",
+        "config.yaml"
+      ],
+      "correctIndex": 3,
+      "explanation": "The standard name for a Jenkins Pipeline script is 'Jenkinsfile' (case-sensitive)."
+    },
+    {
+      "id": "C46_Q37",
+      "question": "What should be at the top of a Jenkinsfile for syntax highlighting?",
+      "options": [
+        "#!/bin/bash",
+        "#!/usr/bin/env groovy",
+        "#python",
+        "#java"
+      ],
+      "correctIndex": 0,
+      "explanation": "Adding '#!/usr/bin/env groovy' at the top helps IDEs and GitHub properly detect the language for syntax highlighting."
+    },
+    {
+      "id": "C46_Q38",
+      "question": "What is the 'tools' directive used for in Jenkinsfile?",
+      "options": [
+        "To specify monitoring tools",
+        "To access build tools like npm, Gradle, or Maven",
+        "To specify notification tools",
+        "To list deployment targets"
+      ],
+      "correctIndex": 1,
+      "explanation": "The 'tools' directive allows the pipeline to access configured build tools like npm, Gradle, or Maven."
+    },
+    {
+      "id": "C46_Q39",
+      "question": "What are parameters in Jenkins Pipeline?",
+      "options": [
+        "Error messages",
+        "Input values that make builds more reusable",
+        "Output files",
+        "Log entries"
+      ],
+      "correctIndex": 2,
+      "explanation": "Parameters allow you to pass input values to builds, making them more reusable and configurable."
+    },
+    {
+      "id": "C46_Q40",
+      "question": "What types of parameters can be used in Jenkins?",
+      "options": [
+        "Only strings",
+        "String, choice, booleanParam, and more",
+        "Only numbers",
+        "Only dates"
+      ],
+      "correctIndex": 3,
+      "explanation": "Jenkins supports various parameter types including string, choice, booleanParam, password, and more."
+    },
+    {
+      "id": "C46_Q41",
+      "question": "Why should input steps have a timeout?",
+      "options": [
+        "To speed up builds",
+        "To avoid waiting indefinitely for user input",
+        "To reduce security",
+        "To increase resource usage"
+      ],
+      "correctIndex": 0,
+      "explanation": "Timeouts prevent builds from waiting forever for user input, ensuring pipelines don't hang indefinitely."
+    },
+    {
+      "id": "C46_Q42",
+      "question": "What is a Jenkins Build?",
+      "options": [
+        "A physical structure",
+        "The result of a single execution of a Project",
+        "A type of credential",
+        "A deployment server"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Build is the result of a single execution of a Jenkins Project/Job."
+    },
+    {
+      "id": "C46_Q43",
+      "question": "What is a Jenkins Project?",
+      "options": [
+        "A Git repository",
+        "A user-configured description of work Jenkins should perform",
+        "A Docker image",
+        "A database table"
+      ],
+      "correctIndex": 2,
+      "explanation": "A Project (formerly Job) is a user-configured description of work Jenkins should perform, like building software."
+    },
+    {
+      "id": "C46_Q44",
+      "question": "What is an IAM Role in AWS context for Jenkins?",
+      "options": [
+        "A user account",
+        "A role assumable by AWS services to grant access to other services",
+        "A password policy",
+        "A network setting"
+      ],
+      "correctIndex": 3,
+      "explanation": "IAM Roles can be assumed by AWS services (like EC2) to grant them access to other AWS services."
+    },
+    {
+      "id": "C46_Q45",
+      "question": "What is automatic versioning in CI/CD?",
+      "options": [
+        "Manual version updates",
+        "Build automation tool incrementing version automatically instead of manual updates",
+        "Deleting version numbers",
+        "Random version assignment"
+      ],
+      "correctIndex": 0,
+      "explanation": "Automatic versioning configures build tools to increment version numbers automatically during the build process."
+    },
+    {
+      "id": "C46_Q46",
+      "question": "Why is build automation at the heart of DevOps?",
+      "options": [
+        "It makes processes manual",
+        "It automates retrieval, testing, building, and deployment of code",
+        "It eliminates testing",
+        "It prevents deployment"
+      ],
+      "correctIndex": 1,
+      "explanation": "Build automation is central to DevOps as it automates the entire software delivery process."
+    },
+    {
+      "id": "C46_Q47",
+      "question": "What is the benefit of storing Jenkinsfile in Git?",
+      "options": [
+        "It makes it harder to find",
+        "Version history, team collaboration, and history tracking",
+        "It prevents editing",
+        "It slows down builds"
+      ],
+      "correctIndex": 2,
+      "explanation": "Storing Jenkinsfile in Git provides version history, enables team collaboration, and tracks changes over time."
+    },
+    {
+      "id": "C46_Q48",
+      "question": "What is the best practice for non-setup work in Jenkinsfile?",
+      "options": [
+        "Put everything in one step",
+        "Put non-setup work within a stage block for better visualization and debugging",
+        "Avoid using stages",
+        "Use only post section"
+      ],
+      "correctIndex": 3,
+      "explanation": "Placing non-setup work in stage blocks makes builds easier to visualize, debug, and understand."
+    },
+    {
+      "id": "C46_Q49",
+      "question": "What is the difference between Jenkins Job and Project?",
+      "options": [
+        "They are completely different",
+        "Job is deprecated; Project is the current term",
+        "Job is new; Project is old",
+        "There is no relation"
+      ],
+      "correctIndex": 0,
+      "explanation": "'Job' is a deprecated term synonymous with 'Project,' which is the current terminology in Jenkins."
+    },
+    {
+      "id": "C46_Q50",
+      "question": "What should be configured only once in Jenkins?",
+      "options": [
+        "Every build job",
+        "Initial setup like plugins and credentials that can be reused",
+        "Every pipeline stage",
+        "Every notification"
+      ],
+      "correctIndex": 1,
+      "explanation": "Initial setup including plugins, credentials, and tools only needs to be configured once and can be reused across projects."
+    }
+  ]
+}
