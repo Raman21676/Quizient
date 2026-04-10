@@ -335,6 +335,12 @@ final Level level6 = Level(
       subtitle: 'CI/CD with Jenkins',
       assetPath: 'assets/questions/challenge_46.json',
     ),
+    ChallengeInfo(
+      id: 'C47',
+      name: 'CHALLENGE 47',
+      subtitle: 'AWS Cloud Fundamentals',
+      assetPath: 'assets/questions/challenge_47.json',
+    ),
   ],
 );
 
