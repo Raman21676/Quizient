@@ -81,11 +81,11 @@
       "question": "What is Infrastructure as Code (IaC)?",
       "options": [
         "Writing code on physical infrastructure",
-        "A type of programming language",
         "Managing infrastructure through code and automation instead of manual processes",
+        "A type of programming language",
         "Hardware manufacturing process"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Infrastructure as Code means managing and provisioning infrastructure (servers, networks, etc.) through machine-readable definition files rather than manual configuration."
     },
     {
@@ -93,11 +93,11 @@
       "question": "What is the primary goal of Continuous Integration?",
       "options": [
         "To integrate different departments",
-        "To continuously monitor server logs",
         "To frequently merge code changes and validate them through automated testing",
+        "To continuously monitor server logs",
         "To integrate third-party APIs"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Continuous Integration involves frequently merging code changes into a central repository and validating them through automated builds and tests."
     },
     {
@@ -105,11 +105,11 @@
       "question": "What is the purpose of Continuous Delivery?",
       "options": [
         "Delivering physical packages continuously",
-        "Continuously writing documentation",
         "Automatically releasing code changes to production or staging environments",
+        "Continuously writing documentation",
         "Delivering presentations to stakeholders"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Continuous Delivery is the practice of automatically releasing code changes to production or staging environments after passing automated tests."
     },
     {
@@ -117,11 +117,11 @@
       "question": "What is container orchestration in DevOps?",
       "options": [
         "Managing shipping containers",
-        "Organizing code files in containers",
         "Automating the deployment, scaling, and management of containerized applications",
+        "Organizing code files in containers",
         "A type of database storage"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Container orchestration automates the deployment, management, scaling, and networking of containers across clusters of hosts."
     },
     {
@@ -129,11 +129,11 @@
       "question": "What is the role of monitoring in DevOps?",
       "options": [
         "Watching employees work",
-        "Monitoring social media",
         "Observing application and infrastructure performance to detect issues early",
+        "Monitoring social media",
         "Checking email notifications"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "Monitoring in DevOps involves observing application and infrastructure performance to detect and respond to issues proactively."
     },
     {
@@ -141,11 +141,11 @@
       "question": "What is an Operating System?",
       "options": [
         "A hardware component",
-        "A programming language",
         "Software that manages computer hardware and software resources and provides services for computer programs",
+        "A programming language",
         "A type of network cable"
       ],
-      "correctIndex": 2,
+      "correctIndex": 1,
       "explanation": "An Operating System is software that manages computer hardware and software resources and provides common services for computer programs."
     },
     {
@@ -188,60 +188,60 @@
       "id": "C40_Q16",
       "question": "What is the Kernel in an operating system?",
       "options": [
+        "The core program that provides basic services and manages hardware resources",
         "A type of computer virus",
         "A graphical user interface",
-        "An antivirus software",
-        "The core program that provides basic services and manages hardware resources"
+        "An antivirus software"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "The Kernel is the heart of the OS - a core program that provides basic services, manages hardware resources via drivers, and handles process scheduling."
     },
     {
       "id": "C40_Q17",
       "question": "What does the Kernel do when an application starts?",
       "options": [
+        "Starts the process, allocates resources, and cleans up when the app shuts down",
         "Displays a welcome message",
         "Connects to the internet",
-        "Opens a web browser",
-        "Starts the process, allocates resources, and cleans up when the app shuts down"
+        "Opens a web browser"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "When an application starts, the Kernel creates a process for it, allocates necessary resources (CPU, memory), and handles cleanup when the app terminates."
     },
     {
       "id": "C40_Q18",
       "question": "What are the main components of a Kernel?",
       "options": [
+        "Device drivers, dispatcher, scheduler, file system",
         "Mouse, keyboard, monitor",
         "Browser, email, chat",
-        "Tables, chairs, desks",
-        "Device drivers, dispatcher, scheduler, file system"
+        "Tables, chairs, desks"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "The Kernel consists of device drivers (for hardware communication), dispatcher, scheduler (for process management), and file system components."
     },
     {
       "id": "C40_Q19",
       "question": "What is the Application Layer in an OS?",
       "options": [
+        "The layer on top of the Kernel where user applications run",
         "The physical layer of the computer",
         "A network protocol",
-        "A type of hardware",
-        "The layer on top of the Kernel where user applications run"
+        "A type of hardware"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "The Application Layer sits on top of the Kernel and is where user applications and programs run, interacting with the Kernel for resources."
     },
     {
       "id": "C40_Q20",
       "question": "What is a Linux distribution?",
       "options": [
+        "An operating system based on the Linux kernel with different application layers",
         "A mathematical distribution",
         "A network topology",
-        "A type of computer virus",
-        "An operating system based on the Linux kernel with different application layers"
+        "A type of computer virus"
       ],
-      "correctIndex": 3,
+      "correctIndex": 0,
       "explanation": "Linux distributions (Ubuntu, CentOS, Debian) are different OS variants based on the same Linux kernel but with different application layers and tools."
     },
     {
@@ -332,12 +332,12 @@
       "id": "C40_Q28",
       "question": "What is the purpose of the /var directory?",
       "options": [
-        "Storing variable data like logs, caches, and spool files",
         "Storing static program files",
+        "Storing variable data like logs, caches, and spool files",
         "Storing kernel source code",
         "Storing user passwords"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "/var stores variable data that changes frequently, including log files (/var/log), caches, and spool directories."
     },
     {
@@ -345,11 +345,11 @@
       "question": "What is stored in /var/log?",
       "options": [
         "User documents",
-        "System and application log files",
         "Music files",
+        "System and application log files",
         "Email contacts"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "/var/log contains system and application log files that record events, errors, and activities for debugging and monitoring."
     },
     {
@@ -357,11 +357,11 @@
       "question": "What is the /tmp directory used for?",
       "options": [
         "Permanent data storage",
-        "Temporary files that are typically cleared on reboot",
         "Storing passwords",
+        "Temporary files that are typically cleared on reboot",
         "Storing kernel modules"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "/tmp is used for temporary files created by applications and users. These files are typically cleared on system reboot."
     },
     {
@@ -369,11 +369,11 @@
       "question": "What is the purpose of the /usr directory?",
       "options": [
         "User home directories",
-        "User programs, libraries, and documentation not essential for booting",
         "System kernel files",
-        "Network configuration"
+        "Network configuration",
+        "User programs, libraries, and documentation not essential for booting"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "/usr (Unix System Resources) contains user programs, libraries, documentation, and source code not required for basic system booting."
     },
     {
@@ -428,12 +428,12 @@
       "id": "C40_Q36",
       "question": "What is the purpose of the /boot directory?",
       "options": [
-        "Storing user documents",
         "Files needed for the system boot process including the kernel",
+        "Storing user documents",
         "Storing music files",
         "Temporary file storage"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "/boot contains files needed for the system boot process, including the kernel, bootloader configuration, and initial RAM disk."
     },
     {
@@ -441,11 +441,11 @@
       "question": "What is the /root directory?",
       "options": [
         "The root directory of the file system",
-        "The home directory for the root (superuser) account",
         "A directory for storing roots of plants",
+        "The home directory for the root (superuser) account",
         "The main web server directory"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "/root is the home directory for the root user (superuser/administrator), separate from regular user home directories in /home."
     },
     {
@@ -453,11 +453,11 @@
       "question": "What are /media and /mnt directories used for?",
       "options": [
         "Storing media files like music and videos",
-        "Mount points for external storage devices and filesystems",
         "Storing web pages",
+        "Mount points for external storage devices and filesystems",
         "Temporary internet files"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "/media and /mnt are mount points for external storage devices and filesystems. /media is for removable media; /mnt is for temporary manual mounts."
     },
     {
@@ -465,23 +465,23 @@
       "question": "What is a hypervisor?",
       "options": [
         "A type of operating system",
-        "Software that creates and manages virtual machines",
         "A network protocol",
+        "Software that creates and manages virtual machines",
         "A database system"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "A hypervisor is software that creates and runs virtual machines, allowing multiple operating systems to share a single hardware host."
     },
     {
       "id": "C40_Q40",
       "question": "What is the difference between Type 1 and Type 2 hypervisors?",
       "options": [
-        "Type 1 runs directly on hardware; Type 2 runs on top of an OS",
         "Type 1 is faster than Type 2",
+        "Type 1 runs directly on hardware; Type 2 runs on top of an OS",
         "There is no difference",
         "Type 2 is more secure"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Type 1 (bare-metal) hypervisors run directly on hardware. Type 2 (hosted) hypervisors run as software on top of a conventional operating system."
     },
     {
@@ -489,11 +489,11 @@
       "question": "Why do companies adopt virtualization?",
       "options": [
         "To make computers heavier",
-        "To run multiple isolated systems on single hardware, saving costs and improving resource utilization",
         "To increase electricity consumption",
+        "To run multiple isolated systems on single hardware, saving costs and improving resource utilization",
         "To slow down computers"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Virtualization allows companies to run multiple isolated systems on a single physical machine, saving hardware costs, space, and improving resource utilization."
     },
     {
@@ -513,11 +513,11 @@
       "question": "What is file management in an OS?",
       "options": [
         "Managing paper documents",
-        "Organizing, storing, retrieving, and manipulating files on storage devices",
         "Managing email attachments only",
-        "Creating new user accounts"
+        "Creating new user accounts",
+        "Organizing, storing, retrieving, and manipulating files on storage devices"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "File management involves organizing files in directories, storing them on devices, retrieving them when needed, and managing file permissions."
     },
     {
@@ -536,12 +536,12 @@
       "id": "C40_Q45",
       "question": "What is device management in an OS?",
       "options": [
-        "Managing employee devices like phones",
         "Managing communication between the OS and hardware devices via drivers",
+        "Managing employee devices like phones",
         "Managing social media accounts",
         "Managing office furniture"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Device management involves the OS communicating with hardware devices (printers, disks, etc.) through device drivers, allocating devices to processes."
     },
     {
@@ -561,23 +561,23 @@
       "question": "What is memory management in an OS?",
       "options": [
         "Remembering passwords",
-        "Managing the allocation and deallocation of RAM to processes",
         "Storing files on disk",
+        "Managing the allocation and deallocation of RAM to processes",
         "Managing network connections"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Memory management involves allocating RAM to processes when needed and freeing it when done, handling virtual memory, and preventing memory conflicts."
     },
     {
       "id": "C40_Q48",
       "question": "Why do DevOps engineers need to know Linux?",
       "options": [
-        "Most servers and cloud infrastructure run on Linux",
         "Linux is required for Windows development",
+        "Most servers and cloud infrastructure run on Linux",
         "Linux is the only operating system",
         "Linux has the best games"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "DevOps engineers need Linux knowledge because most servers, cloud infrastructure, containers, and DevOps tools run on Linux-based systems."
     },
     {
@@ -585,11 +585,11 @@
       "question": "What is the difference between GUI and CLI?",
       "options": [
         "GUI is faster than CLI",
-        "GUI uses graphical elements; CLI uses text commands",
         "CLI is only for servers",
+        "GUI uses graphical elements; CLI uses text commands",
         "GUI cannot run on Linux"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "GUI (Graphical User Interface) uses visual elements like windows and icons. CLI (Command Line Interface) uses text commands for interaction."
     },
     {
@@ -597,11 +597,11 @@
       "question": "What are the key benefits of DevOps practices?",
       "options": [
         "Slower deployments and more errors",
-        "Faster delivery, improved collaboration, and higher quality software",
         "Increased manual work",
+        "Faster delivery, improved collaboration, and higher quality software",
         "More documentation requirements"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "DevOps practices enable faster software delivery, improved collaboration between teams, automated testing, and higher quality, more reliable software."
     }
   ]
