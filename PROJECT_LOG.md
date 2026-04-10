@@ -1,4 +1,4 @@
-# Project Log: Learn AI-ML Flutter Quiz App
+# Project Log: Quizient Flutter Quiz App
 
 > This log documents all project activities, decisions, problems encountered, and solutions applied.
 > Read this file first when resuming work on this project.
@@ -7,10 +7,10 @@
 
 ## Project Overview
 
-**App Name:** Learn AI-ML  
+**App Name:** Quizient  
 **Platform:** Flutter offline Android quiz app  
-**GitHub:** `Raman21676/learn-ai-ml`, branch `main`  
-**Working Directory:** `/Users/kalikali/Desktop/Learn AI-ML/`
+**GitHub:** `Raman21676/Quizient`, branch `main`  
+**Working Directory:** `/Users/kalikali/Desktop/Quizient/`
 
 **Architecture:**
 - State management: `provider` + `shared_preferences`

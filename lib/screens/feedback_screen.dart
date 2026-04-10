@@ -147,25 +147,23 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                                       ),
                                     ),
                                     const Divider(height: 32),
-                                    if (!widget.isCorrect) ...[
-                                      Text(
-                                        'Correct Answer:',
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: AppColors.success,
-                                        ),
+                                    Text(
+                                      'Correct Answer:',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.success,
                                       ),
-                                      const SizedBox(height: 8),
-                                      Text(
-                                        widget.correctAnswer,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      widget.correctAnswer,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                      const Divider(height: 32),
-                                    ],
+                                    ),
+                                    const Divider(height: 32),
                                     Text(
                                       AppStrings.explanation,
                                       style: TextStyle(

@@ -1,41 +1,21 @@
-# Learn AI-ML
+# Quizient
+
+[![GitHub](https://img.shields.io/badge/GitHub-Quizient-blue?logo=github)](https://github.com/Raman21676/Quizient)
 
 An offline Android quiz application for mastering AI-ML concepts through interactive MCQ challenges.
 
 ## Features
 
-- **15 Challenges** - 750 carefully crafted questions
+- **49 Challenges** - 2,450+ carefully crafted questions
+- **6 Levels** - From beginner to advanced
 - **Offline First** - No internet required
-- **Progress Tracking** - Track your learning journey
-- **Dark Mode** - Comfortable learning day and night
-- **Beautiful UI** - Modern Material 3 design with animations
+- **Progress Tracking** - Track your learning journey with daily streaks
+- **Beautiful UI** - Modern design with animations
+- **No Ads** - Completely free without advertisements
 
-## LEVEL 1: AI-ML Fundamentals
+## Repository
 
-| Challenge | Name | Questions |
-|-----------|------|-----------|
-| C01 | Foundations of Generative AI Systems | 50 |
-| C02 | Building Web APIs with Modern Python Framework | 50 |
-| C03 | Deploying and Managing AI Models | 50 |
-| C04 | Type Safety in AI Application Development | 50 |
-| C05 | The Machine Learning Landscape | 50 |
-| C06 | End-to-End Machine Learning Project | 50 |
-| C07 | Classification | 50 |
-| C08 | Training Models | 50 |
-| C09 | Support Vector Machines | 50 |
-| C10 | Decision Trees | 50 |
-| C11 | Ensemble Learning and Random Forests | 50 |
-| C12 | Dimensionality Reduction | 50 |
-
-## LEVEL 3: DSA for Interviews
-
-| Challenge | Name | Questions |
-|-----------|------|-----------|
-| C13 | Arrays, Strings, Hashing & Basic Algorithms | 50 |
-| C14 | Linked Lists, Stacks, Queues, Trees & Heaps | 50 |
-| C15 | Recursion, Backtracking, DP & Graphs | 50 |
-
-**Total: 750 Questions**
+**GitHub:** https://github.com/Raman21676/Quizient
 
 ## Project Structure
 
@@ -48,44 +28,25 @@ lib/
 │   └── user_profile.dart     # User data
 ├── providers/                # State management
 │   ├── progress_provider.dart
-│   ├── quiz_provider.dart
-│   ├── theme_provider.dart
-│   └── user_provider.dart
+│   └── theme_provider.dart
 ├── screens/                  # UI screens
 │   ├── home_screen.dart
 │   ├── level_screen.dart
 │   ├── quiz_screen.dart
-│   ├── feedback_screen.dart
-│   ├── results_screen.dart
-│   ├── progress_screen.dart
-│   └── settings_screen.dart
+│   └── feedback_screen.dart
 ├── services/                 # Business logic
-│   └── json_loader_service.dart
-└── utils/                    # Constants & helpers
-    └── constants.dart
+│   └── quiz_service.dart
+└── utils/                    # Utilities
+    ├── constants.dart
+    └── theme.dart
 ```
 
-## Building
+## Getting Started
 
-```bash
-flutter pub get
-flutter build apk --release
-```
+1. Clone the repository
+2. Run `flutter pub get`
+3. Run `flutter run`
 
-## Development
+## License
 
-This app is built with Flutter and uses:
-- Provider for state management
-- SharedPreferences for local storage
-- flutter_animate for animations
-- confetti for celebration effects
-
-## Future Expansion
-
-The app is designed to support multiple levels. Future content can be added as:
-- LEVEL 2: [Future Content]
-- LEVEL 3: [Future Content]
-
----
-
-**Status:** ✅ 750 Questions Ready for Testing
+This project is for educational purposes.

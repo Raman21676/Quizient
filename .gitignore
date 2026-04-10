@@ -48,3 +48,10 @@ TODO.md
 LOGS.md
 # PROJECT_LOG.md - Intentionally tracked for AI agent continuity
 chapter*_raw.txt
+
+# Android Signing & Keystore (CRITICAL - NEVER COMMIT)
+android/key.properties
+android/app/*.jks
+android/app/*.keystore
+*.jks
+*.keystore

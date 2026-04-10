@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import '../models/challenge_data.dart';
 import '../providers/progress_provider.dart';
-import '../providers/theme_provider.dart';
 import '../utils/constants.dart';
 import 'level_screen.dart';
-import 'package:provider/provider.dart';
 
 class LevelSelectionScreen extends StatelessWidget {
   const LevelSelectionScreen({super.key});
@@ -13,338 +12,247 @@ class LevelSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = context.watch<ThemeProvider>().isDarkMode;
-
+    final levels = [level1, level2, level3, level4, level5, level6];
+    
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+          // App Bar
           SliverAppBar(
-            expandedHeight: 180,
-            floating: false,
+            expandedHeight: 120,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text(
-                'Select Level',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              title: Text(
+                AppStrings.selectLevel,
+                style: theme.textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      AppColors.primaryLight,
-                      AppColors.secondaryLight,
-                    ],
-                  ),
+              centerTitle: true,
+            ),
+          ),
+          
+          // Subtitle
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                AppStrings.choosePath,
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: AppColors.textSecondaryLight,
                 ),
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Choose your learning path',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withOpacity(0.7),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  
-                  // Level 1 Card
-                  _buildLevelCard(
-                    context,
-                    level: level1,
-                    levelId: 1,
-                    isDark: isDark,
-                    icon: Icons.psychology,
-                    gradientColors: [AppColors.primaryLight, AppColors.secondaryLight],
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LevelScreen(levelId: 1),
-                      ),
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Level 2 Card
-                  _buildLevelCard(
-                    context,
-                    level: level2,
-                    levelId: 2,
-                    isDark: isDark,
-                    icon: Icons.school,
-                    gradientColors: [AppColors.success, AppColors.secondaryLight],
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LevelScreen(levelId: 2),
-                      ),
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Level 3 Card
-                  _buildLevelCard(
-                    context,
-                    level: level3,
-                    levelId: 3,
-                    isDark: isDark,
-                    icon: Icons.code,
-                    gradientColors: [AppColors.warning, AppColors.error],
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LevelScreen(levelId: 3),
-                      ),
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Level 4 Card
-                  _buildLevelCard(
-                    context,
-                    level: level4,
-                    levelId: 4,
-                    isDark: isDark,
-                    icon: Icons.smart_toy,
-                    gradientColors: [AppColors.info, AppColors.secondaryLight],
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LevelScreen(levelId: 4),
-                      ),
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Level 5 Card
-                  _buildLevelCard(
-                    context,
-                    level: level5,
-                    levelId: 5,
-                    isDark: isDark,
-                    icon: Icons.chat,
-                    gradientColors: [Color(0xFFE91E63), Color(0xFFFF5722)],
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LevelScreen(levelId: 5),
-                      ),
-                    ),
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Level 6 Card
-                  _buildLevelCard(
-                    context,
-                    level: level6,
-                    levelId: 6,
-                    isDark: isDark,
-                    icon: Icons.build,
-                    gradientColors: [Color(0xFFFF9800), Color(0xFFFF5722)],
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LevelScreen(levelId: 6),
-                      ),
-                    ),
-                  ),
-                ],
+          
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
+          
+          // Level Cards
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final level = levels[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: _LevelCard(
+                      level: level,
+                      levelIndex: index,
+                    ).animate(delay: (index * 100).ms)
+                     .fadeIn()
+                     .slideX(begin: 0.3),
+                  );
+                },
+                childCount: levels.length,
               ),
             ),
           ),
+          
+          const SliverToBoxAdapter(child: SizedBox(height: 32)),
         ],
       ),
     );
   }
+}
 
-  Widget _buildLevelCard(
-    BuildContext context, {
-    required Level level,
-    required int levelId,
-    required bool isDark,
-    required IconData icon,
-    required List<Color> gradientColors,
-    required VoidCallback onTap,
-  }) {
+class _LevelCard extends StatelessWidget {
+  final Level level;
+  final int levelIndex;
+
+  const _LevelCard({
+    required this.level,
+    required this.levelIndex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final progressProvider = context.watch<ProgressProvider>();
-    final completedCount = progressProvider.completedChallengesCount;
-    final progress = progressProvider.getOverallProgress();
-
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                gradientColors[0].withOpacity(0.1),
-                gradientColors[1].withOpacity(0.1),
-              ],
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: gradientColors[0].withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Icon(
-                      icon,
-                      color: gradientColors[0],
-                      size: 32,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          level.name,
-                          style: theme.textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          '${level.challenges.length} Challenges',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurface.withOpacity(0.6),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: gradientColors[0],
-                    size: 20,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              const Divider(),
-              const SizedBox(height: 12),
-              Text(
-                level.description,
-                style: theme.textTheme.bodyMedium,
-              ),
-              const SizedBox(height: 12),
-              LinearProgressIndicator(
-                value: progress / 100,
-                backgroundColor: Colors.grey[200],
-                valueColor: AlwaysStoppedAnimation<Color>(gradientColors[0]),
-                minHeight: 8,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '$completedCount of ${level.challenges.length} completed (${progress.toInt()}%)',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurface.withOpacity(0.6),
-                ),
-              ),
-            ],
-          ),
+    final completedCount = progressProvider.getCompletedChallengesForLevel(level.id);
+    final totalCount = level.challenges.length;
+    final progress = completedCount / totalCount;
+    final isCompleted = completedCount == totalCount;
+    
+    final gradientColors = AppColors.levelGradients[levelIndex % AppColors.levelGradients.length];
+    
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => LevelScreen(levelId: levelIndex + 1),
         ),
       ),
-    ).animate().fadeIn(duration: 400.ms).slideY(begin: 0.2, duration: 500.ms);
-  }
-
-  Widget _buildComingSoonCard(
-    BuildContext context, {
-    required String levelName,
-    required String description,
-    required bool isDark,
-  }) {
-    final theme = Theme.of(context);
-
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: Colors.grey.withOpacity(0.3)),
-      ),
       child: Container(
-        padding: const EdgeInsets.all(20),
-        child: Row(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: gradientColors,
+          ),
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: gradientColors[0].withOpacity(0.4),
+              blurRadius: 12,
+              offset: const Offset(0, 6),
+            ),
+          ],
+        ),
+        child: Stack(
           children: [
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Icon(
-                Icons.lock_clock,
-                color: Colors.grey[400],
-                size: 32,
+            // Background decoration
+            Positioned(
+              right: -20,
+              top: -20,
+              child: Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white.withOpacity(0.1),
+                ),
               ),
             ),
-            const SizedBox(width: 16),
-            Expanded(
+            Positioned(
+              left: -30,
+              bottom: -30,
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white.withOpacity(0.08),
+                ),
+              ),
+            ),
+            
+            // Content
+            Padding(
+              padding: const EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          level.name,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      if (isCompleted)
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.check,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                   Text(
-                    levelName,
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[600],
+                    '${level.challenges.length} Challenges',
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      color: Colors.white.withOpacity(0.9),
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 12),
                   Text(
-                    description,
+                    level.description,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: Colors.grey[500],
+                      color: Colors.white.withOpacity(0.8),
+                      height: 1.4,
                     ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 20),
+                  
+                  // Progress bar
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: LinearProgressIndicator(
+                            value: progress,
+                            backgroundColor: Colors.white.withOpacity(0.2),
+                            valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+                            minHeight: 8,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Text(
+                        '$completedCount/$totalCount',
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                'SOON',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey[600],
+            
+            // Arrow indicator
+            Positioned(
+              right: 24,
+              bottom: 24,
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: Colors.white,
+                  size: 20,
                 ),
               ),
             ),
           ],
         ),
       ),
-    ).animate(delay: 200.ms).fadeIn(duration: 400.ms);
+    );
   }
 }

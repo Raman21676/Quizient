@@ -5,7 +5,7 @@ import 'providers/quiz_provider.dart';
 import 'providers/progress_provider.dart';
 import 'providers/theme_provider.dart';
 import 'providers/user_provider.dart';
-import 'screens/home_screen.dart';
+import 'screens/splash_screen.dart';
 import 'utils/constants.dart';
 
 void main() async {
@@ -17,19 +17,36 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
   
-  runApp(const LearnAiMlApp());
+  // Initialize all providers that need async init
+  final themeProvider = ThemeProvider();
+  await themeProvider.init();
+  
+  final progressProvider = ProgressProvider();
+  await progressProvider.init();
+  
+  runApp(QuizientApp(
+    themeProvider: themeProvider,
+    progressProvider: progressProvider,
+  ));
 }
 
-class LearnAiMlApp extends StatelessWidget {
-  const LearnAiMlApp({super.key});
+class QuizientApp extends StatelessWidget {
+  final ThemeProvider themeProvider;
+  final ProgressProvider progressProvider;
+  
+  const QuizientApp({
+    super.key, 
+    required this.themeProvider,
+    required this.progressProvider,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider.value(value: themeProvider),
+        ChangeNotifierProvider.value(value: progressProvider),
         ChangeNotifierProvider(create: (_) => UserProvider()),
-        ChangeNotifierProvider(create: (_) => ProgressProvider()),
         ChangeNotifierProvider(create: (_) => QuizProvider()),
       ],
       child: Consumer<ThemeProvider>(
@@ -40,7 +57,7 @@ class LearnAiMlApp extends StatelessWidget {
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeProvider.themeMode,
-            home: const HomeScreen(),
+            home: const SplashScreen(),
           );
         },
       ),
