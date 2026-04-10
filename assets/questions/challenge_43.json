@@ -13,7 +13,7 @@
       "id": "C43_Q2",
       "question": "What is a Git repository?",
       "options": ["A folder containing database files", "A storage location for a project including its version history", "A cloud storage service", "A type of network protocol"],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "A Git repository is a storage location that contains all project files and the complete version history."
     },
     {
@@ -41,7 +41,7 @@
       "id": "C43_Q6",
       "question": "What is the default branch name when a new Git repository is initialized?",
       "options": ["dev", "feature", "main or master", "production"],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "The default branch is typically called 'main' (modern) or 'master' (older repositories)."
     },
     {
@@ -69,21 +69,21 @@
       "id": "C43_Q10",
       "question": "What is the purpose of code review in a Pull Request?",
       "options": ["To delete code", "To have other developers review and approve changes before merging", "To automatically deploy code", "To compress the code"],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Code review allows team members to review changes, catch bugs, and ensure quality before merging."
     },
     {
       "id": "C43_Q11",
       "question": "Which command stages changes for commit?",
       "options": ["git stage", "git add", "git commit", "git push"],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "'git add' stages changes, preparing them to be included in the next commit."
     },
     {
       "id": "C43_Q12",
       "question": "Which command saves staged changes to the repository?",
       "options": ["git save", "git commit", "git store", "git push"],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "'git commit' saves staged changes to the local repository with a descriptive message."
     },
     {
@@ -174,7 +174,7 @@
       "id": "C43_Q25",
       "question": "What is 'git branch' command used for?",
       "options": ["To delete the repository", "To list, create, or delete branches", "To merge branches automatically", "To push changes"],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "'git branch' lists existing branches, creates new branches, or deletes branches."
     },
     {
@@ -195,7 +195,7 @@
       "id": "C43_Q28",
       "question": "What is 'git stash' used for?",
       "options": ["To permanently delete changes", "To temporarily save changes without committing", "To push changes to remote", "To create a branch"],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "'git stash' temporarily saves uncommitted changes so you can switch branches or work on something else."
     },
     {
@@ -251,7 +251,7 @@
       "id": "C43_Q36",
       "question": "What is 'git config' used for?",
       "options": ["To configure server hardware", "To set Git configuration like username and email", "To configure network settings", "To set file permissions"],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "'git config' sets Git configuration options like user name, email, and default editor for commit messages."
     },
     {
@@ -279,7 +279,7 @@
       "id": "C43_Q40",
       "question": "What is 'git tag' used for?",
       "options": ["To label files", "To mark specific commits as important, like version releases", "To delete commits", "To create branches"],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "'git tag' marks specific commits as important, commonly used for version releases like v1.0.0."
     },
     {
@@ -328,7 +328,7 @@
       "id": "C43_Q47",
       "question": "What is the purpose of SSH keys with Git?",
       "options": ["To encrypt the repository", "To authenticate with remote repositories securely without passwords", "To compress files", "To delete branches"],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "SSH keys enable secure authentication with remote Git repositories without entering passwords each time."
     },
     {
