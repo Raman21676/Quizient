@@ -5,6 +5,7 @@ import '../utils/constants.dart';
 
 class FeedbackScreen extends StatefulWidget {
   final bool isCorrect;
+  final String question;
   final String correctAnswer;
   final String explanation;
   final VoidCallback onContinue;
@@ -12,6 +13,7 @@ class FeedbackScreen extends StatefulWidget {
   const FeedbackScreen({
     super.key,
     required this.isCorrect,
+    required this.question,
     required this.correctAnswer,
     required this.explanation,
     required this.onContinue,
@@ -127,6 +129,24 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    // Question (shown for both correct and incorrect)
+                                    Text(
+                                      'Question:',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: theme.colorScheme.primary,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      widget.question,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    const Divider(height: 32),
                                     if (!widget.isCorrect) ...[
                                       Text(
                                         'Correct Answer:',

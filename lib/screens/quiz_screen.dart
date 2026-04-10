@@ -251,6 +251,7 @@ class _QuizScreenState extends State<QuizScreen> {
         MaterialPageRoute(
           builder: (_) => FeedbackScreen(
             isCorrect: quizProvider.isCorrect,
+            question: quizProvider.currentQuestion!.questionText,
             correctAnswer: quizProvider.currentQuestion!.correctAnswer,
             explanation: quizProvider.currentQuestion!.explanation,
             onContinue: () {
