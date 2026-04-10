@@ -247,6 +247,12 @@ final Level level5 = Level(
       subtitle: 'Prompt Engineering',
       assetPath: 'assets/questions/challenge_33.json',
     ),
+    ChallengeInfo(
+      id: 'C34',
+      name: 'CHALLENGE 34',
+      subtitle: 'Advanced Text Generation Techniques and Tools',
+      assetPath: 'assets/questions/challenge_34.json',
+    ),
   ],
 );
 

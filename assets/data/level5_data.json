@@ -3,7 +3,7 @@
   "levelName": "LEVEL 5",
   "subtitle": "Large Language Models",
   "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications.",
-  "totalChallenges": 6,
+  "totalChallenges": 7,
   "challenges": [
     {
       "challengeId": "C28",
@@ -63,6 +63,16 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "chat_bubble",
+      "questions": []
+    },
+    {
+      "challengeId": "C34",
+      "title": "Advanced Text Generation Techniques and Tools",
+      "description": "LangChain framework, model quantization, memory types, agents and tools, chains, RAG",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "build",
       "questions": []
     }
   ]
