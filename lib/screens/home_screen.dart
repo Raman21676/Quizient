@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Master AI-ML with $totalChallenges challenges and 1400+ questions.',
+                    'Master AI-ML with $totalChallenges challenges and 1450+ questions.',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: theme.colorScheme.onSurface.withOpacity(0.7),
                     ),
@@ -212,7 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     icon: Icons.psychology,
                     title: 'Comprehensive Coverage',
-                    subtitle: '1400+ questions across 28 challenges',
+                    subtitle: '1450+ questions across 29 challenges',
                   ),
                   _buildFeatureTile(
                     context,

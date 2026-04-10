@@ -3,7 +3,7 @@
   "levelName": "LEVEL 5",
   "subtitle": "Large Language Models",
   "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications.",
-  "totalChallenges": 1,
+  "totalChallenges": 2,
   "challenges": [
     {
       "challengeId": "C28",
@@ -13,6 +13,16 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "chat",
+      "questions": []
+    },
+    {
+      "challengeId": "C29",
+      "title": "Tokens and Embeddings",
+      "description": "Tokenization methods (BPE, WordPiece, SentencePiece), subword tokenization, word2vec, CBOW, Skip-gram, contextual embeddings",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "text_fields",
       "questions": []
     }
   ]

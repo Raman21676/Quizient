@@ -1,0 +1,607 @@
+{
+  "challengeId": "C29",
+  "challengeName": "Tokens and Embeddings",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": 1,
+      "question": "In BPE, what happens to rare or unknown words?",
+      "options": [
+        "They are broken down into smaller subword units",
+        "They are replaced with zeros",
+        "They cause an error",
+        "They are ignored"
+      ],
+      "correctIndex": 0,
+      "explanation": "BPE breaks rare or unknown words into smaller subword units that are in its vocabulary."
+    },
+    {
+      "id": 2,
+      "question": "What does CBOW stand for in word2vec?",
+      "options": [
+        "Contextual Binary Output Weighting",
+        "Count-Based Ordered Words",
+        "Character-Based Output Window",
+        "Continuous Bag of Words"
+      ],
+      "correctIndex": 3,
+      "explanation": "CBOW stands for Continuous Bag of Words, one of the two main word2vec architectures."
+    },
+    {
+      "id": 3,
+      "question": "What criterion does WordPiece use to decide which token pairs to merge?",
+      "options": [
+        "The pair with most vowels",
+        "The shortest pair",
+        "The pair that maximizes the likelihood of the training data",
+        "The alphabetically first pair"
+      ],
+      "correctIndex": 2,
+      "explanation": "WordPiece chooses the pair that maximizes the likelihood of the training data when deciding merges."
+    },
+    {
+      "id": 4,
+      "question": "How does WordPiece differ from BPE in selecting merges?",
+      "options": [
+        "WordPiece only works with Chinese",
+        "They are identical",
+        "WordPiece selects merges based on likelihood, not just frequency",
+        "WordPiece uses random selection"
+      ],
+      "correctIndex": 2,
+      "explanation": "WordPiece selects merges based on maximizing training data likelihood, not just frequency counts."
+    },
+    {
+      "id": 5,
+      "question": "Why is subword tokenization effective for handling large vocabularies?",
+      "options": [
+        "It skips rare words",
+        "It doubles the vocabulary size",
+        "It uses more memory",
+        "It can represent any word by combining known subwords"
+      ],
+      "correctIndex": 3,
+      "explanation": "Subword tokenization can represent any word by combining known subwords, keeping vocabulary size manageable."
+    },
+    {
+      "id": 6,
+      "question": "What is the starting point for BPE training?",
+      "options": [
+        "Full words",
+        "Individual characters",
+        "Random subwords",
+        "Pre-trained embeddings"
+      ],
+      "correctIndex": 1,
+      "explanation": "BPE training starts with individual characters and builds up to larger units through merging."
+    },
+    {
+      "id": 7,
+      "question": "What is the tokenizer's vocabulary?",
+      "options": [
+        "A list of all English words",
+        "A lookup table mapping tokens to unique IDs",
+        "A dictionary of definitions",
+        "A list of grammar rules"
+      ],
+      "correctIndex": 1,
+      "explanation": "The vocabulary is a lookup table that maps each token to a unique numerical ID."
+    },
+    {
+      "id": 8,
+      "question": "What is the difference between token embeddings and sentence embeddings?",
+      "options": [
+        "Token embeddings represent individual tokens; sentence embeddings represent entire sentences",
+        "Sentence embeddings are smaller",
+        "Token embeddings only work with BERT",
+        "There is no difference"
+      ],
+      "correctIndex": 0,
+      "explanation": "Token embeddings represent individual tokens, while sentence embeddings represent the meaning of entire sentences."
+    },
+    {
+      "id": 9,
+      "question": "What does BPE stand for in tokenization?",
+      "options": [
+        "Basic Pattern Extraction",
+        "Binary Pattern Encoding",
+        "Byte Pair Encoding",
+        "Byte Position Embedding"
+      ],
+      "correctIndex": 2,
+      "explanation": "BPE stands for Byte Pair Encoding, a subword tokenization algorithm."
+    },
+    {
+      "id": 10,
+      "question": "What is truncation in tokenization?",
+      "options": [
+        "Cutting sequences to a maximum length",
+        "Removing all vowels",
+        "Translating to another language",
+        "Adding more tokens"
+      ],
+      "correctIndex": 0,
+      "explanation": "Truncation cuts sequences that exceed the maximum length to fit within model constraints."
+    },
+    {
+      "id": 11,
+      "question": "How does the length of tokenized sequences affect model performance?",
+      "options": [
+        "Only the first token matters",
+        "It has no effect",
+        "Longer sequences require more computation and memory",
+        "Shorter sequences are always better"
+      ],
+      "correctIndex": 2,
+      "explanation": "Longer tokenized sequences require more computation and memory, so models have maximum sequence length limits."
+    },
+    {
+      "id": 12,
+      "question": "Why might different tokenizers produce different tokens for the same text?",
+      "options": [
+        "Due to random number generators",
+        "They all produce identical outputs",
+        "They have different vocabularies and training procedures",
+        "Only English text differs"
+      ],
+      "correctIndex": 2,
+      "explanation": "Different tokenizers have different vocabularies and training procedures, so they produce different token sequences."
+    },
+    {
+      "id": 13,
+      "question": "What is the primary purpose of tokenization in language models?",
+      "options": [
+        "To translate text to other languages",
+        "To break text into smaller units that the model can process",
+        "To compress text for storage",
+        "To encrypt sensitive information"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tokenization breaks text into smaller units (tokens) that language models can process numerically."
+    },
+    {
+      "id": 14,
+      "question": "What does the [MASK] token do in masked language modeling?",
+      "options": [
+        "Replaces words that the model needs to predict",
+        "Encrypts sensitive data",
+        "Marks the end of training",
+        "Hides the input from the user"
+      ],
+      "correctIndex": 0,
+      "explanation": "[MASK] replaces words during masked language modeling training, and the model learns to predict the original words."
+    },
+    {
+      "id": 15,
+      "question": "What is the trade-off of having a very large vocabulary?",
+      "options": [
+        "It increases memory requirements but may reduce sequence length",
+        "It makes tokenization slower only",
+        "It has no effect",
+        "It reduces memory usage"
+      ],
+      "correctIndex": 0,
+      "explanation": "A larger vocabulary requires more memory but may represent text with fewer tokens, trading memory for sequence length."
+    },
+    {
+      "id": 16,
+      "question": "Why is SentencePiece considered language-agnostic?",
+      "options": [
+        "It translates all text to English first",
+        "It only works with English",
+        "It doesn't rely on language-specific pre-tokenization rules",
+        "It requires language labels"
+      ],
+      "correctIndex": 2,
+      "explanation": "SentencePiece is language-agnostic because it doesn't rely on language-specific pre-tokenization rules like whitespace splitting."
+    },
+    {
+      "id": 17,
+      "question": "Can the same word always be represented by a single token?",
+      "options": [
+        "Only in English",
+        "Only for short words",
+        "Yes, always",
+        "No, it depends on the tokenizer and the word"
+      ],
+      "correctIndex": 3,
+      "explanation": "Whether a word maps to a single token depends on the tokenizer's vocabulary and training - rare words may be split into subwords."
+    },
+    {
+      "id": 18,
+      "question": "What is SentencePiece?",
+      "options": [
+        "A text summarization tool",
+        "A type of sentence embedding",
+        "A language-agnostic tokenizer that treats space as a special character",
+        "A sentence classification model"
+      ],
+      "correctIndex": 2,
+      "explanation": "SentencePiece is a language-agnostic tokenizer that can work with any language without language-specific rules."
+    },
+    {
+      "id": 19,
+      "question": "How does the Skip-gram model differ from CBOW?",
+      "options": [
+        "Skip-gram only works with skip lists",
+        "Skip-gram is slower and less accurate",
+        "They are identical",
+        "Skip-gram predicts context words from a center word"
+      ],
+      "correctIndex": 3,
+      "explanation": "Skip-gram works in reverse of CBOW - it predicts surrounding context words given a center word."
+    },
+    {
+      "id": 20,
+      "question": "Which models commonly use SentencePiece tokenization?",
+      "options": [
+        "T5, Llama, and many multilingual models",
+        "BERT only",
+        "Word2vec only",
+        "GPT-2 only"
+      ],
+      "correctIndex": 0,
+      "explanation": "T5, Llama, and many multilingual models use SentencePiece for tokenization."
+    },
+    {
+      "id": 21,
+      "question": "How is the BPE merge table created?",
+      "options": [
+        "By alphabetical order",
+        "By word length",
+        "Randomly",
+        "By counting frequencies and merging the most common pairs iteratively"
+      ],
+      "correctIndex": 3,
+      "explanation": "The BPE merge table is created by iteratively counting frequencies and merging the most common pairs."
+    },
+    {
+      "id": 22,
+      "question": "What is a subword in tokenization?",
+      "options": [
+        "Only punctuation",
+        "A type of embedding",
+        "A complete sentence",
+        "A unit smaller than a word but larger than a character"
+      ],
+      "correctIndex": 3,
+      "explanation": "A subword is a unit smaller than a word but larger than a character, like a morpheme or common word part."
+    },
+    {
+      "id": 23,
+      "question": "How do language models generate output text?",
+      "options": [
+        "One token at a time autoregressively",
+        "By copying input text",
+        "Randomly",
+        "All at once in parallel"
+      ],
+      "correctIndex": 0,
+      "explanation": "Language models generate text autoregressively, predicting one token at a time based on previous tokens."
+    },
+    {
+      "id": 24,
+      "question": "How do contextual embeddings differ from static embeddings like word2vec?",
+      "options": [
+        "Contextual embeddings are only for images",
+        "They are identical",
+        "Contextual embeddings vary based on context; static embeddings are fixed per word",
+        "Static embeddings are better for all tasks"
+      ],
+      "correctIndex": 2,
+      "explanation": "Contextual embeddings (like BERT) vary by context; static embeddings (like word2vec) have one fixed vector per word."
+    },
+    {
+      "id": 25,
+      "question": "What is the relationship between tokens and embeddings?",
+      "options": [
+        "They are unrelated concepts",
+        "Tokens are converted into embeddings which are numerical vector representations",
+        "Embeddings are converted into tokens",
+        "They are the same thing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tokens are mapped to embeddings, which are dense numerical vectors that capture semantic meaning."
+    },
+    {
+      "id": 26,
+      "question": "What is the main advantage of BPE tokenization?",
+      "options": [
+        "It handles rare words by breaking them into subword units",
+        "It requires no training",
+        "It only produces single-character tokens",
+        "It is faster than other methods"
+      ],
+      "correctIndex": 0,
+      "explanation": "BPE handles rare words by breaking them into known subword units, avoiding out-of-vocabulary issues."
+    },
+    {
+      "id": 27,
+      "question": "What is the function of the [CLS] token in BERT?",
+      "options": [
+        "To separate sentences",
+        "To provide a classification representation for the entire input",
+        "To pad sequences",
+        "To mask words during training"
+      ],
+      "correctIndex": 1,
+      "explanation": "[CLS] is a special classification token whose embedding represents the entire input sequence for classification tasks."
+    },
+    {
+      "id": 28,
+      "question": "What is the purpose of the [PAD] token?",
+      "options": [
+        "To separate sentences",
+        "To encrypt text",
+        "To make all sequences in a batch the same length",
+        "To mark the beginning of text"
+      ],
+      "correctIndex": 2,
+      "explanation": "The [PAD] token is added to shorter sequences to make all sequences in a batch the same length for efficient processing."
+    },
+    {
+      "id": 29,
+      "question": "What does a tokenizer output after processing text?",
+      "options": [
+        "Token IDs that reference entries in the tokenizer's vocabulary",
+        "Compressed text",
+        "Encrypted data",
+        "Translated text"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tokenizers output token IDs that reference specific entries in the tokenizer's vocabulary table."
+    },
+    {
+      "id": 30,
+      "question": "What is the main idea behind word2vec?",
+      "options": [
+        "To sort words alphabetically",
+        "To translate between languages",
+        "To count word frequencies",
+        "To learn word embeddings based on word co-occurrence patterns"
+      ],
+      "correctIndex": 3,
+      "explanation": "Word2vec learns word embeddings based on the idea that words appearing in similar contexts have similar meanings."
+    },
+    {
+      "id": 31,
+      "question": "What is a key property of word2vec embeddings?",
+      "options": [
+        "They are random and meaningless",
+        "They only work for nouns",
+        "They are always 2-dimensional",
+        "Words with similar meanings have similar vector representations"
+      ],
+      "correctIndex": 3,
+      "explanation": "Word2vec produces embeddings where semantically similar words have vectors that are close in vector space."
+    },
+    {
+      "id": 32,
+      "question": "How does Byte Pair Encoding (BPE) work?",
+      "options": [
+        "It iteratively merges the most frequent pairs of characters or tokens",
+        "It uses a fixed dictionary",
+        "It only works with bytes",
+        "It splits text at random positions"
+      ],
+      "correctIndex": 0,
+      "explanation": "BPE works by starting with characters and iteratively merging the most frequent pairs to build a vocabulary."
+    },
+    {
+      "id": 33,
+      "question": "What is the Unigram tokenization algorithm?",
+      "options": [
+        "A method that only uses single characters",
+        "A probabilistic subword segmentation method",
+        "A type of neural network",
+        "A text compression technique"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unigram is a probabilistic subword segmentation method that starts with a large vocabulary and prunes it."
+    },
+    {
+      "id": 34,
+      "question": "How does the CBOW model work?",
+      "options": [
+        "It predicts a center word from its surrounding context words",
+        "It counts word frequencies",
+        "It sorts words by length",
+        "It predicts context words from a center word"
+      ],
+      "correctIndex": 0,
+      "explanation": "CBOW predicts a target word based on its surrounding context words."
+    },
+    {
+      "id": 35,
+      "question": "What is the purpose of post-processing in tokenization?",
+      "options": [
+        "To add special tokens and prepare the output for the model",
+        "To delete rare tokens",
+        "To compress the sequence",
+        "To translate the output"
+      ],
+      "correctIndex": 0,
+      "explanation": "Post-processing adds special tokens (like [CLS], [SEP]) and formats the output for model consumption."
+    },
+    {
+      "id": 36,
+      "question": "What does the [UNK] token represent?",
+      "options": [
+        "Unknown tokens not in the vocabulary",
+        "A padding character",
+        "A special discount code",
+        "The end of text"
+      ],
+      "correctIndex": 0,
+      "explanation": "[UNK] represents unknown tokens that are not present in the tokenizer's vocabulary."
+    },
+    {
+      "id": 37,
+      "question": "Why do we need attention masks when processing batches?",
+      "options": [
+        "To make the model run faster",
+        "To prevent the model from attending to padding tokens",
+        "To translate multiple languages",
+        "To compress the batch"
+      ],
+      "correctIndex": 1,
+      "explanation": "Attention masks prevent the model from wasting computation on padding tokens that don't contain meaningful content."
+    },
+    {
+      "id": 38,
+      "question": "What are tokens in the context of language models?",
+      "options": [
+        "Only punctuation marks",
+        "Image representations",
+        "Special characters only",
+        "The basic units of text (words, subwords, or characters) that models process"
+      ],
+      "correctIndex": 3,
+      "explanation": "Tokens are the basic units of text - they can be words, subwords, or characters depending on the tokenization method."
+    },
+    {
+      "id": 39,
+      "question": "What is a contextual embedding?",
+      "options": [
+        "An embedding that never changes",
+        "An embedding that changes based on the surrounding context",
+        "An embedding only for punctuation",
+        "A compressed embedding"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contextual embeddings change based on the surrounding words, capturing how meaning varies with context."
+    },
+    {
+      "id": 40,
+      "question": "What is an attention mask used for?",
+      "options": [
+        "To translate text",
+        "To hide tokens from the model",
+        "To tell the model which tokens are real and which are padding",
+        "To encrypt the input"
+      ],
+      "correctIndex": 2,
+      "explanation": "An attention mask indicates which tokens are real content (1) and which are padding (0) so the model knows what to attend to."
+    },
+    {
+      "id": 41,
+      "question": "What mathematical operation can be performed on word embeddings to find relationships?",
+      "options": [
+        "Only addition",
+        "Vector arithmetic (addition, subtraction) to capture semantic relationships",
+        "Only multiplication",
+        "No operations are possible"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vector arithmetic on word embeddings can capture semantic relationships (e.g., king - man + woman \u2248 queen)."
+    },
+    {
+      "id": 42,
+      "question": "What is pre-tokenization?",
+      "options": [
+        "Tokenizing before training",
+        "Removing all punctuation",
+        "Training the model before tokenization",
+        "Initial splitting of text before applying the main tokenization algorithm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Pre-tokenization is the initial splitting of text (like by whitespace) before the main tokenization algorithm is applied."
+    },
+    {
+      "id": 43,
+      "question": "What happens to a text prompt before it reaches the language model?",
+      "options": [
+        "It is deleted",
+        "It is encrypted",
+        "It is translated",
+        "It is tokenized into pieces"
+      ],
+      "correctIndex": 3,
+      "explanation": "Text prompts are first tokenized into pieces before being processed by the language model."
+    },
+    {
+      "id": 44,
+      "question": "What is vocabulary size in tokenization?",
+      "options": [
+        "The number of languages supported",
+        "The physical size of the tokenizer file",
+        "The number of unique tokens in the tokenizer's lookup table",
+        "The size of the training dataset"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vocabulary size is the number of unique tokens in the tokenizer's lookup table."
+    },
+    {
+      "id": 45,
+      "question": "How does SentencePiece handle whitespace?",
+      "options": [
+        "It doubles all spaces",
+        "It removes all whitespace",
+        "It treats space as a special character that can be tokenized",
+        "It requires fixed-width fonts"
+      ],
+      "correctIndex": 2,
+      "explanation": "SentencePiece treats space as a special character that can be tokenized, enabling language-agnostic processing."
+    },
+    {
+      "id": 46,
+      "question": "What is the [SEP] token used for?",
+      "options": [
+        "To represent unknown words",
+        "To compress the input",
+        "To mark the beginning of text",
+        "To separate different segments or sentences"
+      ],
+      "correctIndex": 3,
+      "explanation": "[SEP] separates different segments of text, such as two sentences in a pair."
+    },
+    {
+      "id": 47,
+      "question": "What information do input IDs contain?",
+      "options": [
+        "Audio frequencies",
+        "The actual text characters",
+        "Numerical references to tokens in the vocabulary",
+        "Image pixel values"
+      ],
+      "correctIndex": 2,
+      "explanation": "Input IDs are numerical references to tokens in the vocabulary, not the actual text characters."
+    },
+    {
+      "id": 48,
+      "question": "What happens when a token is out-of-vocabulary (OOV)?",
+      "options": [
+        "The model crashes",
+        "It is replaced with the [UNK] token or subword units",
+        "It is ignored",
+        "The text is rejected"
+      ],
+      "correctIndex": 1,
+      "explanation": "Out-of-vocabulary tokens are either replaced with [UNK] or broken into subword units depending on the tokenizer."
+    },
+    {
+      "id": 49,
+      "question": "Which tokenization algorithm was used in the original BERT model?",
+      "options": [
+        "BPE",
+        "WordPiece",
+        "SentencePiece",
+        "Unigram"
+      ],
+      "correctIndex": 1,
+      "explanation": "BERT uses WordPiece tokenization, which is similar to BPE but uses likelihood-based merging."
+    },
+    {
+      "id": 50,
+      "question": "Why can't language models process raw text directly?",
+      "options": [
+        "Raw text is too large",
+        "Models work with numerical representations, not raw characters",
+        "Raw text contains viruses",
+        "Models can only process numbers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Language models require numerical input, so raw text must be tokenized and converted to numerical representations."
+    }
+  ]
+}
