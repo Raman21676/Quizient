@@ -317,6 +317,12 @@ final Level level6 = Level(
       subtitle: 'Git & Version Control',
       assetPath: 'assets/questions/challenge_43.json',
     ),
+    ChallengeInfo(
+      id: 'C44',
+      name: 'CHALLENGE 44',
+      subtitle: 'Build Tools & Artifact Management',
+      assetPath: 'assets/questions/challenge_44.json',
+    ),
   ],
 );
 
