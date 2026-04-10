@@ -241,6 +241,12 @@ final Level level5 = Level(
       subtitle: 'Text Clustering and Topic Modeling',
       assetPath: 'assets/questions/challenge_32.json',
     ),
+    ChallengeInfo(
+      id: 'C33',
+      name: 'CHALLENGE 33',
+      subtitle: 'Prompt Engineering',
+      assetPath: 'assets/questions/challenge_33.json',
+    ),
   ],
 );
 

@@ -3,7 +3,7 @@
   "levelName": "LEVEL 5",
   "subtitle": "Large Language Models",
   "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications.",
-  "totalChallenges": 5,
+  "totalChallenges": 6,
   "challenges": [
     {
       "challengeId": "C28",
@@ -53,6 +53,16 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "bubble_chart",
+      "questions": []
+    },
+    {
+      "challengeId": "C33",
+      "title": "Prompt Engineering",
+      "description": "Prompt engineering techniques: zero-shot, few-shot, chain-of-thought, temperature, top-p, prompt templates, ReAct, safety considerations",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "chat_bubble",
       "questions": []
     }
   ]
