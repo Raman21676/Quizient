@@ -39,6 +39,16 @@
       "icon": "smart_toy",
       "color": "#00BCD4",
       "isLocked": false
+    },
+    {
+      "levelId": 5,
+      "levelName": "LEVEL 5",
+      "subtitle": "Large Language Models",
+      "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications. Build with state-of-the-art language models.",
+      "totalChallenges": 1,
+      "icon": "chat",
+      "color": "#E91E63",
+      "isLocked": false
     }
   ]
 }

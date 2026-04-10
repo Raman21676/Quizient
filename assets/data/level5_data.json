@@ -1,0 +1,19 @@
+{
+  "levelId": 5,
+  "levelName": "LEVEL 5",
+  "subtitle": "Large Language Models",
+  "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications.",
+  "totalChallenges": 1,
+  "challenges": [
+    {
+      "challengeId": "C28",
+      "title": "Introduction to Large Language Models",
+      "description": "History of Language AI, word embeddings, word2vec, Transformer architecture, BERT, GPT models, and LLM fundamentals",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "chat",
+      "questions": []
+    }
+  ]
+}

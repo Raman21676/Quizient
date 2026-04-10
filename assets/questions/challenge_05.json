@@ -221,15 +221,15 @@
     },
     {
       "id": 19,
-      "question": "What is a policy in reinforcement learning?",
+      "question": "What is the primary purpose of k-fold cross-validation in machine learning?",
       "options": [
-        "A government rule",
-        "A type of neural network",
-        "The strategy that defines what action the agent should choose in a given situation",
-        "The reward function"
+        "To increase the size of the training dataset",
+        "To reduce the dimensionality of features",
+        "To obtain a more robust estimate of model performance by training and evaluating on multiple data splits",
+        "To speed up the training process"
       ],
       "correctIndex": 2,
-      "explanation": "A policy defines what action the agent should choose when it is in a given situation, aiming to maximize rewards over time."
+      "explanation": "K-fold cross-validation splits the data into k subsets, trains on k-1 folds and validates on the remaining fold, rotating through all combinations. This provides a more reliable estimate of model generalization than a single train-test split."
     },
     {
       "id": 20,

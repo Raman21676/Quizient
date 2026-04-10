@@ -24,21 +24,27 @@ class LevelScreen extends StatelessWidget {
             ? level2
             : levelId == 3
                 ? level3
-                : level4;
+                : levelId == 4
+                    ? level4
+                    : level5;
     final title = levelId == 1
         ? AppStrings.level1Title
         : levelId == 2
             ? AppStrings.level2Title
             : levelId == 3
                 ? AppStrings.level3Title
-                : AppStrings.level4Title;
+                : levelId == 4
+                    ? AppStrings.level4Title
+                    : AppStrings.level5Title;
     final subtitle = levelId == 1
         ? AppStrings.level1Subtitle
         : levelId == 2
             ? AppStrings.level2Subtitle
             : levelId == 3
                 ? AppStrings.level3Subtitle
-                : AppStrings.level4Subtitle;
+                : levelId == 4
+                    ? AppStrings.level4Subtitle
+                    : AppStrings.level5Subtitle;
 
     return Scaffold(
       body: CustomScrollView(
@@ -63,7 +69,9 @@ class LevelScreen extends StatelessWidget {
                             ? [AppColors.success, AppColors.secondaryLight]
                             : levelId == 3
                                 ? [AppColors.warning, AppColors.error]
-                                : [AppColors.info, AppColors.secondaryLight],
+                                : levelId == 4
+                                    ? [AppColors.info, AppColors.secondaryLight]
+                                    : [Color(0xFFE91E63), Color(0xFFFF5722)],
                   ),
                 ),
               ),

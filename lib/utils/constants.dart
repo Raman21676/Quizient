@@ -44,6 +44,8 @@ class AppStrings {
   static const String level3Subtitle = 'DSA for Interviews';
   static const String level4Title = 'LEVEL 4';
   static const String level4Subtitle = 'Deep Reinforcement Learning';
+  static const String level5Title = 'LEVEL 5';
+  static const String level5Subtitle = 'Large Language Models';
   static const String challenges = 'Challenges';
   static const String locked = 'Locked';
   static const String completed = 'Completed';

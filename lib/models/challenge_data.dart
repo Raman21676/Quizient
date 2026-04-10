@@ -204,6 +204,22 @@ final Level level2 = Level(
   ],
 );
 
+// LEVEL 5 - Large Language Models
+final Level level5 = Level(
+  id: 'L5',
+  name: 'LEVEL 5',
+  description: 'Large Language Models - From embeddings and tokenization to Transformers, BERT, GPT, and practical LLM applications',
+  color: '#E91E63',
+  challenges: [
+    ChallengeInfo(
+      id: 'C28',
+      name: 'CHALLENGE 28',
+      subtitle: 'Introduction to Large Language Models',
+      assetPath: 'assets/questions/challenge_28.json',
+    ),
+  ],
+);
+
 // LEVEL 3 - DSA for Interviews
 final Level level3 = Level(
   id: 'L3',
