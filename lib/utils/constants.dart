@@ -37,15 +37,15 @@ class AppStrings {
   
   // Level Screen
   static const String level1Title = 'LEVEL 1';
-  static const String level1Subtitle = 'AI-ML Fundamentals';
+  static const String level1Subtitle = 'AI-ML Fundamentals: Core Concepts & Neural Networks';
   static const String level2Title = 'LEVEL 2';
-  static const String level2Subtitle = 'Intermediate ML Concepts';
+  static const String level2Subtitle = 'Reinforcement Learning: From Basics to Advanced RL';
   static const String level3Title = 'LEVEL 3';
-  static const String level3Subtitle = 'DSA for Interviews';
+  static const String level3Subtitle = 'Data Structures & Algorithms for Technical Interviews';
   static const String level4Title = 'LEVEL 4';
-  static const String level4Subtitle = 'Deep Reinforcement Learning';
+  static const String level4Subtitle = 'Deep RL: DQN, Policy Gradients, Actor-Critic & PPO';
   static const String level5Title = 'LEVEL 5';
-  static const String level5Subtitle = 'Large Language Models';
+  static const String level5Subtitle = 'Large Language Models: Transformers, BERT, GPT & Fine-Tuning';
   static const String challenges = 'Challenges';
   static const String locked = 'Locked';
   static const String completed = 'Completed';
