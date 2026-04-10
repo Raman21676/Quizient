@@ -81,11 +81,11 @@
       "question": "What does 'sudo' command do?",
       "options": [
         "Shutdown the system",
-        "Run a command with superuser (root) privileges",
+        "Sort files by name",
         "Show disk usage",
-        "Sort files by name"
+        "Run a command with superuser (root) privileges"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "'sudo' (superuser do) allows a permitted user to execute a command as the superuser or another user with appropriate privileges."
     },
     {
@@ -309,11 +309,11 @@
       "question": "What does the 'echo' command do?",
       "options": [
         "Deletes files",
-        "Displays text or variable values to the terminal",
+        "Encrypts data",
         "Edits configuration files",
-        "Encrypts data"
+        "Displays text or variable values to the terminal"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "'echo' outputs text strings or variable values to the terminal. It's commonly used for printing messages or debugging."
     },
     {
