@@ -1,5 +1,5 @@
 class Question {
-  final int id;
+  final String id;
   final String questionText;
   final List<String> options;
   final int correctIndex;
@@ -18,8 +18,12 @@ class Question {
   bool checkAnswer(int selectedIndex) => selectedIndex == correctIndex;
 
   factory Question.fromJson(Map<String, dynamic> json) {
+    // Handle both int and string IDs (C01-C39 use int, C40-C49 use string)
+    final dynamic rawId = json['id'];
+    final String id = rawId is int ? rawId.toString() : rawId as String;
+    
     return Question(
-      id: json['id'] as int,
+      id: id,
       questionText: json['question'] as String,
       options: List<String>.from(json['options'] as List),
       correctIndex: json['correctIndex'] as int,

@@ -11,12 +11,12 @@ class ProgressProvider extends ChangeNotifier {
   
   SharedPreferences? _prefs;
   Map<String, QuizProgress> _progress = {};
-  List<int> _wrongAnswerIds = [];
+  List<String> _wrongAnswerIds = [];
   int _dailyStreak = 0;
   bool _todayCompleted = false;
 
   Map<String, QuizProgress> get progress => _progress;
-  List<int> get wrongAnswerIds => _wrongAnswerIds;
+  List<String> get wrongAnswerIds => _wrongAnswerIds;
   int get dailyStreak => _dailyStreak;
   bool get todayCompleted => _todayCompleted;
   bool get hasWrongAnswers => _wrongAnswerIds.isNotEmpty;
@@ -49,7 +49,7 @@ class ProgressProvider extends ChangeNotifier {
   Future<void> _loadWrongAnswers() async {
     final wrongJson = _prefs?.getString(_wrongAnswersKey);
     if (wrongJson != null) {
-      _wrongAnswerIds = List<int>.from(jsonDecode(wrongJson));
+      _wrongAnswerIds = List<String>.from(jsonDecode(wrongJson));
     }
   }
 
@@ -102,7 +102,7 @@ class ProgressProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> addWrongAnswers(List<int> questionIds) async {
+  Future<void> addWrongAnswers(List<String> questionIds) async {
     for (final id in questionIds) {
       if (!_wrongAnswerIds.contains(id)) {
         _wrongAnswerIds.add(id);
@@ -112,7 +112,7 @@ class ProgressProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> removeWrongAnswer(int questionId) async {
+  Future<void> removeWrongAnswer(String questionId) async {
     _wrongAnswerIds.remove(questionId);
     await _saveWrongAnswers();
     notifyListeners();

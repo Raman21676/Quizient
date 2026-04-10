@@ -12,7 +12,7 @@ class QuizProvider extends ChangeNotifier {
   bool _hasAnswered = false;
   bool _isCorrect = false;
   int _score = 0;
-  List<int> _wrongAnswers = [];
+  List<String> _wrongAnswers = [];
   String _currentChallengeId = '';
   bool _isLoading = false;
 
@@ -25,7 +25,7 @@ class QuizProvider extends ChangeNotifier {
   bool get hasAnswered => _hasAnswered;
   bool get isCorrect => _isCorrect;
   int get score => _score;
-  List<int> get wrongAnswers => _wrongAnswers;
+  List<String> get wrongAnswers => _wrongAnswers;
   String get currentChallengeId => _currentChallengeId;
   bool get isLoading => _isLoading;
   bool get isQuizActive => _questions.isNotEmpty;
