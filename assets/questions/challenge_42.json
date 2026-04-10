@@ -1,0 +1,356 @@
+{
+  "challengeId": "C42",
+  "challengeName": "Networking, SSH & Databases",
+  "questions": [
+    {
+      "id": "C42_Q1",
+      "question": "What does DNS stand for?",
+      "options": ["Domain Name System", "Digital Network Service", "Data Name Server", "Domain Network Security"],
+      "correctIndex": 0,
+      "explanation": "DNS stands for Domain Name System, which translates human-readable domain names to IP addresses."
+    },
+    {
+      "id": "C42_Q2",
+      "question": "Which organization manages top-level domains (TLDs) and authorizes domain name registrars?",
+      "options": ["IETF", "ICANN", "IEEE", "ISO"],
+      "correctIndex": 2,
+      "explanation": "ICANN (Internet Corporation for Assigned Names and Numbers) manages TLD development and authorizes domain name registrars."
+    },
+    {
+      "id": "C42_Q3",
+      "question": "Which DNS server type is responsible for knowing everything about a domain, including its IP address?",
+      "options": ["Root Server", "TLD Server", "Authoritative Name Server", "DNS Cache"],
+      "correctIndex": 2,
+      "explanation": "The Authoritative Name Server is responsible for knowing everything about the domain, including its IP address."
+    },
+    {
+      "id": "C42_Q4",
+      "question": "What is the purpose of DNS cache?",
+      "options": ["To block malicious domains", "To store previous query results locally for faster resolution", "To encrypt DNS queries", "To assign IP addresses dynamically"],
+      "correctIndex": 1,
+      "explanation": "DNS cache stores information from previous queries, allowing faster resolution of frequently accessed domains."
+    },
+    {
+      "id": "C42_Q5",
+      "question": "What does SSH stand for?",
+      "options": ["Secure Socket Host", "Secure Shell", "System Shell Handler", "Simple Secure Host"],
+      "correctIndex": 1,
+      "explanation": "SSH stands for Secure Shell, a network protocol for secure remote access and command execution."
+    },
+    {
+      "id": "C42_Q6",
+      "question": "Which port does SSH service run on by default?",
+      "options": ["21", "22", "23", "25"],
+      "correctIndex": 1,
+      "explanation": "SSH service runs on port 22 by default."
+    },
+    {
+      "id": "C42_Q7",
+      "question": "What are the two keys in an SSH key pair?",
+      "options": ["Public Key and Private Key", "Master Key and Slave Key", "Primary Key and Secondary Key", "Local Key and Remote Key"],
+      "correctIndex": 0,
+      "explanation": "An SSH key pair consists of a Public Key (shared with servers) and a Private Key (kept secret on the client)."
+    },
+    {
+      "id": "C42_Q8",
+      "question": "Where is the SSH key pair stored by default on Linux?",
+      "options": ["/etc/ssh", "/home/user/ssh", "~/.ssh", "/var/ssh"],
+      "correctIndex": 2,
+      "explanation": "SSH key pairs are stored in the ~/.ssh directory under the user's home directory."
+    },
+    {
+      "id": "C42_Q9",
+      "question": "What file on the SSH server stores public keys for user authentication?",
+      "options": ["known_hosts", "authorized_keys", "config", "id_rsa.pub"],
+      "correctIndex": 1,
+      "explanation": "The authorized_keys file on the SSH server stores public keys that are allowed to connect."
+    },
+    {
+      "id": "C42_Q10",
+      "question": "What is the purpose of the known_hosts file on the SSH client?",
+      "options": ["To store user passwords", "To authenticate the server and prevent impersonation attacks", "To store SSH configuration", "To log SSH sessions"],
+      "correctIndex": 2,
+      "explanation": "The known_hosts file lets the client authenticate the server to ensure it isn't connecting to an impersonator."
+    },
+    {
+      "id": "C42_Q11",
+      "question": "Which command is used to connect to a remote host via SSH?",
+      "options": ["ssh connect user@host", "ssh user@host", "connect ssh user@host", "remote ssh user@host"],
+      "correctIndex": 3,
+      "explanation": "The command 'ssh user@host' is used to connect to a remote SSH server."
+    },
+    {
+      "id": "C42_Q12",
+      "question": "What is a security best practice for SSH server configuration?",
+      "options": ["Enable root login via SSH", "Disable root login via SSH", "Use password-only authentication", "Allow connections from any IP address"],
+      "correctIndex": 1,
+      "explanation": "A best practice is to disable root login via SSH and use a normal user with sudo access instead."
+    },
+    {
+      "id": "C42_Q13",
+      "question": "Where is the SSH server configuration file located?",
+      "options": ["/etc/ssh/config", "/etc/ssh/sshd_config", "~/.ssh/config", "/etc/sshd.conf"],
+      "correctIndex": 1,
+      "explanation": "The SSH server configuration file is located at /etc/ssh/sshd_config."
+    },
+    {
+      "id": "C42_Q14",
+      "question": "What does CRUD stand for in database operations?",
+      "options": ["Create, Read, Update, Delete", "Copy, Run, Update, Delete", "Create, Retrieve, Upload, Download", "Connect, Read, Use, Disconnect"],
+      "correctIndex": 0,
+      "explanation": "CRUD stands for Create, Read, Update, Delete - the four basic database operations."
+    },
+    {
+      "id": "C42_Q15",
+      "question": "Which of the following is NOT a CRUD operation?",
+      "options": ["Create", "Read", "Update", "Search"],
+      "correctIndex": 3,
+      "explanation": "Search is not one of the four CRUD operations (Create, Read, Update, Delete)."
+    },
+    {
+      "id": "C42_Q16",
+      "question": "What is the primary purpose of a database in software applications?",
+      "options": ["To compile code", "To persist data", "To serve web pages", "To encrypt files"],
+      "correctIndex": 1,
+      "explanation": "Databases are used to persist data so it remains available after the application restarts."
+    },
+    {
+      "id": "C42_Q17",
+      "question": "What are the three pieces of information needed to configure a database connection?",
+      "options": ["Database endpoint, credentials, and database name", "IP address, MAC address, and port", "Username only", "Server name and operating system"],
+      "correctIndex": 0,
+      "explanation": "Database connection requires the endpoint (host), credentials (user/password), and database name."
+    },
+    {
+      "id": "C42_Q18",
+      "question": "Why should database credentials NOT be hardcoded in source code?",
+      "options": ["It makes the code run slower", "It exposes sensitive information if code is shared", "It prevents the application from compiling", "It is required by law"],
+      "correctIndex": 2,
+      "explanation": "Hardcoding credentials exposes sensitive information if the source code is shared or published."
+    },
+    {
+      "id": "C42_Q19",
+      "question": "What is the recommended way to pass database configuration to an application?",
+      "options": ["Hardcode in source code", "Use environment variables or configuration files", "Embed in compiled binary", "Store in browser cookies"],
+      "correctIndex": 3,
+      "explanation": "Environment variables or configuration files are the recommended way to pass database configuration securely."
+    },
+    {
+      "id": "C42_Q20",
+      "question": "Which command is used to test network connectivity?",
+      "options": ["ping", "ssh", "curl", "netstat"],
+      "correctIndex": 0,
+      "explanation": "The ping command is used to test network connectivity by sending ICMP echo requests."
+    },
+    {
+      "id": "C42_Q21",
+      "question": "What is the purpose of the netstat command?",
+      "options": ["To scan for viruses", "To display network connections, routing tables, and interface statistics", "To edit network configuration", "To create network cables"],
+      "correctIndex": 2,
+      "explanation": "netstat displays network connections, routing tables, interface statistics, and more."
+    },
+    {
+      "id": "C42_Q22",
+      "question": "Which command is used to query DNS lookup names?",
+      "options": ["ping", "nslookup", "ifconfig", "traceroute"],
+      "correctIndex": 3,
+      "explanation": "nslookup is used to query DNS servers and resolve domain names to IP addresses."
+    },
+    {
+      "id": "C42_Q23",
+      "question": "What is the difference between a local database and a shared remote database for developers?",
+      "options": ["Local databases are faster but can't affect others; shared databases don't require installation but changes affect everyone", "There is no difference", "Local databases require internet access", "Shared databases are always better"],
+      "correctIndex": 0,
+      "explanation": "Local DBs allow independent work without affecting others; shared DBs provide realistic test data but changes affect all developers."
+    },
+    {
+      "id": "C42_Q24",
+      "question": "What is a top-level domain (TLD)?",
+      "options": ["The first-level set of domain names like .com, .org, .net", "A domain with highest security", "The main server in a data center", "A premium domain name"],
+      "correctIndex": 0,
+      "explanation": "TLDs are the first-level domain names like .com, .org, .net in the DNS hierarchy."
+    },
+    {
+      "id": "C42_Q25",
+      "question": "Which type of DNS server handles requests for top-level domains?",
+      "options": ["Authoritative Name Server", "Root Server", "TLD Server", "Local DNS Cache"],
+      "correctIndex": 3,
+      "explanation": "Root Servers handle requests for top-level domains in the DNS resolution process."
+    },
+    {
+      "id": "C42_Q26",
+      "question": "What security feature does SSH provide?",
+      "options": ["Strong encryption for communication security", "Faster file transfers", "Automatic backups", "Virus scanning"],
+      "correctIndex": 0,
+      "explanation": "SSH provides strong encryption to protect communication security and integrity."
+    },
+    {
+      "id": "C42_Q27",
+      "question": "In the SSH client-server model, what runs on the remote machine?",
+      "options": ["SSH client", "SSH server (sshd)", "Both client and server", "Neither"],
+      "correctIndex": 0,
+      "explanation": "In the SSH model, the SSH server (sshd) runs on the remote machine, while the client runs on the local machine."
+    },
+    {
+      "id": "C42_Q28",
+      "question": "Which protocol does SSH use at the transport layer?",
+      "options": ["UDP", "TCP", "ICMP", "HTTP"],
+      "correctIndex": 3,
+      "explanation": "SSH uses TCP as its transport protocol for reliable, encrypted communication."
+    },
+    {
+      "id": "C42_Q29",
+      "question": "What is the first step in setting up SSH key authentication?",
+      "options": ["Copy the private key to the server", "Generate an SSH key pair on the client", "Edit /etc/hosts file", "Install a firewall"],
+      "correctIndex": 0,
+      "explanation": "The first step is to generate an SSH key pair on the client machine using ssh-keygen."
+    },
+    {
+      "id": "C42_Q30",
+      "question": "What should be done with the private key in SSH authentication?",
+      "options": ["Share it with team members", "Store it securely on the client machine only", "Upload it to public repositories", "Email it to the server administrator"],
+      "correctIndex": 3,
+      "explanation": "The private key must be kept secret and stored securely on the client machine only."
+    },
+    {
+      "id": "C42_Q31",
+      "question": "What is a firewall rule for SSH access typically configured to allow?",
+      "options": ["Access from any IP address on port 22", "Access only from specific IP addresses on port 22", "Access on all ports", "Anonymous access"],
+      "correctIndex": 1,
+      "explanation": "Firewall rules should restrict SSH access to specific IP addresses on port 22 for security."
+    },
+    {
+      "id": "C42_Q32",
+      "question": "Which of the following is a best practice for Linux server security?",
+      "options": ["Disable automatic updates", "Enable automatic updates or update regularly", "Share passwords among users", "Allow root login via SSH"],
+      "correctIndex": 0,
+      "explanation": "Regular software updates or enabling automatic updates is a key security best practice."
+    },
+    {
+      "id": "C42_Q33",
+      "question": "What should you do with user accounts that are no longer needed?",
+      "options": ["Keep them for backup", "Remove or lock them", "Share credentials with others", "Change their passwords monthly"],
+      "correctIndex": 1,
+      "explanation": "Unused user accounts should be removed or locked to reduce security risks."
+    },
+    {
+      "id": "C42_Q34",
+      "question": "What is the purpose of password expiration policies?",
+      "options": ["To annoy users", "To ensure passwords are changed regularly for security", "To slow down login process", "To save storage space"],
+      "correctIndex": 1,
+      "explanation": "Password expiration policies ensure credentials are updated regularly, reducing the risk of compromised passwords."
+    },
+    {
+      "id": "C42_Q35",
+      "question": "What does the 'Create' operation in CRUD do?",
+      "options": ["Delete existing data", "Add new data entries", "Read existing data", "Modify existing data"],
+      "correctIndex": 3,
+      "explanation": "The Create operation adds new data entries to the database."
+    },
+    {
+      "id": "C42_Q36",
+      "question": "What does the 'Read' operation in CRUD do?",
+      "options": ["Add new data", "Retrieve or query existing data", "Update data", "Remove data"],
+      "correctIndex": 2,
+      "explanation": "The Read operation retrieves or queries existing data from the database."
+    },
+    {
+      "id": "C42_Q37",
+      "question": "What does the 'Update' operation in CRUD do?",
+      "options": ["Delete data permanently", "Modify existing data entries", "Create new tables", "Backup the database"],
+      "correctIndex": 2,
+      "explanation": "The Update operation modifies existing data entries in the database."
+    },
+    {
+      "id": "C42_Q38",
+      "question": "What does the 'Delete' operation in CRUD do?",
+      "options": ["Remove data entries from the database", "Hide data temporarily", "Archive data", "Copy data"],
+      "correctIndex": 3,
+      "explanation": "The Delete operation removes data entries from the database."
+    },
+    {
+      "id": "C42_Q39",
+      "question": "What is an environment variable in the context of database configuration?",
+      "options": ["A variable that stores weather data", "A KEY=value pair available system-wide for configuration", "A database table column", "A network protocol"],
+      "correctIndex": 2,
+      "explanation": "Environment variables are KEY=value pairs available system-wide, commonly used for configuration including database credentials."
+    },
+    {
+      "id": "C42_Q40",
+      "question": "Which tool is popular for backing up data on Linux servers?",
+      "options": ["rsync", "ping", "curl", "npm"],
+      "correctIndex": 3,
+      "explanation": "rsync is a popular tool for backing up and synchronizing data on Linux servers."
+    },
+    {
+      "id": "C42_Q41",
+      "question": "What is a subdomain?",
+      "options": ["A duplicate domain name", "A subordinate level of a domain under the DNS root", "A domain with less security", "A temporary domain"],
+      "correctIndex": 0,
+      "explanation": "Subdomains are subordinate levels of a domain, organized under the DNS root domain (e.g., blog.example.com)."
+    },
+    {
+      "id": "C42_Q42",
+      "question": "Which command shows network interface configuration?",
+      "options": ["ifconfig or ip addr", "ping", "ssh", "netstat"],
+      "correctIndex": 0,
+      "explanation": "ifconfig (legacy) or ip addr (modern) shows network interface configuration."
+    },
+    {
+      "id": "C42_Q43",
+      "question": "Why should services like SSH be disabled if not needed?",
+      "options": ["To save electricity", "To reduce the attack surface for security", "To free up screen space", "To improve display quality"],
+      "correctIndex": 2,
+      "explanation": "Disabling unused services reduces the attack surface, improving server security."
+    },
+    {
+      "id": "C42_Q44",
+      "question": "What is two-factor authentication (2FA) in the context of server security?",
+      "options": ["Using two different passwords", "Using two different servers", "Using two different authentication methods", "Logging in twice"],
+      "correctIndex": 3,
+      "explanation": "Two-factor authentication requires two different authentication methods (e.g., password + token)."
+    },
+    {
+      "id": "C42_Q45",
+      "question": "What is the purpose of a password manager?",
+      "options": ["To generate and securely store passwords", "To slow down login processes", "To share passwords publicly", "To delete old passwords"],
+      "correctIndex": 2,
+      "explanation": "Password managers generate strong passwords and store them securely with features like 2FA."
+    },
+    {
+      "id": "C42_Q46",
+      "question": "What is DNS resolution?",
+      "options": ["The process of converting domain names to IP addresses", "The process of creating domain names", "The process of deleting domains", "The process of copying domains"],
+      "correctIndex": 0,
+      "explanation": "DNS resolution is the process of looking up domain names and converting them to IP addresses."
+    },
+    {
+      "id": "C42_Q47",
+      "question": "Which tool can be used to monitor processes running on a Linux system?",
+      "options": ["ping", "top or htop", "curl", "nslookup"],
+      "correctIndex": 1,
+      "explanation": "top (basic) or htop (enhanced) are tools to monitor processes running on Linux systems."
+    },
+    {
+      "id": "C42_Q48",
+      "question": "What happens if the public key is not registered on the remote SSH server?",
+      "options": ["Connection uses password automatically", "The user cannot connect using key authentication", "The connection is encrypted anyway", "The server crashes"],
+      "correctIndex": 1,
+      "explanation": "If the public key isn't registered on the server, the user cannot connect using key-based authentication."
+    },
+    {
+      "id": "C42_Q49",
+      "question": "What is the typical flow for DNS query resolution?",
+      "options": ["Client -> Root Server -> TLD Server -> Authoritative Name Server", "Client -> Authoritative Server directly", "Client -> Browser Cache only", "Client -> Database -> Server"],
+      "correctIndex": 0,
+      "explanation": "DNS resolution typically flows: Client -> Root Server -> TLD Server -> Authoritative Name Server."
+    },
+    {
+      "id": "C42_Q50",
+      "question": "Which of the following is a good practice for database connection strings?",
+      "options": ["Hardcode them in the application code", "Use different connection strings for different environments (dev/test/prod)", "Use the same credentials for all environments", "Share them in public repositories"],
+      "correctIndex": 1,
+      "explanation": "Using different connection strings for different environments (dev, test, prod) is a security best practice."
+    }
+  ]
+}

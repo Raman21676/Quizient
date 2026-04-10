@@ -305,6 +305,12 @@ final Level level6 = Level(
       subtitle: 'Linux Administration & Shell Scripting',
       assetPath: 'assets/questions/challenge_41.json',
     ),
+    ChallengeInfo(
+      id: 'C42',
+      name: 'CHALLENGE 42',
+      subtitle: 'Networking, SSH & Databases',
+      assetPath: 'assets/questions/challenge_42.json',
+    ),
   ],
 );
 
