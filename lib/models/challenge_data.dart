@@ -311,6 +311,12 @@ final Level level6 = Level(
       subtitle: 'Networking, SSH & Databases',
       assetPath: 'assets/questions/challenge_42.json',
     ),
+    ChallengeInfo(
+      id: 'C43',
+      name: 'CHALLENGE 43',
+      subtitle: 'Git & Version Control',
+      assetPath: 'assets/questions/challenge_43.json',
+    ),
   ],
 );
 
