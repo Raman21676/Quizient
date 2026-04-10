@@ -277,6 +277,12 @@ final Level level5 = Level(
       subtitle: 'Fine-Tuning BERT for Classification',
       assetPath: 'assets/questions/challenge_38.json',
     ),
+    ChallengeInfo(
+      id: 'C39',
+      name: 'CHALLENGE 39',
+      subtitle: 'Fine-Tuning Generative LLMs',
+      assetPath: 'assets/questions/challenge_39.json',
+    ),
   ],
 );
 

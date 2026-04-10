@@ -3,7 +3,7 @@
   "levelName": "LEVEL 5",
   "subtitle": "Large Language Models",
   "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications.",
-  "totalChallenges": 11,
+  "totalChallenges": 12,
   "challenges": [
     {
       "challengeId": "C28",
@@ -113,6 +113,16 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "tune",
+      "questions": []
+    },
+    {
+      "challengeId": "C39",
+      "title": "Fine-Tuning Generative LLMs",
+      "description": "Instruction tuning, PEFT with LoRA and Adapters, QLoRA with 4-bit quantization, RLHF and DPO preference tuning",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "psychology",
       "questions": []
     }
   ]
