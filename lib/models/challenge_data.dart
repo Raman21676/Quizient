@@ -223,6 +223,12 @@ final Level level5 = Level(
       subtitle: 'Tokens and Embeddings',
       assetPath: 'assets/questions/challenge_29.json',
     ),
+    ChallengeInfo(
+      id: 'C30',
+      name: 'CHALLENGE 30',
+      subtitle: 'Looking Inside Large Language Models',
+      assetPath: 'assets/questions/challenge_30.json',
+    ),
   ],
 );
 

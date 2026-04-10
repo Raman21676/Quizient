@@ -3,7 +3,7 @@
   "levelName": "LEVEL 5",
   "subtitle": "Large Language Models",
   "description": "Master LLMs from embeddings and tokenization to Transformers, BERT, GPT, and practical applications.",
-  "totalChallenges": 2,
+  "totalChallenges": 3,
   "challenges": [
     {
       "challengeId": "C28",
@@ -23,6 +23,16 @@
       "timeLimit": 15,
       "requiredScore": 35,
       "icon": "text_fields",
+      "questions": []
+    },
+    {
+      "challengeId": "C30",
+      "title": "Looking Inside Large Language Models",
+      "description": "Transformer architecture deep dive: self-attention, multi-head attention, positional encoding, layer normalization, residual connections, and feedforward networks",
+      "totalQuestions": 50,
+      "timeLimit": 15,
+      "requiredScore": 35,
+      "icon": "visibility",
       "questions": []
     }
   ]
